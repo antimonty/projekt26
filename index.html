@@ -5,63 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projekt 2026 – Landbrug i Danmark</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800&family=Lora:ital,wght@0,400;1,400&display=swap');
-:root{--bg:#12121a;--card:#222230;--border:#35354a;--accent:#e8c46a;--accent2:#6ec4a0;--text:#eae6dc;--muted:#706860;}
+:root{--paper:#f7f2e8;--paper2:#f0ead8;--ink:#1a1410;--ink-soft:#4a4038;--ink-muted:#8a8078;--border:#d0c8b0;--gold:#b87c18;--green:#2a7a58;--red:#a03028;--shadow:rgba(26,20,16,0.10);--shadow2:rgba(26,20,16,0.22);}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font-family:'Lora',serif;min-height:100vh;padding:3rem 1.5rem;}
-.wrap{max-width:700px;margin:0 auto;}
-.meta{font-family:'Raleway',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.25em;color:var(--muted);text-transform:uppercase;margin-bottom:.5rem;}
-h1{font-family:'Raleway',sans-serif;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;color:var(--accent);margin-bottom:.4rem;}
-.sub{font-style:italic;color:var(--muted);margin-bottom:2.5rem;}
-.group-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin-bottom:2rem;}
-.group-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;text-decoration:none;transition:all .18s;display:block;}
-.group-card:hover{border-color:var(--accent);transform:translateY(-2px);}
-.group-emne{font-family:'Raleway',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.3rem;}
-.group-navne{font-size:.9rem;color:var(--text);line-height:1.5;}
-.etik .group-emne{color:var(--accent);}
-.samfund .group-emne{color:#a0c8e8;}
-.historie .group-emne{color:#c8a0e8;}
-.miljo .group-emne{color:var(--accent2);}
-.fremtid .group-emne{color:#e8a06a;}
-.arkiv-link{display:inline-block;margin-top:1rem;font-family:'Raleway',sans-serif;font-size:.8rem;font-weight:700;color:var(--accent2);text-decoration:none;border:1px solid var(--accent2);border-radius:6px;padding:.5rem 1rem;transition:all .18s;}
-.arkiv-link:hover{background:var(--accent2);color:var(--bg);}
-.section-label{font-family:'Raleway',sans-serif;font-size:.65rem;font-weight:800;letter-spacing:.25em;color:var(--muted);text-transform:uppercase;margin-bottom:.85rem;display:flex;align-items:center;gap:.75rem;}
-.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+body{min-height:100vh;background:#7a5a3a;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.03) 3px,rgba(0,0,0,0.03) 4px),repeating-linear-gradient(90deg,transparent,transparent 3px,rgba(0,0,0,0.03) 3px,rgba(0,0,0,0.03) 4px);font-family:Verdana,'Helvetica Neue',Helvetica,Arial,sans-serif;padding:2.5rem 2rem 4rem}
+.header-card{background:var(--paper);border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:2px;box-shadow:3px 4px 16px var(--shadow2);padding:1.4rem 2rem;max-width:1000px;margin:0 auto 2.5rem;position:relative;transform:rotate(-0.3deg)}
+.header-card::before{content:'';position:absolute;top:0;left:32px;width:1.5px;height:100%;background:rgba(160,48,40,0.16)}
+.header-meta{font-size:.63rem;font-weight:700;letter-spacing:.2em;color:var(--ink-muted);text-transform:uppercase;margin-bottom:.3rem}
+.header-title{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:700;color:var(--ink);line-height:1.1;margin-bottom:.18rem}
+.header-sub{font-size:.88rem;color:var(--ink-soft);font-style:italic}
+.header-stamp{position:absolute;top:1.1rem;right:1.4rem;font-size:.56rem;font-weight:700;letter-spacing:.16em;color:var(--red);border:2px solid var(--red);border-radius:2px;padding:3px 7px;transform:rotate(2.5deg);opacity:.65;text-transform:uppercase}
+.board{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(162px,1fr));gap:2rem 1.5rem;align-items:start}
+.group-card{border-radius:2px;box-shadow:3px 4px 14px var(--shadow2);padding:1.1rem 1rem .95rem;text-decoration:none;display:block;position:relative;transition:transform .18s,box-shadow .18s}
+.group-card:hover{transform:translateY(-4px) rotate(0deg)!important;box-shadow:5px 8px 22px var(--shadow2)}
+.group-card:nth-child(1){transform:rotate(-1.2deg)}
+.group-card:nth-child(2){transform:rotate(0.8deg)}
+.group-card:nth-child(3){transform:rotate(-0.5deg)}
+.group-card:nth-child(4){transform:rotate(1.4deg)}
+.group-card:nth-child(5){transform:rotate(-0.9deg)}
+.group-card:nth-child(6){transform:rotate(0.6deg)}
+.group-card:nth-child(7){transform:rotate(-1.5deg)}
+.group-card:nth-child(8){transform:rotate(1.1deg)}
+.group-card:nth-child(9){transform:rotate(-0.7deg)}
+.group-card:nth-child(10){transform:rotate(0.9deg)}
+.group-card:nth-child(11){transform:rotate(-0.4deg)}
+.pin{position:absolute;top:-11px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,0.38);z-index:1}
+.pin::after{content:'';position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);width:3px;height:6px;background:rgba(0,0,0,0.22);border-radius:0 0 2px 2px}
+.pin-red{background:radial-gradient(circle at 5px 5px,#e05050,#c0392b)}
+.pin-blue{background:radial-gradient(circle at 5px 5px,#5080c0,#2a5a8a)}
+.pin-purple{background:radial-gradient(circle at 5px 5px,#9060c0,#6a3a8a)}
+.pin-green{background:radial-gradient(circle at 5px 5px,#50a080,#2a7a58)}
+.pin-gold{background:radial-gradient(circle at 5px 5px,#d0a040,#b87c18)}
+.tape{position:absolute;top:-9px;left:50%;transform:translateX(-50%);width:42px;height:16px;background:rgba(220,210,180,0.62);border:1px solid rgba(180,160,120,0.38);border-radius:1px}
+.card-emne{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.32rem;padding-bottom:.28rem;border-bottom:1px solid var(--border)}
+.card-titel{font-size:.87rem;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:.52rem}
+.card-navne{font-size:.8rem;color:var(--ink-soft);line-height:1.6}
+.card-navne span{display:block}
+.etik{background:#fdf8f0}.etik .card-emne{color:var(--red);border-color:rgba(160,48,40,0.18)}
+.sam{background:#f0f4f8}.sam .card-emne{color:#2a5a8a;border-color:rgba(42,90,138,0.18)}
+.hist{background:#f5f0f8}.hist .card-emne{color:#6a3a8a;border-color:rgba(106,58,138,0.18)}
+.miljo{background:#f0f7f3}.miljo .card-emne{color:var(--green);border-color:rgba(42,122,88,0.18)}
+.frem{background:#fdf5e8}.frem .card-emne{color:var(--gold);border-color:rgba(184,124,24,0.18)}
+.arkiv-card{background:var(--ink);border:1px solid #333;border-radius:2px;box-shadow:3px 4px 14px var(--shadow2);padding:1.1rem 1rem .95rem;text-decoration:none;display:block;position:relative;transition:transform .18s,box-shadow .18s;transform:rotate(0.4deg);color:var(--paper)}
+.arkiv-card:hover{transform:translateY(-4px) rotate(0deg)!important;box-shadow:5px 8px 22px var(--shadow2)}
+.arkiv-card .card-emne{color:var(--gold);border-color:rgba(184,124,24,0.3)}
+.arkiv-card .card-titel{color:var(--paper)}
+.arkiv-card .card-navne{color:rgba(234,230,220,0.65)}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="meta">Projekt 2026 · Landbrug i Danmark</div>
-  <h1>Vælg jeres gruppe</h1>
-  <p class="sub">Klik på jeres gruppe for at åbne sagen.</p>
-
-  <div class="section-label">Etik</div>
-  <div class="group-grid">
-    <a href="etik1.html" class="group-card etik"><div class="group-emne">Etik · Sag 04</div><div class="group-navne">Julius · Benjamin · Emma · Nellie</div></a>
-    <a href="etik2.html" class="group-card etik"><div class="group-emne">Etik · Sag 04</div><div class="group-navne">Freja · Sally · Alma · Olivia</div></a>
-  </div>
-
-  <div class="section-label">Samfund</div>
-  <div class="group-grid">
-    <a href="samfund1.html" class="group-card samfund"><div class="group-emne">Samfund · Sag 06</div><div class="group-navne">Nanna · Inés · Jonas · Noah</div></a>
-    <a href="samfund2.html" class="group-card samfund"><div class="group-emne">Samfund · Sag 06</div><div class="group-navne">Mathilde · Laura · William · William</div></a>
-  </div>
-
-  <div class="section-label">Historie</div>
-  <div class="group-grid">
-    <a href="historie1.html" class="group-card historie"><div class="group-emne">Historie · Sag 01</div><div class="group-navne">Liam · August · Lucaz · Emil</div></a>
-    <a href="historie2.html" class="group-card historie"><div class="group-emne">Historie · Sag 01</div><div class="group-navne">Hannibal · Alexander · Ella · Celia</div></a>
-    <a href="historie3.html" class="group-card historie"><div class="group-emne">Historie · Sag 01</div><div class="group-navne">Lily · Jeppe · Elliott · Kaya</div></a>
-    <a href="historie4.html" class="group-card historie"><div class="group-emne">Historie · Sag 01</div><div class="group-navne">Emil · Ella · Theo · Kirstine</div></a>
-  </div>
-
-  <div class="section-label">Miljø & Fremtid</div>
-  <div class="group-grid">
-    <a href="miljo.html" class="group-card miljo"><div class="group-emne">Miljø · Sag 03</div><div class="group-navne">Elias · Niklas · Karoline · Caroline</div></a>
-    <a href="fremtid.html" class="group-card fremtid"><div class="group-emne">Fremtid · Sag 05</div><div class="group-navne">Mads · Leander · Cecilia · Ida</div></a>
-  </div>
-
-  <a href="detektiv-arkiv.html" class="arkiv-link">→ Åbn detektivarkivet</a>
+<div class="header-card">
+  <div class="header-meta">Projekt 2026 · Landbrug i Danmark · Fra hesteforspand til højteknologi</div>
+  <div class="header-title">Vælg jeres gruppe og åbn sagen</div>
+  <div class="header-sub">Klik på jeres navneseddel for at komme i gang</div>
+  <div class="header-stamp">Fortroligt</div>
+</div>
+<div class="board">
+  <a href="etik1.html" class="group-card etik"><div class="pin pin-red"></div><div class="card-emne">Etik · Sag 04</div><div class="card-titel">Det gode dyreliv</div><div class="card-navne"><span>Julius</span><span>Benjamin</span><span>Emma</span><span>Nellie</span></div></a>
+  <a href="etik2.html" class="group-card etik"><div class="pin pin-red"></div><div class="card-emne">Etik · Sag 04</div><div class="card-titel">Det gode dyreliv</div><div class="card-navne"><span>Freja</span><span>Sally</span><span>Alma</span><span>Olivia</span></div></a>
+  <a href="samfund1.html" class="group-card sam"><div class="pin pin-blue"></div><div class="card-emne">Samfund · Sag 06</div><div class="card-titel">Madens rejse gennem verden</div><div class="card-navne"><span>Nanna</span><span>Inés</span><span>Jonas</span><span>Noah</span></div></a>
+  <a href="samfund2.html" class="group-card sam"><div class="pin pin-blue"></div><div class="card-emne">Samfund · Sag 06</div><div class="card-titel">Madens rejse gennem verden</div><div class="card-navne"><span>Mathilde</span><span>Laura</span><span>William</span><span>William</span></div></a>
+  <a href="historie1.html" class="group-card hist"><div class="tape"></div><div class="card-emne">Historie · Sag 01</div><div class="card-titel">Livet på landet i gamle dage</div><div class="card-navne"><span>Liam</span><span>August</span><span>Lucaz</span><span>Emil</span></div></a>
+  <a href="historie2.html" class="group-card hist"><div class="tape"></div><div class="card-emne">Historie · Sag 01</div><div class="card-titel">Livet på landet i gamle dage</div><div class="card-navne"><span>Hannibal</span><span>Alexander</span><span>Ella</span><span>Celia</span></div></a>
+  <a href="historie3.html" class="group-card hist"><div class="tape"></div><div class="card-emne">Historie · Sag 01</div><div class="card-titel">Livet på landet i gamle dage</div><div class="card-navne"><span>Lily</span><span>Jeppe</span><span>Elliott</span><span>Kaya</span></div></a>
+  <a href="historie4.html" class="group-card hist"><div class="tape"></div><div class="card-emne">Historie · Sag 01</div><div class="card-titel">Livet på landet i gamle dage</div><div class="card-navne"><span>Emil</span><span>Ella</span><span>Theo</span><span>Kirstine</span></div></a>
+  <a href="miljo.html" class="group-card miljo"><div class="pin pin-green"></div><div class="card-emne">Miljø · Sag 03</div><div class="card-titel">Økologisk og konventionelt landbrug</div><div class="card-navne"><span>Elias</span><span>Niklas</span><span>Karoline</span><span>Caroline</span></div></a>
+  <a href="fremtid.html" class="group-card frem"><div class="pin pin-gold"></div><div class="card-emne">Fremtid · Sag 05</div><div class="card-titel">Fremtidens landbrug</div><div class="card-navne"><span>Mads</span><span>Leander</span><span>Cecilia</span><span>Ida</span></div></a>
+  <a href="detektiv-arkiv.html" class="arkiv-card"><div class="pin pin-gold"></div><div class="card-emne">Fælles ressource</div><div class="card-titel">Detektivarkivet</div><div class="card-navne"><span>Godkendte kilder</span><span>til alle grupper</span></div></a>
 </div>
 </body>
 </html>
