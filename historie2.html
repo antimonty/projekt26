@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sag 01 – Livet på landet i gamle dage</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+:root{--paper:#f7f2e8;--paper2:#f0ead8;--paper3:#e8e0cc;--ink:#2a2218;--ink-soft:#5a5040;--ink-muted:#9a9080;--border:#d8ceb8;--gold:#b87c18;--gold-bg:rgba(184,124,24,0.1);--green:#2a7a58;--green-bg:rgba(42,122,88,0.08);--red:#a03028;--shadow:rgba(42,34,24,0.12);}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper2);background-image:repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(180,160,120,0.12) 27px,rgba(180,160,120,0.12) 28px);color:var(--ink);font-family:'Lora',serif;min-height:100vh}
+#intro{position:fixed;inset:0;background:var(--paper2);background-image:repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(180,160,120,0.12) 27px,rgba(180,160,120,0.12) 28px);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;padding:2rem}
+.intro-card{background:var(--paper);border:1px solid var(--border);border-radius:4px;box-shadow:4px 4px 20px var(--shadow),0 0 0 4px var(--paper),0 0 0 5px var(--border);padding:3rem 2.5rem 2rem;max-width:480px;width:100%;position:relative}
+.intro-card::before{content:'';position:absolute;top:0;left:28px;width:2px;height:100%;background:rgba(160,48,40,0.2);border-radius:2px}
+.tw-wrap{margin-bottom:1.5rem;padding-left:1.5rem}
+.typewriter-line{font-family:'Courier New',monospace;font-size:clamp(1rem,2.5vw,1.3rem);color:var(--ink);min-height:1.7em;margin-bottom:.35rem;letter-spacing:.02em}
+.typewriter-line.small{font-size:clamp(.8rem,1.8vw,.95rem);color:var(--ink-soft);font-family:'Lora',serif;font-style:italic}
+.team-intro{font-family:'Raleway',sans-serif;font-size:.78rem;font-weight:700;color:var(--green);letter-spacing:.06em;padding-left:1.5rem;margin-bottom:1.5rem}
+#start-btn{margin-left:1.5rem;background:var(--ink);border:none;border-radius:3px;color:var(--paper);font-family:'Raleway',sans-serif;font-size:.85rem;font-weight:800;letter-spacing:.12em;padding:.8rem 2rem;cursor:pointer;text-transform:uppercase;transition:all .2s;box-shadow:2px 2px 8px var(--shadow)}
+#start-btn:hover{background:var(--gold);transform:translateY(-1px);box-shadow:3px 4px 12px var(--shadow)}
+#main{display:none;max-width:820px;margin:0 auto;padding:0 1.5rem 6rem;animation:fadeUp .7s ease forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.case-header{background:var(--paper);border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:0 0 4px 4px;box-shadow:0 2px 12px var(--shadow);padding:1.75rem 2rem 1.5rem;margin-bottom:1.5rem;position:relative}
+.case-meta{font-family:'Raleway',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.25em;color:var(--ink-muted);text-transform:uppercase;margin-bottom:.4rem}
+.case-title{font-family:'Raleway',sans-serif;font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:800;color:var(--ink);line-height:1.05;margin-bottom:.3rem}
+.case-subtitle{font-style:italic;color:var(--ink-soft);font-size:1rem}
+.team-names{margin-top:.6rem;font-family:'Raleway',sans-serif;font-size:.78rem;font-weight:700;color:var(--green);letter-spacing:.04em}
+.stamped{position:absolute;top:1.5rem;right:1.5rem;font-family:'Raleway',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.2em;color:var(--red);border:2.5px solid var(--red);border-radius:2px;padding:3px 9px;transform:rotate(3deg);opacity:.7;text-transform:uppercase}
+.day-nav{display:grid;grid-template-columns:repeat(6,1fr);gap:.35rem;margin-bottom:1.5rem}
+.day-tab{font-family:'Raleway',sans-serif;font-size:.68rem;font-weight:700;color:var(--ink-muted);padding:.6rem .4rem;cursor:pointer;border:1px solid var(--border);border-radius:3px;background:var(--paper);transition:all .18s;text-align:center;text-transform:uppercase;box-shadow:1px 1px 4px var(--shadow)}
+.day-tab:hover{color:var(--ink);background:var(--paper2)}
+.day-tab.active{color:var(--paper);background:var(--ink);border-color:var(--ink);box-shadow:2px 2px 8px var(--shadow)}
+.section{margin-bottom:1.5rem}
+.section-label{font-family:'Raleway',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.25em;color:var(--ink-muted);text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.75rem}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.card{background:var(--paper);border:1px solid var(--border);border-radius:3px;padding:1.1rem 1.4rem;margin-bottom:.65rem;box-shadow:1px 2px 6px var(--shadow)}
+.card p{font-size:.98rem;line-height:1.75;color:var(--ink)}
+.card p+p{margin-top:.65rem}
+.day-intro{background:var(--paper);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:0 3px 3px 0;padding:1rem 1.4rem;margin-bottom:1.25rem;box-shadow:1px 2px 6px var(--shadow)}
+.day-intro p{font-size:.98rem;line-height:1.7;color:var(--ink-soft)}
+.pf-toggle{display:flex;gap:.4rem;margin-bottom:.75rem}
+.pf-btn{font-family:'Raleway',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.08em;padding:.35rem .9rem;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--ink-muted);cursor:pointer;transition:all .18s;text-transform:uppercase}
+.pf-btn.active{border-color:var(--gold);color:var(--gold);background:var(--gold-bg)}
+.pf-content{display:none}.pf-content.active{display:block}
+.crime-scene{background:var(--paper);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 3px 3px 0;padding:1.1rem 1.4rem;margin-bottom:.65rem;box-shadow:1px 2px 6px var(--shadow)}
+.crime-scene p{font-size:.95rem;line-height:1.7;color:var(--ink-soft)}
+.crime-scene p+p{margin-top:.4rem}
+.crime-scene a{display:inline-block;margin-top:.75rem;font-family:'Raleway',sans-serif;font-size:.82rem;font-weight:700;color:var(--green);text-decoration:none;transition:color .15s}
+.crime-scene a:hover{color:var(--ink)}
+.spor-list{display:flex;flex-direction:column;gap:.45rem}
+.spor-item{display:flex;align-items:flex-start;gap:.9rem;background:var(--paper);border:1px solid var(--border);border-radius:3px;padding:.9rem 1.1rem;cursor:pointer;transition:all .18s;user-select:none;box-shadow:1px 1px 4px var(--shadow)}
+.spor-item:hover{border-color:var(--gold);background:var(--paper2);transform:translateX(2px)}
+.spor-item.chosen{border-color:var(--gold);background:var(--gold-bg);box-shadow:2px 2px 8px var(--shadow)}
+.spor-check{width:20px;height:20px;border:2px solid var(--border);border-radius:3px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .18s;font-size:.7rem;color:transparent}
+.spor-item.chosen .spor-check{border-color:var(--gold);background:var(--gold);color:var(--paper)}
+.spor-text{font-size:.97rem;line-height:1.55;color:var(--ink)}
+.spor-day{font-family:'Raleway',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.12em;color:var(--ink-muted);margin-top:.28rem;text-transform:uppercase}
+.mission-card{background:var(--paper);border:1px solid var(--border);border-radius:3px;padding:.9rem 1.1rem;margin-bottom:.5rem;display:flex;gap:.9rem;align-items:flex-start;transition:all .18s;box-shadow:1px 1px 4px var(--shadow)}
+.mission-card.done{opacity:.5;background:var(--paper3);box-shadow:none}
+.mission-check{width:24px;height:24px;border:2px solid var(--border);border-radius:50%;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .18s;font-size:.75rem;color:transparent;background:var(--paper2)}
+.mission-card.done .mission-check{border-color:var(--green);background:var(--green);color:var(--paper)}
+.mission-body{flex:1}
+.mission-number{font-family:'Raleway',sans-serif;font-size:.58rem;font-weight:800;letter-spacing:.18em;color:var(--ink-muted);text-transform:uppercase;margin-bottom:.3rem}
+.mission-text{font-size:.95rem;line-height:1.6;color:var(--ink)}
+.mission-card.done .mission-text{text-decoration:line-through;color:var(--ink-muted)}
+.highlight{color:var(--gold);font-style:italic;font-weight:500}
+.note{font-size:.85rem;color:var(--ink-soft);font-style:italic;line-height:1.6}
+.kplan{background:var(--paper);border:1px solid var(--border);border-radius:3px;padding:1.1rem 1.4rem;margin-bottom:.65rem;box-shadow:1px 2px 6px var(--shadow);overflow-x:auto}
+.kplan-header{display:grid;grid-template-columns:1fr 128px 108px;gap:.5rem;font-family:'Raleway',sans-serif;font-size:.58rem;font-weight:800;letter-spacing:.15em;color:var(--ink-muted);text-transform:uppercase;padding-bottom:.55rem;border-bottom:1px solid var(--border);margin-bottom:.65rem}
+.kplan-row{display:grid;grid-template-columns:1fr 128px 108px;gap:.5rem;margin-bottom:.45rem}
+.kplan-input{background:var(--paper2);border:1px solid var(--border);border-radius:3px;color:var(--ink);font-family:'Lora',serif;font-size:.88rem;padding:.4rem .65rem;outline:none;transition:border-color .2s;width:100%}
+.kplan-input:focus{border-color:var(--gold);background:var(--paper)}
+.kplan-input::placeholder{color:var(--ink-muted);font-style:italic;font-size:.78rem}
+.add-row-btn{background:transparent;border:1px dashed var(--border);border-radius:3px;color:var(--ink-muted);font-family:'Raleway',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;padding:.45rem;cursor:pointer;text-transform:uppercase;width:100%;margin-top:.2rem;transition:all .18s}
+.add-row-btn:hover{border-color:var(--green);color:var(--green)}
+.sss-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-bottom:.65rem}
+.sss-card{background:var(--paper);border:1px solid var(--border);border-radius:3px;padding:.9rem 1rem;box-shadow:1px 1px 4px var(--shadow)}
+.sss-title{font-family:'Raleway',sans-serif;font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem}
+.sss-explain{font-size:.8rem;font-style:italic;color:var(--ink-muted);margin-bottom:.55rem;line-height:1.4}
+.sss-card:nth-child(1) .sss-title{color:var(--green)}
+.sss-card:nth-child(2) .sss-title{color:var(--red)}
+.sss-card:nth-child(3) .sss-title{color:var(--gold)}
+.sss-input{background:var(--paper2);border:1px solid var(--border);border-radius:3px;color:var(--ink);font-family:'Lora',serif;font-size:.88rem;padding:.45rem .65rem;outline:none;resize:vertical;min-height:85px;width:100%;transition:border-color .2s;line-height:1.6}
+.sss-input:focus{border-color:var(--gold);background:var(--paper)}
+.porto-label{font-family:'Raleway',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.18em;color:var(--ink-muted);text-transform:uppercase;margin-bottom:.35rem;display:block}
+.porto-field{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:3px;color:var(--ink);font-family:'Lora',serif;font-size:.97rem;padding:.9rem 1.1rem;resize:vertical;min-height:105px;outline:none;transition:border-color .2s;margin-bottom:.75rem;line-height:1.7;box-shadow:inset 0 1px 3px rgba(0,0,0,.06)}
+.porto-field:focus{border-color:var(--gold)}
+.fremlaeg-step{display:flex;gap:.9rem;align-items:flex-start;background:var(--paper);border:1px solid var(--border);border-radius:3px;padding:.9rem 1.1rem;margin-bottom:.45rem;box-shadow:1px 1px 4px var(--shadow);transition:transform .18s}
+.fremlaeg-step:hover{transform:translateX(3px)}
+.step-num{font-family:'Raleway',sans-serif;font-size:1.2rem;font-weight:800;color:var(--gold);flex-shrink:0;width:24px;line-height:1.4}
+.step-text{font-size:.97rem;line-height:1.6;color:var(--ink)}
+.day-panel{display:none}.day-panel.active{display:block}
+#save-status{position:fixed;top:1rem;right:1rem;font-family:'Raleway',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;color:var(--ink-muted);text-transform:uppercase;background:var(--paper);border:1px solid var(--border);border-radius:20px;padding:.35rem .85rem;box-shadow:1px 2px 6px var(--shadow);transition:opacity .3s;opacity:0;z-index:200}
+#save-status.visible{opacity:1}
+#print-btn,#sound-btn{position:fixed;bottom:1.75rem;font-family:'Raleway',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.12em;padding:.55rem 1rem;cursor:pointer;text-transform:uppercase;transition:all .18s;border-radius:20px;z-index:100;background:var(--paper);border:1px solid var(--border);color:var(--ink-muted);box-shadow:1px 2px 8px var(--shadow)}
+#print-btn{right:1.75rem}
+#print-btn:hover{border-color:var(--gold);color:var(--gold)}
+#sound-btn{left:1.75rem}
+#sound-btn:hover{border-color:var(--green);color:var(--green)}
+@media print{body{background:white}#intro{display:none!important}#main{display:block!important;padding:0}.day-nav{display:none}.day-panel{display:block!important;page-break-before:always}.day-panel:first-of-type{page-break-before:avoid}.card,.crime-scene,.mission-card,.spor-item,.fremlaeg-step,.kplan,.sss-card,.day-intro{background:white!important;border:1px solid #ccc!important;box-shadow:none!important;break-inside:avoid}#print-btn,#sound-btn,#save-status{display:none}.porto-field,.kplan-input,.sss-input{border:1px solid #ccc;background:white;color:black}}
+</style>
+</head>
+<body>
+<div id="intro">
+  <div class="intro-card">
+    <div class="tw-wrap">
+      <div class="typewriter-line" id="tw1"></div>
+      <div class="typewriter-line small" id="tw2"></div>
+      <div class="typewriter-line small" id="tw3"></div>
+    </div>
+    <div class="team-intro">Efterforskere: Hannibal · Alexander · Ella · Celia</div>
+    <button id="start-btn" onclick="openCase()">Åbn sagen →</button>
+  </div>
+</div>
+<div id="save-status"></div>
+<div id="main">
+  <div class="case-header">
+    <div class="case-meta">Projekt 2026 · Sag 01 · HISTORIE</div>
+    <div class="case-title">Livet på landet i gamle dage</div>
+    <div class="case-subtitle">Hvordan og hvorfor ændrede landbruget sig så dramatisk?</div>
+    <div class="team-names">Efterforskere: Hannibal · Alexander · Ella · Celia</div>
+    <div class="stamped">Fortroligt</div>
+  </div>
+  <div class="day-nav">
+    <button class="day-tab active" onclick="showDay('mandag',this)">Mandag</button>
+    <button class="day-tab" onclick="showDay('tirsdag',this)">Tirsdag</button>
+    <button class="day-tab" onclick="showDay('onsdag',this)">Onsdag</button>
+    <button class="day-tab" onclick="showDay('torsdag',this)">Torsdag</button>
+    <button class="day-tab" onclick="showDay('fredag',this)">Fredag</button>
+    <button class="day-tab" onclick="showDay('portfolio',this)">Portfolio</button>
+  </div>
+
+  <div class="day-panel active" id="panel-mandag">
+    <div class="day-intro"><p>Læs problemformuleringen og gerningsstedet. Vælg de spor I vil følge. Find de ting I endnu ikke forstår eller kan svare på – det er dem I undersøger tirsdag.</p></div>
+    <div class="section">
+      <div class="section-label">Jeres sag</div>
+      <div class="pf-toggle">
+        <button class="pf-btn active" onclick="togglePF('detail',this)">Detaljeret</button>
+        <button class="pf-btn" onclick="togglePF('enkel',this)">Enkel</button>
+      </div>
+      <div class="card pf-content active" id="pf-detail"><p>Landbrug går lang tilbage i tiden. Faktisk helt tilbage til stenalderen har mennesker dyrket jorden og haft husdyr. Den måde vi har drevet landbrug på, har ændret sig meget gennem tiderne. Særligt er der sket en stor udvikling gennem de seneste årtier, fra den gang vores bedsteforældre og oldeforældre drev landbrug og til nutidens moderne landbrug.<br><br>Vi vil gerne undersøge hvordan landbruget har ændret sig fra for 100 år siden og til nutiden. Vi vil også gerne finde ud af hvorfor landbruget har ændret sig så meget.</p></div>
+      <div class="card pf-content" id="pf-enkel"><p>Landbruget har ændret sig meget gennem tiden. Før brugte man dyr og simple redskaber, og i dag bruger man store maskiner.<br><br>Vi vil finde ud af, hvordan landbruget har ændret sig – og hvorfor.</p></div>
+    </div>
+    <div class="section">
+      <div class="section-label">Gerningsstedet – læs dette først</div>
+      <div class="crime-scene">
+        <p>Inden I vælger jeres spor skal I læse dette. Det er historien om én families møde med traktoren i 1949 – og hvad der skete bagefter.</p>
+        <a href="https://www.dr.dk/nyheder/kultur/historie/dansk-landbrug-i-70-aar-fra-alsidigt-familiebrug-til-specialiserede" target="_blank">→ Åbn gerningsstedet (DR: Dansk landbrug i 70 år)</a>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">Vælg 1–2 spor</div>
+      <p class="note" style="margin-bottom:.75rem">Klik på de spor I vil følge denne uge. I kan max vælge 2.</p>
+      <div class="spor-list">
+        <div class="spor-item" onclick="toggleSpor(this)" data-index="0">
+          <div class="spor-check">✓</div>
+          <div><div class="spor-text">Hvordan ændrede livet sig på en gård da traktoren kom – og hvem forsvandt?</div><div class="spor-day">Oplagt: Tirsdag–Onsdag</div></div>
+        </div>
+        <div class="spor-item" onclick="toggleSpor(this)" data-index="1">
+          <div class="spor-check">✓</div>
+          <div><div class="spor-text">Hvorfor gik Danmark fra hundredtusindvis af små gårde til nogle få kæmpestore?</div><div class="spor-day">Oplagt: Tirsdag–Onsdag</div></div>
+        </div>
+        <div class="spor-item" onclick="toggleSpor(this)" data-index="2">
+          <div class="spor-check">✓</div>
+          <div><div class="spor-text">Hvad betød det for landsbyen at færre og færre arbejdede på landet?</div><div class="spor-day">Oplagt: Onsdag–Torsdag</div></div>
+        </div>
+        <div class="spor-item" onclick="toggleSpor(this)" data-index="3">
+          <div class="spor-check">✓</div>
+          <div><div class="spor-text">Hvad mistede vi da landbosamfundet forsvandt – og er der noget vi burde have beholdt?</div><div class="spor-day">Oplagt: Onsdag–Fremlæggelse</div></div>
+        </div></div>
+    </div>
+    <div class="section">
+      <div class="section-label">Mandagens missioner</div>
+      <div class="mission-card" id="m-man-1"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 1 – Forstå sagen</div><div class="mission-text">Læs sagen højt for hinanden. Forklar den med jeres egne ord. <span class="highlight">I er i mål når alle kan forklare hvad sagen handler om.</span></div></div></div>
+      <div class="mission-card" id="m-man-2"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 2 – Vælg spor</div><div class="mission-text">Læs gerningsstedet. Vælg 1–2 spor. <span class="highlight">I er i mål når I kan forklare hvorfor I valgte netop dem.</span></div></div></div>
+      <div class="mission-card" id="m-man-3"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 3 – Find hullerne</div><div class="mission-text">Hvad forstår I ikke endnu? Hvad kan I ikke svare på? Skriv det ned i portfolioen. <span class="highlight">Det er dem I undersøger i morgen.</span></div></div></div>
+    </div>
+  </div>
+
+  <div class="day-panel" id="panel-tirsdag">
+    <div class="day-intro"><p>Find svar på det I ikke vidste. Saml konkrete beviser der underbygger jeres forståelse af sagen. Beslut hvad I vil lave som produkt – og læg en plan for onsdag.</p></div>
+    <div class="section">
+      <div class="section-label">Godkendte kilder</div>
+      <div class="crime-scene"><p>I må kun bruge kilder fra detektivarkivet – eller kilder I selv finder og får godkendt af en lærer.</p><a href="detektiv-arkiv.html" target="_blank">→ Åbn detektivarkivet</a></div>
+    </div>
+    <div class="section">
+      <div class="section-label">Tirsdagens missioner</div>
+      <div class="mission-card" id="m-tir-1"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 1 – Find beviser</div><div class="mission-text">Find mindst <span class="highlight">3 konkrete beviser</span> – fakta, tal eller sammenhænge der besvarer det I ikke vidste i går.</div></div></div>
+      <div class="mission-card" id="m-tir-2"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 2 – Skriv det ned</div><div class="mission-text">Skriv jeres beviser i portfolioen med <span class="highlight">jeres egne ord</span>. Kopier ikke – skriv hvad I forstår det betyder.</div></div></div>
+      <div class="mission-card" id="m-tir-3"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 3 – Beslut jeres produkt</div><div class="mission-text">Hvad er jeres vigtigste pointe? Hvilket produkt viser den bedst? <span class="highlight">Produktet behøver ikke indeholde alt – bare det vigtigste.</span></div></div></div>
+      <div class="mission-card" id="m-tir-4"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 4 – Planlæg onsdag</div><div class="mission-text">Udfyld koordineringsplanen herunder. <span class="highlight">Hvad skal laves? Hvem gør hvad? Hvad skal I bruge?</span></div></div></div>
+    </div>
+    <div class="section">
+      <div class="section-label">Koordineringsplan – hvad sker der onsdag?</div>
+      <div class="kplan">
+        <div class="kplan-header"><span>Hvad skal laves</span><span>Hvem gør det</span><span>Skal bruge</span></div>
+        <div id="kplan-rows">
+          <div class="kplan-row"><input class="kplan-input" placeholder="Fx tegne forsiden..." oninput="scheduleSave()"><input class="kplan-input" placeholder="Navn..." oninput="scheduleSave()"><input class="kplan-input" placeholder="Fx papir..." oninput="scheduleSave()"></div>
+          <div class="kplan-row"><input class="kplan-input" oninput="scheduleSave()"><input class="kplan-input" oninput="scheduleSave()"><input class="kplan-input" oninput="scheduleSave()"></div>
+          <div class="kplan-row"><input class="kplan-input" oninput="scheduleSave()"><input class="kplan-input" oninput="scheduleSave()"><input class="kplan-input" oninput="scheduleSave()"></div>
+        </div>
+        <button class="add-row-btn" onclick="addKplanRow()">+ Tilføj linje</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-panel" id="panel-onsdag">
+    <div class="day-intro"><p>Lav det produkt der bedst viser jeres vigtigste pointe. Det behøver ikke indeholde alt I har fundet ud af – men det skal kunne bruges aktivt når I fremlægger fredag.</p></div>
+    <div class="section">
+      <div class="section-label">Onsdagens missioner</div>
+      <div class="mission-card" id="m-ons-1"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 1 – Saml materialer</div><div class="mission-text">Hent det I har brug for ifølge jeres koordineringsplan. <span class="highlight">Brug max 15 minutter.</span></div></div></div>
+      <div class="mission-card" id="m-ons-2"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 2 – Producér</div><div class="mission-text">Lav produktet. Følg jeres plan. <span class="highlight">Alle skal have en aktiv opgave.</span></div></div></div>
+      <div class="mission-card" id="m-ons-3"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 3 – Tjek inden I pakker sammen</div><div class="mission-text"><span class="highlight">Viser produktet jeres pointe tydeligt? Kan I bruge det aktivt i fremlæggelsen fredag?</span></div></div></div>
+    </div>
+  </div>
+
+  <div class="day-panel" id="panel-torsdag">
+    <div class="day-intro"><p>Kig på det hele samlet. Hvad har I fundet ud af? Hvordan bruger I produktet i fremlæggelsen? Øv jer – alle skal sige noget.</p></div>
+    <div class="section">
+      <div class="section-label">Torsdagens missioner</div>
+      <div class="mission-card" id="m-tor-1"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 1 – Gør produktet færdigt</div><div class="mission-text">Færdiggør produktet. <span class="highlight">Tjek: viser det jeres pointe? Kan man se sammenhængen med jeres spor?</span></div></div></div>
+      <div class="mission-card" id="m-tor-2"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 2 – Øv fremlæggelsen</div><div class="mission-text">Øv én gang igennem. Max 7 minutter. <span class="highlight">Alle siger noget. Produktet bruges aktivt.</span></div></div></div>
+      <div class="mission-card" id="m-tor-3"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 3 – Evaluer samarbejdet</div><div class="mission-text">Udfyld Start–Stop–Fortsæt herunder.</div></div></div>
+    </div>
+    <div class="section">
+      <div class="section-label">Start – Stop – Fortsæt</div>
+      <div class="sss-grid">
+        <div class="sss-card"><div class="sss-title">Start</div><div class="sss-explain">Hvad bør I begynde at gøre?</div><textarea class="sss-input" id="sss-0" oninput="scheduleSave()"></textarea></div>
+        <div class="sss-card"><div class="sss-title">Stop</div><div class="sss-explain">Hvad bør I holde op med?</div><textarea class="sss-input" id="sss-1" oninput="scheduleSave()"></textarea></div>
+        <div class="sss-card"><div class="sss-title">Fortsæt</div><div class="sss-explain">Hvad fungerer godt og skal fortsætte?</div><textarea class="sss-input" id="sss-2" oninput="scheduleSave()"></textarea></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-panel" id="panel-fredag">
+    <div class="day-intro"><p>Præsentér jeres sag for klassen. Forklar hvad I undersøgte, hvad I fandt ud af – og brug produktet til at vise jeres pointe. I har <span class="highlight">max 7 minutter.</span></p></div>
+    <div class="section">
+      <div class="section-label">Sådan bygger I fremlæggelsen op</div>
+      <div class="fremlaeg-step"><div class="step-num">1</div><div class="step-text">Fortæl hvad jeres sag handlede om.</div></div>
+      <div class="fremlaeg-step"><div class="step-num">2</div><div class="step-text">Fortæl hvilke spor I valgte at følge – og hvorfor.</div></div>
+      <div class="fremlaeg-step"><div class="step-num">3</div><div class="step-text">Fortæl hvilke beviser I fandt – med jeres egne ord.</div></div>
+      <div class="fremlaeg-step"><div class="step-num">4</div><div class="step-text">Brug produktet aktivt til at vise jeres vigtigste pointe.</div></div>
+      <div class="fremlaeg-step"><div class="step-num">5</div><div class="step-text">Forklar hvad jeres svar på sagen er.</div></div>
+    </div>
+  </div>
+
+  <div class="day-panel" id="panel-portfolio">
+    <div class="day-intro"><p>Udfyld løbende hele ugen. Brug det til fremlæggelsen fredag.</p></div>
+    <div class="section">
+      <label class="porto-label">Vores sag handler om...</label>
+      <textarea class="porto-field" id="porto-sag" oninput="scheduleSave()"></textarea>
+      <label class="porto-label">De spor vi valgte – og hvorfor</label>
+      <textarea class="porto-field" id="porto-spor" oninput="scheduleSave()"></textarea>
+      <label class="porto-label">Det vi ikke vidste – og skulle finde ud af</label>
+      <textarea class="porto-field" id="porto-huller" oninput="scheduleSave()"></textarea>
+      <label class="porto-label">Vores vigtigste beviser (med egne ord)</label>
+      <textarea class="porto-field" id="porto-beviser" style="min-height:150px" oninput="scheduleSave()"></textarea>
+      <label class="porto-label">Vores vigtigste pointe</label>
+      <textarea class="porto-field" id="porto-pointe" oninput="scheduleSave()"></textarea>
+      <label class="porto-label">Vores produkt – og hvad det viser</label>
+      <textarea class="porto-field" id="porto-produkt" oninput="scheduleSave()"></textarea>
+    </div>
+  </div>
+</div>
+<button id="print-btn" onclick="window.print()">⎙ Print</button>
+<button id="sound-btn" onclick="toggleSound()">♪ Lyd: fra</button>
+<script>
+const GK = 'historie2';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbznadoOCu219A8tVRiFeQ-dm-t1H00958POyFNerZmVBuuG5bgBaoZjzTCf5GSZ1JfzbQ/exec';
+let soundOn = false, audioCtx = null, saveTimer = null;
+
+const lines = [
+  {el:'tw1', text:'En ny sag er landet på jeres bord...', speed:60},
+  {el:'tw2', text:'I er særligt udvalgt til at efterforske den.', speed:48},
+  {el:'tw3', text:'Klik nedenfor for at åbne sagen.', speed:48},
+];
+
+async function typeWriter() {
+  for (const l of lines) { await typeLine(l.el, l.text, l.speed); await wait(300); }
+}
+
+function typeLine(id, text, speed) {
+  return new Promise(resolve => {
+    const el = document.getElementById(id); let i = 0;
+    const t = setInterval(() => {
+      if (i < text.length) { el.textContent = text.slice(0,++i); if(soundOn&&audioCtx) playTick(); }
+      else { clearInterval(t); resolve(); }
+    }, speed);
+  });
+}
+
+function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function toggleSound() {
+  soundOn = !soundOn;
+  document.getElementById('sound-btn').textContent = soundOn ? '♪ Lyd: til' : '♪ Lyd: fra';
+  if (soundOn && !audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+}
+
+function playTick() {
+  if (!audioCtx) return;
+  const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+  o.connect(g); g.connect(audioCtx.destination);
+  o.frequency.value = 600 + Math.random()*150;
+  g.gain.setValueAtTime(0.02, audioCtx.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime+0.05);
+  o.start(); o.stop(audioCtx.currentTime+0.05);
+}
+
+function openCase() {
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('main').style.display = 'block';
+  loadFromCloud();
+}
+
+window.addEventListener('load', typeWriter);
+
+function showDay(day, btn) {
+  document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-'+day).classList.add('active');
+  btn.classList.add('active');
+}
+
+function togglePF(type, btn) {
+  document.querySelectorAll('.pf-content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.pf-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('pf-'+type).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleSpor(item) {
+  const chosen = document.querySelectorAll('.spor-item.chosen');
+  if (!item.classList.contains('chosen') && chosen.length >= 2) return;
+  item.classList.toggle('chosen');
+  scheduleSave();
+}
+
+function toggleMission(btn) {
+  btn.closest('.mission-card').classList.toggle('done');
+  scheduleSave();
+}
+
+function addKplanRow() {
+  const c = document.getElementById('kplan-rows');
+  const row = document.createElement('div'); row.className = 'kplan-row';
+  row.innerHTML = '<input class="kplan-input" oninput="scheduleSave()"><input class="kplan-input" oninput="scheduleSave()"><input class="kplan-input" oninput="scheduleSave()">';
+  c.appendChild(row);
+}
+
+function collectState() {
+  const spor = [];
+  document.querySelectorAll('.spor-item').forEach((s,i) => { if(s.classList.contains('chosen')) spor.push(i); });
+  const missions = {};
+  document.querySelectorAll('.mission-card').forEach(c => { missions[c.id] = c.classList.contains('done'); });
+  const porto = {};
+  ['sag','spor','huller','beviser','pointe','produkt'].forEach(k => {
+    const el = document.getElementById('porto-'+k); if(el) porto[k] = el.value;
+  });
+  const sss = [0,1,2].map(i => { const el = document.getElementById('sss-'+i); return el ? el.value : ''; });
+  const kplan = [...document.querySelectorAll('#kplan-rows .kplan-row')].map(row =>
+    [...row.querySelectorAll('.kplan-input')].map(i => i.value)
+  );
+  return {spor, missions, porto, sss, kplan};
+}
+
+function applyState(data) {
+  if (!data) return;
+  if (data.spor) data.spor.forEach(i => {
+    const el = document.querySelectorAll('.spor-item')[i]; if(el) el.classList.add('chosen');
+  });
+  if (data.missions) Object.entries(data.missions).forEach(([id,done]) => {
+    const el = document.getElementById(id); if(el && done) el.classList.add('done');
+  });
+  if (data.porto) ['sag','spor','huller','beviser','pointe','produkt'].forEach(k => {
+    const el = document.getElementById('porto-'+k); if(el && data.porto[k]) el.value = data.porto[k];
+  });
+  if (data.sss) [0,1,2].forEach(i => {
+    const el = document.getElementById('sss-'+i); if(el && data.sss[i]) el.value = data.sss[i];
+  });
+  if (data.kplan && data.kplan.length) {
+    const c = document.getElementById('kplan-rows'); c.innerHTML = '';
+    data.kplan.forEach(rowData => {
+      const row = document.createElement('div'); row.className = 'kplan-row';
+      row.innerHTML = rowData.map(v => `<input class="kplan-input" value="${v.replace(/"/g,'&quot;')}" oninput="scheduleSave()">`).join('');
+      c.appendChild(row);
+    });
+  }
+}
+
+async function loadFromCloud() {
+  try {
+    const res = await fetch(SCRIPT_URL + '?gruppe=' + GK);
+    const json = await res.json();
+    if (json && json.ok && json.data) applyState(json.data);
+  } catch(e) { console.log('Load error', e); }
+}
+
+async function saveToCloud() {
+  showSaveStatus('Gemmer...');
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({gruppe: GK, data: collectState()})
+    });
+    showSaveStatus('Gemt ✓');
+  } catch(e) {
+    showSaveStatus('Fejl ved gem');
+  }
+}
+
+function scheduleSave() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveToCloud, 1500);
+}
+
+function showSaveStatus(msg) {
+  const el = document.getElementById('save-status');
+  el.textContent = msg; el.classList.add('visible');
+  if (msg === 'Gemt ✓') setTimeout(() => el.classList.remove('visible'), 2000);
+}
+</script>
+</body>
+</html>
