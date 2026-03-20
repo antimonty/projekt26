@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detektivernes Arkiv – Landbrug i Danmark</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap');
+
+  :root {
+    --ink: #1a1208;
+    --paper: #f5efe2;
+    --aged: #e8dcc8;
+    --stamp-red: #8b1a1a;
+    --stamp-blue: #1a3a5c;
+    --gold: #b8860b;
+    --shadow: rgba(26,18,8,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ink);
+    font-family: 'Source Serif 4', serif;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
+  .page-bg {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      rgba(180,160,120,0.15) 31px,
+      rgba(180,160,120,0.15) 32px
+    ),
+    linear-gradient(135deg, #f5efe2 0%, #ede3cc 50%, #f0e8d5 100%);
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    position: relative;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.5), inset 0 0 80px rgba(180,150,80,0.1);
+  }
+
+  .page-bg::before {
+    content: '';
+    position: absolute;
+    left: 80px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(180,80,80,0.25);
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--gold);
+    position: relative;
+  }
+
+  .case-number {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stamp-blue);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+
+  .subtitle {
+    font-style: italic;
+    color: #5a4a30;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  .stamp {
+    display: inline-block;
+    border: 3px solid var(--stamp-red);
+    color: var(--stamp-red);
+    padding: 0.25rem 0.75rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+    margin-top: 1rem;
+    opacity: 0.8;
+  }
+
+  .intro {
+    background: rgba(255,255,255,0.4);
+    border-left: 4px solid var(--gold);
+    padding: 1rem 1.25rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+    color: #3a2e1a;
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  .cases-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .case-card {
+    background: rgba(255,255,255,0.5);
+    border: 1px solid rgba(180,150,80,0.4);
+    padding: 1.25rem 1.5rem;
+    position: relative;
+    transition: box-shadow 0.2s;
+  }
+
+  .case-card:hover {
+    box-shadow: 3px 3px 12px var(--shadow);
+  }
+
+  .case-card::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -10px;
+    left: 1.25rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    letter-spacing: 0.1em;
+  }
+
+  .case-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .theme-tag {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: white;
+    background: var(--stamp-blue);
+    padding: 2px 8px;
+    white-space: nowrap;
+  }
+
+  .case-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .case-desc {
+    font-size: 0.88rem;
+    color: #4a3c22;
+    line-height: 1.6;
+    margin-bottom: 0.9rem;
+  }
+
+  .source-link {
+    display: inline-block;
+    font-size: 0.82rem;
+    color: var(--stamp-blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(26,58,92,0.3);
+    padding-bottom: 1px;
+    font-style: italic;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .source-link:hover {
+    color: var(--stamp-red);
+    border-color: var(--stamp-red);
+  }
+
+  .source-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8a7a5a;
+    margin-bottom: 0.2rem;
+  }
+
+  .note-box {
+    margin-top: 2.5rem;
+    border: 1px dashed rgba(180,150,80,0.5);
+    padding: 1rem 1.25rem;
+    background: rgba(255,250,220,0.4);
+  }
+
+  .note-box p {
+    font-size: 0.85rem;
+    color: #5a4a2a;
+    line-height: 1.6;
+  }
+
+  .note-box strong {
+    font-family: 'Playfair Display', serif;
+    color: var(--ink);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    color: #8a7a5a;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 0.5rem 0 1rem;
+  }
+</style>
+</head>
+<body>
+<div class="page-bg">
+
+  <header>
+    <div class="case-number">Projekt 2026 · Landbrug i Danmark · Detektivernes arkiv</div>
+    <h1>Godkendte Kilder</h1>
+    <p class="subtitle">Materialer til brug i efterforskningen</p>
+    <div class="stamp">Fortroligt – kun til detektiver</div>
+  </header>
+
+  <div class="intro">
+    En god detektiv læser ikke hele arkivet – man leder kun efter det, der passer til ens spor. Find din sag herunder og brug de kilder, der hører til. I må kun bruge kilder fra denne liste og materialer I får udleveret af lærerne.
+  </div>
+
+  <div class="cases-grid">
+
+    <!-- HISTORIE -->
+    <div class="case-card" data-num="SAG 01">
+      <div class="case-header">
+        <span class="theme-tag">Historie</span>
+        <span class="case-title">Livet på landet i gamle dage</span>
+      </div>
+      <p class="case-desc">Fra karlenes tid til traktorens ankomst – en families historie fortæller om 70 års forandring i dansk landbrug.</p>
+      <div class="source-label">Primær kilde</div>
+      <a class="source-link" href="https://www.dr.dk/nyheder/kultur/historie/dansk-landbrug-i-70-aar-fra-alsidigt-familiebrug-til-specialiserede" target="_blank">DR: Dansk landbrug i 70 år – fra familiebrug til specialiserede virksomheder →</a>
+      <div class="divider"></div>
+      <div class="source-label">Supplerende kilde</div>
+      <a class="source-link" href="https://danmarkshistorien.lex.dk/Landbrugets_produktionsoml%C3%A6gning,_1800-1901" target="_blank">Danmarkshistorien (lex.dk): Landbrugets produktionsomlægning 1800–1901 →</a>
+    </div>
+
+    <!-- TEKNOLOGI -->
+    <div class="case-card" data-num="SAG 02">
+      <div class="case-header">
+        <span class="theme-tag">Teknologi</span>
+        <span class="case-title">Fra hest til GPS</span>
+      </div>
+      <p class="case-desc">Hvordan gik landbruget fra muskelkraft til maskiner – og hvad betød det for dem der arbejdede på gårdene?</p>
+      <div class="source-label">Primær kilde</div>
+      <a class="source-link" href="https://faktalink.dk/emner/dansk-landbrug#introduktion" target="_blank">Faktalink: Dansk landbrug – afsnittet "Hvordan har udviklingen i landbruget været siden 1950?" →</a>
+      <div class="divider"></div>
+      <div class="source-label">Supplerende kilde</div>
+      <a class="source-link" href="https://danmarkshistorien.lex.dk/Landbrugets_produktionsoml%C3%A6gning,_1800-1901" target="_blank">Danmarkshistorien (lex.dk): Landbrugets produktionsomlægning →</a>
+    </div>
+
+    <!-- MILJØ -->
+    <div class="case-card" data-num="SAG 03">
+      <div class="case-header">
+        <span class="theme-tag">Miljø</span>
+        <span class="case-title">Økologisk og konventionelt landbrug</span>
+      </div>
+      <p class="case-desc">To måder at dyrke mad på – men hvad er egentlig forskellen, og hvad betyder det for naturen omkring os?</p>
+      <div class="source-label">Primær kilde</div>
+      <a class="source-link" href="https://faktalink.dk/titelliste/okologi" target="_blank">Faktalink: Økologi →</a>
+      <div class="divider"></div>
+      <div class="source-label">Supplerende kilde</div>
+      <a class="source-link" href="https://faktalink.dk/emner/dansk-landbrug#introduktion" target="_blank">Faktalink: Dansk landbrug – afsnittet "Hvordan bliver Danmarks miljø og natur påvirket?" →</a>
+    </div>
+
+    <!-- ETIK -->
+    <div class="case-card" data-num="SAG 04">
+      <div class="case-header">
+        <span class="theme-tag">Etik</span>
+        <span class="case-title">Dyrevelfærd</span>
+      </div>
+      <p class="case-desc">Millioner af dyr lever i danske stalde. Men har de det godt? Tallene bag debatten overrasker.</p>
+      <div class="source-label">Primær kilde</div>
+      <a class="source-link" href="https://faktalink.dk/emner/dansk-landbrug#introduktion" target="_blank">Faktalink: Dansk landbrug – afsnittet "Hvordan har dyrevelfærden det i dansk landbrug?" →</a>
+      <div class="divider"></div>
+      <div class="source-label">Supplerende kilde</div>
+      <a class="source-link" href="https://www.dyrenesbeskyttelse.dk/artikler/landbrugets-bundlinje-danmark" target="_blank">Dyrenes Beskyttelse: Landbrugets bundlinje for Danmark →</a>
+    </div>
+
+    <!-- FREMTID -->
+    <div class="case-card" data-num="SAG 05">
+      <div class="case-header">
+        <span class="theme-tag">Fremtid</span>
+        <span class="case-title">Fremtidens landbrug</span>
+      </div>
+      <p class="case-desc">Klimaet presser landbruget til at tænke nyt. Hvad er problemerne – og hvad er løsningerne?</p>
+      <div class="source-label">Primær kilde</div>
+      <a class="source-link" href="https://faktalink.dk/emner/dansk-landbrug#introduktion" target="_blank">Faktalink: Dansk landbrug – afsnittet "Hvordan bliver klimaet påvirket?" →</a>
+      <div class="divider"></div>
+      <div class="source-label">Supplerende kilde</div>
+      <a class="source-link" href="https://www.dn.dk/nyheder/naturen-og-klimaet-har-brug-for-et-nyt-landbrug/" target="_blank">Danmarks Naturfredningsforening: Naturen og klimaet har brug for et nyt landbrug →</a>
+    </div>
+
+    <!-- SAMFUND -->
+    <div class="case-card" data-num="SAG 06">
+      <div class="case-header">
+        <span class="theme-tag">Samfund</span>
+        <span class="case-title">Madens rejse gennem verden</span>
+      </div>
+      <p class="case-desc">Vidste du at den danske madpakke med leverpostej skyldes baconeksport til England? Maden har altid rejst langt.</p>
+      <div class="source-label">Primær kilde</div>
+      <a class="source-link" href="https://danmarkshistorien.lex.dk/Den_danske_madhistorie_siden_slutningen_af_1800-tallet" target="_blank">Danmarkshistorien (lex.dk): Den danske madhistorie siden slutningen af 1800-tallet →</a>
+      <div class="divider"></div>
+      <div class="source-label">Supplerende kilde</div>
+      <a class="source-link" href="https://videnskab.dk/kultur-samfund/madpakken-opstod-af-industrialisering-og-baconeksport/" target="_blank">Videnskab.dk: Madpakken opstod af industrialisering og baconeksport →</a>
+    </div>
+
+  </div>
+
+  <div class="note-box">
+    <p><strong>Husk:</strong> En kilde er et vidne – ikke et svar. Brug det, du finder, til at forstå jeres spor bedre. Skriv altid beviserne med <em>jeres egne ord</em> – kopier ikke tekst direkte over.</p>
+  </div>
+
+  <footer>Projekt 2026 · Klasse 5./6. · Landbrug i Danmark</footer>
+
+</div>
+</body>
+</html>
