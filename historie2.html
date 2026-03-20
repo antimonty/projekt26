@@ -5,420 +5,1281 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sag 01 – Livet på landet i gamle dage</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
-:root{--paper:#f7f2e8;--paper2:#f0ead8;--paper3:#e8e0cc;--ink:#2a2218;--ink-soft:#5a5040;--ink-muted:#9a9080;--border:#d8ceb8;--gold:#b87c18;--gold-bg:rgba(184,124,24,0.1);--green:#2a7a58;--green-bg:rgba(42,122,88,0.08);--red:#a03028;--shadow:rgba(42,34,24,0.12);}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--paper2);background-image:repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(180,160,120,0.12) 27px,rgba(180,160,120,0.12) 28px);color:var(--ink);font-family:'Lora',serif;min-height:100vh}
-#intro{position:fixed;inset:0;background:var(--paper2);background-image:repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(180,160,120,0.12) 27px,rgba(180,160,120,0.12) 28px);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;padding:2rem}
-.intro-card{background:var(--paper);border:1px solid var(--border);border-radius:4px;box-shadow:4px 4px 20px var(--shadow),0 0 0 4px var(--paper),0 0 0 5px var(--border);padding:3rem 2.5rem 2rem;max-width:480px;width:100%;position:relative}
-.intro-card::before{content:'';position:absolute;top:0;left:28px;width:2px;height:100%;background:rgba(160,48,40,0.2);border-radius:2px}
-.tw-wrap{margin-bottom:1.5rem;padding-left:1.5rem}
-.typewriter-line{font-family:'Courier New',monospace;font-size:clamp(1rem,2.5vw,1.3rem);color:var(--ink);min-height:1.7em;margin-bottom:.35rem;letter-spacing:.02em}
-.typewriter-line.small{font-size:clamp(.8rem,1.8vw,.95rem);color:var(--ink-soft);font-family:'Lora',serif;font-style:italic}
-.team-intro{font-family:'Raleway',sans-serif;font-size:.78rem;font-weight:700;color:var(--green);letter-spacing:.06em;padding-left:1.5rem;margin-bottom:1.5rem}
-#start-btn{margin-left:1.5rem;background:var(--ink);border:none;border-radius:3px;color:var(--paper);font-family:'Raleway',sans-serif;font-size:.85rem;font-weight:800;letter-spacing:.12em;padding:.8rem 2rem;cursor:pointer;text-transform:uppercase;transition:all .2s;box-shadow:2px 2px 8px var(--shadow)}
-#start-btn:hover{background:var(--gold);transform:translateY(-1px);box-shadow:3px 4px 12px var(--shadow)}
-#main{display:none;max-width:820px;margin:0 auto;padding:0 1.5rem 6rem;animation:fadeUp .7s ease forwards}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.case-header{background:var(--paper);border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:0 0 4px 4px;box-shadow:0 2px 12px var(--shadow);padding:1.75rem 2rem 1.5rem;margin-bottom:1.5rem;position:relative}
-.case-meta{font-family:'Raleway',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.25em;color:var(--ink-muted);text-transform:uppercase;margin-bottom:.4rem}
-.case-title{font-family:'Raleway',sans-serif;font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:800;color:var(--ink);line-height:1.05;margin-bottom:.3rem}
-.case-subtitle{font-style:italic;color:var(--ink-soft);font-size:1rem}
-.team-names{margin-top:.6rem;font-family:'Raleway',sans-serif;font-size:.78rem;font-weight:700;color:var(--green);letter-spacing:.04em}
-.stamped{position:absolute;top:1.5rem;right:1.5rem;font-family:'Raleway',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.2em;color:var(--red);border:2.5px solid var(--red);border-radius:2px;padding:3px 9px;transform:rotate(3deg);opacity:.7;text-transform:uppercase}
-.day-nav{display:grid;grid-template-columns:repeat(6,1fr);gap:.35rem;margin-bottom:1.5rem}
-.day-tab{font-family:'Raleway',sans-serif;font-size:.68rem;font-weight:700;color:var(--ink-muted);padding:.6rem .4rem;cursor:pointer;border:1px solid var(--border);border-radius:3px;background:var(--paper);transition:all .18s;text-align:center;text-transform:uppercase;box-shadow:1px 1px 4px var(--shadow)}
-.day-tab:hover{color:var(--ink);background:var(--paper2)}
-.day-tab.active{color:var(--paper);background:var(--ink);border-color:var(--ink);box-shadow:2px 2px 8px var(--shadow)}
-.section{margin-bottom:1.5rem}
-.section-label{font-family:'Raleway',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.25em;color:var(--ink-muted);text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.75rem}
-.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
-.card{background:var(--paper);border:1px solid var(--border);border-radius:3px;padding:1.1rem 1.4rem;margin-bottom:.65rem;box-shadow:1px 2px 6px var(--shadow)}
-.card p{font-size:.98rem;line-height:1.75;color:var(--ink)}
-.card p+p{margin-top:.65rem}
-.day-intro{background:var(--paper);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:0 3px 3px 0;padding:1rem 1.4rem;margin-bottom:1.25rem;box-shadow:1px 2px 6px var(--shadow)}
-.day-intro p{font-size:.98rem;line-height:1.7;color:var(--ink-soft)}
-.pf-toggle{display:flex;gap:.4rem;margin-bottom:.75rem}
-.pf-btn{font-family:'Raleway',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.08em;padding:.35rem .9rem;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--ink-muted);cursor:pointer;transition:all .18s;text-transform:uppercase}
-.pf-btn.active{border-color:var(--gold);color:var(--gold);background:var(--gold-bg)}
-.pf-content{display:none}.pf-content.active{display:block}
-.crime-scene{background:var(--paper);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 3px 3px 0;padding:1.1rem 1.4rem;margin-bottom:.65rem;box-shadow:1px 2px 6px var(--shadow)}
-.crime-scene p{font-size:.95rem;line-height:1.7;color:var(--ink-soft)}
-.crime-scene p+p{margin-top:.4rem}
-.crime-scene a{display:inline-block;margin-top:.75rem;font-family:'Raleway',sans-serif;font-size:.82rem;font-weight:700;color:var(--green);text-decoration:none;transition:color .15s}
-.crime-scene a:hover{color:var(--ink)}
-.spor-list{display:flex;flex-direction:column;gap:.45rem}
-.spor-item{display:flex;align-items:flex-start;gap:.9rem;background:var(--paper);border:1px solid var(--border);border-radius:3px;padding:.9rem 1.1rem;cursor:pointer;transition:all .18s;user-select:none;box-shadow:1px 1px 4px var(--shadow)}
-.spor-item:hover{border-color:var(--gold);background:var(--paper2);transform:translateX(2px)}
-.spor-item.chosen{border-color:var(--gold);background:var(--gold-bg);box-shadow:2px 2px 8px var(--shadow)}
-.spor-check{width:20px;height:20px;border:2px solid var(--border);border-radius:3px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .18s;font-size:.7rem;color:transparent}
-.spor-item.chosen .spor-check{border-color:var(--gold);background:var(--gold);color:var(--paper)}
-.spor-text{font-size:.97rem;line-height:1.55;color:var(--ink)}
-.spor-day{font-family:'Raleway',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.12em;color:var(--ink-muted);margin-top:.28rem;text-transform:uppercase}
-.mission-card{background:var(--paper);border:1px solid var(--border);border-radius:3px;padding:.9rem 1.1rem;margin-bottom:.5rem;display:flex;gap:.9rem;align-items:flex-start;transition:all .18s;box-shadow:1px 1px 4px var(--shadow)}
-.mission-card.done{opacity:.5;background:var(--paper3);box-shadow:none}
-.mission-check{width:24px;height:24px;border:2px solid var(--border);border-radius:50%;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .18s;font-size:.75rem;color:transparent;background:var(--paper2)}
-.mission-card.done .mission-check{border-color:var(--green);background:var(--green);color:var(--paper)}
-.mission-body{flex:1}
-.mission-number{font-family:'Raleway',sans-serif;font-size:.58rem;font-weight:800;letter-spacing:.18em;color:var(--ink-muted);text-transform:uppercase;margin-bottom:.3rem}
-.mission-text{font-size:.95rem;line-height:1.6;color:var(--ink)}
-.mission-card.done .mission-text{text-decoration:line-through;color:var(--ink-muted)}
-.highlight{color:var(--gold);font-style:italic;font-weight:500}
-.note{font-size:.85rem;color:var(--ink-soft);font-style:italic;line-height:1.6}
-.kplan{background:var(--paper);border:1px solid var(--border);border-radius:3px;padding:1.1rem 1.4rem;margin-bottom:.65rem;box-shadow:1px 2px 6px var(--shadow);overflow-x:auto}
-.kplan-header{display:grid;grid-template-columns:1fr 128px 108px;gap:.5rem;font-family:'Raleway',sans-serif;font-size:.58rem;font-weight:800;letter-spacing:.15em;color:var(--ink-muted);text-transform:uppercase;padding-bottom:.55rem;border-bottom:1px solid var(--border);margin-bottom:.65rem}
-.kplan-row{display:grid;grid-template-columns:1fr 128px 108px;gap:.5rem;margin-bottom:.45rem}
-.kplan-input{background:var(--paper2);border:1px solid var(--border);border-radius:3px;color:var(--ink);font-family:'Lora',serif;font-size:.88rem;padding:.4rem .65rem;outline:none;transition:border-color .2s;width:100%}
-.kplan-input:focus{border-color:var(--gold);background:var(--paper)}
-.kplan-input::placeholder{color:var(--ink-muted);font-style:italic;font-size:.78rem}
-.add-row-btn{background:transparent;border:1px dashed var(--border);border-radius:3px;color:var(--ink-muted);font-family:'Raleway',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;padding:.45rem;cursor:pointer;text-transform:uppercase;width:100%;margin-top:.2rem;transition:all .18s}
-.add-row-btn:hover{border-color:var(--green);color:var(--green)}
-.sss-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-bottom:.65rem}
-.sss-card{background:var(--paper);border:1px solid var(--border);border-radius:3px;padding:.9rem 1rem;box-shadow:1px 1px 4px var(--shadow)}
-.sss-title{font-family:'Raleway',sans-serif;font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem}
-.sss-explain{font-size:.8rem;font-style:italic;color:var(--ink-muted);margin-bottom:.55rem;line-height:1.4}
-.sss-card:nth-child(1) .sss-title{color:var(--green)}
-.sss-card:nth-child(2) .sss-title{color:var(--red)}
-.sss-card:nth-child(3) .sss-title{color:var(--gold)}
-.sss-input{background:var(--paper2);border:1px solid var(--border);border-radius:3px;color:var(--ink);font-family:'Lora',serif;font-size:.88rem;padding:.45rem .65rem;outline:none;resize:vertical;min-height:85px;width:100%;transition:border-color .2s;line-height:1.6}
-.sss-input:focus{border-color:var(--gold);background:var(--paper)}
-.porto-label{font-family:'Raleway',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.18em;color:var(--ink-muted);text-transform:uppercase;margin-bottom:.35rem;display:block}
-.porto-field{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:3px;color:var(--ink);font-family:'Lora',serif;font-size:.97rem;padding:.9rem 1.1rem;resize:vertical;min-height:105px;outline:none;transition:border-color .2s;margin-bottom:.75rem;line-height:1.7;box-shadow:inset 0 1px 3px rgba(0,0,0,.06)}
-.porto-field:focus{border-color:var(--gold)}
-.fremlaeg-step{display:flex;gap:.9rem;align-items:flex-start;background:var(--paper);border:1px solid var(--border);border-radius:3px;padding:.9rem 1.1rem;margin-bottom:.45rem;box-shadow:1px 1px 4px var(--shadow);transition:transform .18s}
-.fremlaeg-step:hover{transform:translateX(3px)}
-.step-num{font-family:'Raleway',sans-serif;font-size:1.2rem;font-weight:800;color:var(--gold);flex-shrink:0;width:24px;line-height:1.4}
-.step-text{font-size:.97rem;line-height:1.6;color:var(--ink)}
-.day-panel{display:none}.day-panel.active{display:block}
-#save-status{position:fixed;top:1rem;right:1rem;font-family:'Raleway',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;color:var(--ink-muted);text-transform:uppercase;background:var(--paper);border:1px solid var(--border);border-radius:20px;padding:.35rem .85rem;box-shadow:1px 2px 6px var(--shadow);transition:opacity .3s;opacity:0;z-index:200}
-#save-status.visible{opacity:1}
-#print-btn,#sound-btn{position:fixed;bottom:1.75rem;font-family:'Raleway',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.12em;padding:.55rem 1rem;cursor:pointer;text-transform:uppercase;transition:all .18s;border-radius:20px;z-index:100;background:var(--paper);border:1px solid var(--border);color:var(--ink-muted);box-shadow:1px 2px 8px var(--shadow)}
-#print-btn{right:1.75rem}
-#print-btn:hover{border-color:var(--gold);color:var(--gold)}
-#sound-btn{left:1.75rem}
-#sound-btn:hover{border-color:var(--green);color:var(--green)}
-@media print{body{background:white}#intro{display:none!important}#main{display:block!important;padding:0}.day-nav{display:none}.day-panel{display:block!important;page-break-before:always}.day-panel:first-of-type{page-break-before:avoid}.card,.crime-scene,.mission-card,.spor-item,.fremlaeg-step,.kplan,.sss-card,.day-intro{background:white!important;border:1px solid #ccc!important;box-shadow:none!important;break-inside:avoid}#print-btn,#sound-btn,#save-status{display:none}.porto-field,.kplan-input,.sss-input{border:1px solid #ccc;background:white;color:black}}
+:root {
+  --paper:#f7f2e8; --paper2:#f0ead8; --paper3:#ede6d4; --paper4:#e8e0cc;
+  --ink:#1a1410; --ink-soft:#4a4038; --ink-muted:#8a8078;
+  --border:#d0c8b0; --border2:#b8b0a0;
+  --gold:#b87c18; --gold-bg:rgba(184,124,24,0.09);
+  --green:#2a7a58; --green-bg:rgba(42,122,88,0.09); --green-light:#e8f4ee;
+  --red:#a03028; --red-bg:rgba(160,48,40,0.08);
+  --blue:#2a5a8a; --blue-bg:rgba(42,90,138,0.08);
+  --shadow:rgba(26,20,16,0.09); --shadow2:rgba(26,20,16,0.16);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--paper2);
+  color: var(--ink);
+  font-family: Verdana, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── INTRO ── */
+#intro {
+  position:fixed; inset:0;
+  background:var(--paper2);
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(180,160,120,0.10) 32px,rgba(180,160,120,0.10) 33px);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  z-index:1000; padding:2rem;
+}
+.intro-card {
+  background:var(--paper); border:1px solid var(--border); border-radius:4px;
+  box-shadow:4px 4px 20px var(--shadow), 0 0 0 4px var(--paper), 0 0 0 5px var(--border);
+  padding:2.5rem 2.5rem 2rem; max-width:460px; width:100%; position:relative; overflow:hidden;
+}
+.intro-card::before { content:''; position:absolute; top:0; left:28px; width:2px; height:100%; background:rgba(160,48,40,0.18); }
+.tw-wrap { margin-bottom:1.25rem; padding-left:1.5rem; }
+.tl { font-family:'Courier New',monospace; font-size:1.1rem; color:var(--ink); min-height:1.7em; margin-bottom:.3rem; }
+.tl.s { font-size:.9rem; color:var(--ink-soft); font-family:Verdana,sans-serif; font-style:italic; }
+.team-intro { font-size:.8rem; font-weight:700; color:var(--green); padding-left:1.5rem; margin-bottom:1.25rem; letter-spacing:.02em; }
+#start-btn {
+  margin-left:1.5rem; background:var(--ink); border:none; border-radius:3px; color:var(--paper);
+  font-family:Verdana,sans-serif; font-size:.82rem; font-weight:700; letter-spacing:.05em;
+  padding:.7rem 1.75rem; cursor:pointer; transition:all .18s; box-shadow:2px 2px 8px var(--shadow);
+}
+#start-btn:hover { background:var(--gold); transform:translateY(-1px); }
+
+/* ── APP SHELL ── */
+#app { display:none; height:100vh; flex-direction:column; }
+
+/* ── TOPBAR ── */
+.topbar {
+  background:var(--paper); border-bottom:1px solid var(--border);
+  padding:.65rem 1.25rem; display:flex; align-items:center; gap:1rem;
+  flex-shrink:0; box-shadow:0 1px 5px var(--shadow); z-index:10;
+}
+.topbar-case { flex:1; min-width:0; }
+.topbar-meta { font-size:.65rem; font-weight:700; letter-spacing:.18em; color:var(--ink-muted); text-transform:uppercase; margin-bottom:.12rem; }
+.topbar-title { font-size:1.05rem; font-weight:700; color:var(--ink); line-height:1.15; }
+.topbar-team { font-size:.75rem; font-weight:700; color:var(--green); margin-top:.12rem; }
+.stamped { font-size:.6rem; font-weight:700; letter-spacing:.18em; color:var(--red); border:2px solid var(--red); border-radius:2px; padding:3px 7px; transform:rotate(2deg); opacity:.6; text-transform:uppercase; white-space:nowrap; flex-shrink:0; }
+.day-tabs { display:flex; gap:.22rem; flex-shrink:0; }
+.day-tab {
+  font-size:.68rem; font-weight:700; color:var(--ink-muted); padding:.42rem .65rem; cursor:pointer;
+  border:1px solid var(--border); border-radius:3px; background:var(--paper2);
+  transition:all .15s; text-align:center; text-transform:uppercase; white-space:nowrap; letter-spacing:.04em;
+}
+.day-tab:hover { color:var(--ink); background:var(--paper); }
+.day-tab.active { color:var(--paper); background:var(--ink); border-color:var(--ink); }
+.day-tab.today-tab:not(.active) { border-color:var(--gold); color:var(--gold); font-weight:700; }
+.day-tab.locked-tab { opacity:.45; cursor:default; }
+.day-tab.locked-tab:hover { color:var(--ink-muted); background:var(--paper2); }
+.day-tab.friday-tab:not(.active) { border-color:var(--gold); color:var(--gold); }
+.day-tab.friday-tab.active { background:var(--gold); border-color:var(--gold); }
+
+/* ── SPLIT ── */
+.split { display:grid; grid-template-columns:1fr 1fr; flex:1; overflow:hidden; }
+
+/* ── LEFT PANE ── */
+.left-pane {
+  border-right:1px solid var(--border);
+  display:flex; flex-direction:column; overflow:hidden;
+  background:var(--paper2);
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(180,160,120,0.10) 32px,rgba(180,160,120,0.10) 33px);
+}
+.left-scroll { flex:1; overflow-y:auto; padding:1rem 1rem 3rem; scroll-behavior:smooth; }
+
+/* Day intro */
+.day-intro {
+  background:var(--paper); border:1px solid var(--border);
+  border-left:3px solid var(--gold); border-radius:0 3px 3px 0;
+  padding:.7rem .9rem; margin-bottom:.9rem;
+  font-size:.88rem; line-height:1.65; color:var(--ink-soft);
+}
+
+/* ── MISSION CARD ── */
+.mission-card {
+  background:var(--paper); border:1px solid var(--border);
+  border-radius:4px; margin-bottom:.6rem;
+  box-shadow:1px 1px 4px var(--shadow); overflow:hidden;
+}
+.mission-card.done { opacity:.55; }
+.mission-card.active-card { border-color:var(--border2); box-shadow:1px 2px 7px var(--shadow); }
+
+.mission-header {
+  padding:.65rem .9rem; background:var(--paper2);
+  border-bottom:1px solid transparent;
+  display:flex; align-items:center; gap:.65rem;
+  cursor:pointer; user-select:none; transition:background .12s;
+}
+.mission-card.open .mission-header { border-bottom-color:var(--border); }
+.mission-header:hover { background:var(--paper3); }
+
+.mh-check {
+  width:20px; height:20px; border-radius:50%; border:2px solid var(--border);
+  flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all .18s;
+}
+.mission-card.done .mh-check { background:var(--green); border-color:var(--green); }
+.mh-checkmark { width:8px; height:5px; border-left:2px solid white; border-bottom:2px solid white; transform:rotate(-45deg) translateY(-1px); opacity:0; transition:opacity .18s; }
+.mission-card.done .mh-checkmark { opacity:1; }
+
+.mh-text { flex:1; }
+.mh-num { font-size:.6rem; font-weight:700; letter-spacing:.15em; color:var(--gold); text-transform:uppercase; margin-bottom:.08rem; }
+.mission-card.done .mh-num { color:var(--ink-muted); }
+.mh-title { font-size:.88rem; font-weight:700; color:var(--ink); }
+.mh-chevron { font-size:.65rem; color:var(--ink-muted); transition:transform .22s; flex-shrink:0; }
+.mission-card.open .mh-chevron { transform:rotate(180deg); }
+
+.mission-body-wrap { display:grid; grid-template-rows:0fr; transition:grid-template-rows .25s ease; }
+.mission-card.open .mission-body-wrap { grid-template-rows:1fr; }
+.mission-body-inner { overflow:hidden; }
+.mission-body { padding:.85rem .9rem .9rem; }
+.mission-body p { font-size:.88rem; line-height:1.68; color:var(--ink); margin-bottom:.5rem; }
+.mission-body p:last-child { margin-bottom:0; }
+
+.m-card { background:var(--paper2); border:1px solid var(--border); border-radius:3px; padding:.75rem .9rem; margin-bottom:.45rem; }
+.m-card p { font-size:.88rem; line-height:1.68; color:var(--ink); }
+.m-card p+p { margin-top:.45rem; }
+.pf-toggle { display:flex; gap:.28rem; margin-bottom:.55rem; }
+.pf-btn { font-size:.65rem; font-weight:700; padding:.26rem .75rem; border-radius:20px; border:1px solid var(--border); background:transparent; color:var(--ink-muted); cursor:pointer; transition:all .12s; }
+.pf-btn.active { border-color:var(--gold); color:var(--gold); background:var(--gold-bg); }
+.pf-content { display:none; } .pf-content.active { display:block; }
+
+/* Mission locked placeholder */
+.mission-locked {
+  background:var(--paper3); border:1px dashed var(--border); border-radius:4px;
+  padding:.6rem .9rem; margin-bottom:.6rem; opacity:.38;
+  font-size:.72rem; font-weight:700; letter-spacing:.1em; color:var(--ink-muted); text-transform:uppercase;
+}
+
+/* ── RIGHT PANE ── */
+.right-pane {
+  display:flex; flex-direction:column; overflow:hidden;
+  background:#fdfaf3;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(42,122,88,0.10) 32px,rgba(42,122,88,0.10) 33px);
+  position:relative;
+}
+/* Red margin line */
+.right-pane::before { content:''; position:absolute; top:0; bottom:0; left:42px; width:1.5px; background:rgba(160,48,40,0.18); pointer-events:none; z-index:1; }
+
+.right-topbar {
+  background:var(--green); border-bottom:1px solid var(--border);
+  padding:.55rem 1rem .55rem 3.2rem;
+  font-size:.72rem; font-weight:700; letter-spacing:.1em;
+  color:rgba(255,255,255,0.92); text-transform:uppercase;
+  flex-shrink:0; position:relative; z-index:2;
+  display:flex; align-items:center; gap:.5rem;
+}
+.right-topbar-icon { font-size:.95rem; }
+
+.right-scroll { flex:1; overflow-y:auto; padding:1rem 1.1rem 2rem 3.2rem; position:relative; z-index:1; }
+
+/* Work area panels */
+.work-panel { display:none; }
+.work-panel.active { display:block; animation:wpin .25s ease; }
+@keyframes wpin { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+
+/* Source iframe panel */
+.source-frame-wrap {
+  background:var(--paper); border:1px solid var(--border); border-radius:3px;
+  margin-bottom:.85rem; overflow:hidden;
+}
+.source-frame-bar {
+  background:var(--paper3); padding:.45rem .75rem;
+  display:flex; align-items:center; gap:.5rem;
+  border-bottom:1px solid var(--border);
+  font-size:.72rem; font-weight:700; color:var(--ink-muted);
+}
+.source-frame-bar a { color:var(--green); text-decoration:none; font-size:.72rem; font-weight:700; margin-left:auto; }
+.source-frame-bar a:hover { color:var(--ink); }
+.source-iframe { width:100%; height:260px; border:none; display:block; }
+
+/* Field labels */
+.field-label { font-size:.72rem; font-weight:700; letter-spacing:.1em; color:var(--green); text-transform:uppercase; margin-bottom:.3rem; display:block; border-left:3px solid var(--green); padding-left:.55rem; }
+.field-note { font-size:.82rem; color:var(--ink-soft); margin-bottom:.55rem; line-height:1.55; }
+
+/* Text fields */
+.work-field {
+  width:100%; background:rgba(255,255,255,0.6); border:1px solid var(--border);
+  border-radius:3px;
+  color:var(--ink); font-family:Verdana,sans-serif; font-size:.9rem;
+  line-height:1.68; padding:.55rem .7rem;
+  resize:vertical; outline:none; min-height:44px; margin-bottom:.85rem;
+  transition:all .18s;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.04);
+}
+.work-field:focus {
+  border-color:var(--gold);
+  background:white;
+  box-shadow: 0 0 0 2px rgba(184,124,24,0.12), inset 0 1px 3px rgba(0,0,0,.04);
+}
+.work-field::placeholder { color:var(--ink-muted); font-style:italic; font-size:.85rem; }
+
+/* Spor checkboxes */
+.spor-list { margin-bottom:.75rem; }
+.spor-item {
+  display:flex; align-items:flex-start; gap:.55rem;
+  margin-bottom:.35rem; cursor:pointer; padding:.3rem .4rem;
+  border-radius:3px; transition:background .12s; user-select:none;
+}
+.spor-item:hover { background:var(--gold-bg); }
+.spor-item.chosen { background:var(--gold-bg); }
+.spor-box {
+  width:17px; height:17px; border:2px solid var(--border2); border-radius:2px;
+  flex-shrink:0; margin-top:2px; display:flex; align-items:center; justify-content:center;
+  transition:all .15s; font-size:.6rem; color:transparent; font-weight:700;
+}
+.spor-item.chosen .spor-box { border-color:var(--gold); background:var(--gold); color:var(--paper); }
+.spor-text { font-size:.87rem; line-height:1.45; color:var(--ink); }
+
+/* Previous day's questions */
+.prev-questions {
+  background:var(--blue-bg); border:1px solid rgba(42,90,138,0.2);
+  border-left:3px solid var(--blue); border-radius:0 3px 3px 0;
+  padding:.75rem .9rem; margin-bottom:.85rem;
+}
+.prev-q-title { font-size:.68rem; font-weight:700; letter-spacing:.12em; color:var(--blue); text-transform:uppercase; margin-bottom:.4rem; }
+.prev-q-item { font-size:.87rem; color:var(--ink); margin-bottom:.28rem; line-height:1.5; padding-left:.4rem; border-left:2px solid rgba(42,90,138,0.25); }
+
+/* Kplan */
+.kplan-hdr { display:grid; grid-template-columns:1fr 95px 82px; gap:.3rem; font-size:.68rem; font-weight:700; color:var(--green); padding-bottom:.22rem; border-bottom:1px solid var(--border); margin-bottom:.3rem; letter-spacing:.05em; }
+.kplan-row { display:grid; grid-template-columns:1fr 95px 82px; gap:.3rem; margin-bottom:.25rem; }
+.kplan-input { background:transparent; border:none; border-bottom:1px solid var(--border); color:var(--ink); font-family:Verdana,sans-serif; font-size:.87rem; padding:.08rem .18rem; outline:none; width:100%; transition:border-color .15s; }
+.kplan-input:focus { border-bottom-color:var(--gold); }
+.kplan-input::placeholder { color:var(--ink-muted); font-style:italic; font-size:.8rem; }
+.add-row-btn { background:transparent; border:none; color:rgba(42,122,88,.45); font-size:.82rem; cursor:pointer; padding:.12rem .2rem; transition:color .12s; margin-top:.1rem; font-family:Verdana,sans-serif; }
+.add-row-btn:hover { color:var(--green); }
+
+/* SSS */
+.sss-label { font-size:.78rem; font-weight:700; margin-bottom:.1rem; display:block; }
+.sss-label.start { color:var(--green); } .sss-label.stop { color:var(--red); } .sss-label.go { color:var(--gold); }
+.sss-expl { font-size:.8rem; color:var(--ink-muted); margin-bottom:.3rem; line-height:1.45; font-style:italic; }
+.sss-field { width:100%; background:transparent; border:none; border-bottom:1px solid var(--border); color:var(--ink); font-family:Verdana,sans-serif; font-size:.87rem; padding:.08rem .18rem; outline:none; resize:none; min-height:52px; transition:border-color .15s; line-height:1.65; margin-bottom:.8rem; }
+.sss-field:focus { border-bottom-color:var(--gold); }
+
+/* Fremlaeg */
+.fl-step { display:flex; gap:.6rem; align-items:flex-start; background:var(--paper2); border:1px solid var(--border); border-radius:3px; padding:.6rem .75rem; margin-bottom:.32rem; }
+.fl-num { font-size:.95rem; font-weight:700; color:var(--gold); flex-shrink:0; width:18px; line-height:1.4; }
+.fl-body { flex:1; }
+.fl-text { font-size:.85rem; line-height:1.5; color:var(--ink); }
+.pull-lbl { font-size:.6rem; font-weight:700; letter-spacing:.12em; color:var(--green); text-transform:uppercase; margin:.28rem 0 .12rem; display:block; }
+.pull-field { background:var(--green-bg); border:1px solid rgba(42,122,88,0.18); border-radius:3px; padding:.42rem .65rem; font-size:.85rem; line-height:1.58; color:var(--ink-soft); font-style:italic; min-height:1.8em; white-space:pre-wrap; }
+.pull-field.empty { color:var(--ink-muted); }
+
+/* Next btn */
+.next-btn {
+  display:inline-flex; align-items:center; gap:.4rem; margin-top:.85rem;
+  background:var(--ink); border:none; border-radius:3px; color:var(--paper);
+  font-family:Verdana,sans-serif; font-size:.78rem; font-weight:700; letter-spacing:.04em;
+  padding:.58rem 1.15rem; cursor:pointer; transition:all .18s; box-shadow:1px 2px 5px var(--shadow);
+}
+.next-btn:hover { background:var(--gold); transform:translateY(-1px); }
+
+/* ── DAY SUMMARY / CLOSE ── */
+.close-day-btn {
+  display:block; width:100%; margin-top:1.5rem;
+  background:var(--green); border:none; border-radius:3px; color:white;
+  font-family:Verdana,sans-serif; font-size:.82rem; font-weight:700; letter-spacing:.04em;
+  padding:.65rem 1rem; cursor:pointer; transition:all .18s; text-align:center;
+}
+.close-day-btn:hover { background:#1f5e42; }
+
+/* Summary overlay */
+#summary-overlay {
+  display:none; position:fixed; inset:0;
+  background:rgba(26,20,16,0.55); z-index:500;
+  align-items:center; justify-content:center; padding:1.5rem;
+}
+#summary-overlay.open { display:flex; }
+.summary-box {
+  background:var(--paper); border:1px solid var(--border); border-radius:6px;
+  box-shadow:0 8px 32px var(--shadow2); width:100%; max-width:560px;
+  max-height:85vh; overflow-y:auto; padding:1.75rem 2rem;
+}
+.summary-title { font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:.25rem; }
+.summary-meta { font-size:.78rem; color:var(--ink-muted); margin-bottom:1.25rem; }
+.summary-section { margin-bottom:1rem; }
+.summary-lbl { font-size:.65rem; font-weight:700; letter-spacing:.14em; color:var(--green); text-transform:uppercase; margin-bottom:.28rem; }
+.summary-val { font-size:.88rem; color:var(--ink); line-height:1.6; background:var(--paper2); border:1px solid var(--border); border-radius:3px; padding:.55rem .75rem; white-space:pre-wrap; }
+.summary-val.empty { color:var(--ink-muted); font-style:italic; }
+.teacher-section { border-top:1px solid var(--border); padding-top:1.1rem; margin-top:1.1rem; }
+.teacher-lbl { font-size:.72rem; font-weight:700; letter-spacing:.12em; color:var(--gold); text-transform:uppercase; margin-bottom:.45rem; }
+.teacher-comment {
+  width:100%; background:var(--paper2); border:1px solid var(--border); border-radius:3px;
+  color:var(--ink); font-family:Verdana,sans-serif; font-size:.88rem;
+  padding:.55rem .75rem; resize:none; min-height:72px; outline:none; margin-bottom:.75rem;
+  transition:border-color .15s; line-height:1.6;
+}
+.teacher-comment:focus { border-color:var(--gold); }
+.teacher-code-row { display:flex; gap:.5rem; align-items:center; margin-bottom:.5rem; }
+.teacher-code-input { background:var(--paper); border:1px solid var(--border); border-radius:3px; color:var(--ink); font-family:Verdana,sans-serif; font-size:.9rem; font-weight:700; letter-spacing:.15em; padding:.45rem .75rem; outline:none; width:110px; text-align:center; }
+.teacher-code-input:focus { border-color:var(--gold); }
+.approve-btn { background:var(--green); border:none; border-radius:3px; color:white; font-family:Verdana,sans-serif; font-size:.78rem; font-weight:700; padding:.5rem 1.1rem; cursor:pointer; transition:all .18s; letter-spacing:.04em; }
+.approve-btn:hover { background:#1f5e42; }
+.approve-error { font-size:.75rem; color:var(--red); font-weight:700; display:none; }
+.prev-feedback {
+  background:var(--gold-bg); border:1px solid rgba(184,124,24,0.25);
+  border-left:3px solid var(--gold); border-radius:0 3px 3px 0;
+  padding:.65rem .85rem; margin-bottom:.85rem;
+}
+.prev-feedback-lbl { font-size:.65rem; font-weight:700; letter-spacing:.12em; color:var(--gold); text-transform:uppercase; margin-bottom:.2rem; }
+.prev-feedback-text { font-size:.87rem; color:var(--ink); line-height:1.55; }
+
+/* Friday */
+.friday-lock { text-align:center; padding:3rem 1rem; }
+.lock-icon { font-size:2rem; margin-bottom:.65rem; opacity:.3; }
+.lock-label { font-size:.65rem; font-weight:700; letter-spacing:.18em; color:var(--ink-muted); text-transform:uppercase; margin-bottom:1.1rem; }
+.lock-input-wrap { display:flex; gap:.4rem; justify-content:center; margin-bottom:.45rem; }
+.lock-input { background:var(--paper); border:1px solid var(--border); border-radius:3px; color:var(--ink); font-family:Verdana,sans-serif; font-size:.95rem; font-weight:700; letter-spacing:.15em; padding:.48rem .85rem; outline:none; text-align:center; width:115px; }
+.lock-input:focus { border-color:var(--gold); }
+.lock-btn { background:var(--ink); border:none; border-radius:3px; color:var(--paper); font-family:Verdana,sans-serif; font-size:.75rem; font-weight:700; letter-spacing:.04em; padding:.55rem 1rem; cursor:pointer; transition:all .18s; }
+.lock-btn:hover { background:var(--gold); }
+.lock-error { font-size:.72rem; color:var(--red); font-weight:700; display:none; margin-top:.38rem; }
+.schedule-board { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; margin-bottom:.85rem; }
+.room-col { background:var(--paper); border:1px solid var(--border); border-radius:4px; overflow:hidden; }
+.room-hdr { background:var(--paper3); padding:.55rem .85rem; font-size:.65rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-muted); border-bottom:1px solid var(--border); }
+.time-slots { padding:.5rem; }
+.time-slot { background:var(--paper2); border:1px solid var(--border); border-radius:3px; margin-bottom:.35rem; min-height:44px; transition:background .12s; }
+.time-slot.drag-over { background:var(--gold-bg); border-color:var(--gold); }
+.slot-tr { display:flex; align-items:center; gap:.38rem; padding:.26rem .5rem .16rem; }
+.slot-ti { background:transparent; border:none; border-bottom:1px dashed var(--border); color:var(--ink-muted); font-family:Verdana,sans-serif; font-size:.65rem; font-weight:700; letter-spacing:.04em; outline:none; width:105px; padding:.06rem .1rem; }
+.slot-ti:focus { border-color:var(--gold); color:var(--ink); }
+.slot-rm { background:none; border:none; color:var(--ink-muted); cursor:pointer; font-size:.68rem; padding:.06rem .22rem; opacity:.38; }
+.slot-rm:hover { color:var(--red); opacity:1; }
+.slot-da { min-height:26px; padding:.12rem .35rem .28rem; display:flex; align-items:center; }
+.slot-hint { font-size:.72rem; font-style:italic; color:var(--ink-muted); opacity:.4; }
+.add-slot-btn { width:100%; background:transparent; border:1px dashed var(--border); border-radius:3px; color:var(--ink-muted); font-family:Verdana,sans-serif; font-size:.65rem; font-weight:700; letter-spacing:.08em; padding:.36rem; cursor:pointer; text-transform:uppercase; transition:all .12s; margin-top:.14rem; }
+.add-slot-btn:hover { border-color:var(--green); color:var(--green); }
+.tiles-section { margin-bottom:.85rem; }
+.tiles-lbl { font-size:.65rem; font-weight:700; letter-spacing:.15em; color:var(--ink-muted); text-transform:uppercase; margin-bottom:.42rem; }
+.tiles-pool { display:flex; flex-wrap:wrap; gap:.3rem; background:var(--paper); border:1px solid var(--border); border-radius:4px; padding:.6rem; min-height:42px; }
+.group-tile { background:var(--ink); color:var(--paper); font-family:Verdana,sans-serif; font-size:.7rem; font-weight:700; padding:.28rem .6rem; border-radius:3px; cursor:grab; user-select:none; transition:all .12s; }
+.group-tile:hover { background:var(--gold); transform:translateY(-1px); }
+.group-tile.my-group { background:var(--green); }
+.group-tile.placed { background:var(--gold); }
+.my-slot-banner { background:var(--gold-bg); border:1px solid rgba(184,124,24,0.3); border-radius:3px; padding:.7rem .9rem; margin-bottom:.75rem; display:flex; align-items:center; gap:.75rem; }
+.my-slot-title { font-size:.62rem; font-weight:700; letter-spacing:.12em; color:var(--gold); text-transform:uppercase; margin-bottom:.12rem; }
+.my-slot-detail { font-size:.9rem; font-weight:700; color:var(--ink); }
+.all-slots { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+.room-list { background:var(--paper); border:1px solid var(--border); border-radius:4px; overflow:hidden; }
+.room-list-hdr { background:var(--paper3); padding:.48rem .85rem; font-size:.62rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-muted); border-bottom:1px solid var(--border); }
+.slot-row { display:flex; align-items:center; gap:.48rem; padding:.4rem .85rem; border-bottom:1px solid var(--border); }
+.slot-row:last-child { border-bottom:none; }
+.slot-row.my-row { background:var(--gold-bg); font-weight:700; }
+.slot-rt { font-size:.65rem; font-weight:700; color:var(--ink-muted); width:110px; flex-shrink:0; }
+.slot-rg { font-size:.87rem; color:var(--ink); }
+
+/* Save */
+#save-status { position:fixed; top:.7rem; right:1rem; font-size:.62rem; font-weight:700; letter-spacing:.08em; color:var(--ink-muted); text-transform:uppercase; background:var(--paper); border:1px solid var(--border); border-radius:20px; padding:.26rem .65rem; box-shadow:1px 2px 4px var(--shadow); transition:opacity .28s; opacity:0; z-index:300; font-family:Verdana,sans-serif; }
+#save-status.visible { opacity:1; }
+
+.check-item {
+  display:flex; align-items:flex-start; gap:.55rem;
+  padding:.4rem .5rem; margin-bottom:.32rem; cursor:pointer;
+  border-radius:3px; transition:background .12s; user-select:none;
+  font-size:.88rem; color:var(--ink); line-height:1.5;
+}
+.check-item:hover { background:var(--green-bg); }
+.check-item.checked { opacity:.55; text-decoration:line-through; color:var(--ink-muted); }
+.check-box {
+  width:17px; height:17px; border:2px solid var(--border2); border-radius:2px;
+  flex-shrink:0; margin-top:1px; transition:all .15s;
+  display:flex; align-items:center; justify-content:center;
+}
+.check-item.checked .check-box { background:var(--green); border-color:var(--green); }
+.check-item.checked .check-box::after { content:'✓'; color:white; font-size:.6rem; font-weight:700; }
+
+.delmaal-item {
+  display:flex; align-items:flex-start; gap:.55rem;
+  padding:.38rem .5rem; margin-bottom:.28rem;
+  border-radius:3px; transition:background .12s; cursor:pointer; user-select:none;
+  font-size:.88rem; color:var(--ink); line-height:1.5;
+}
+.delmaal-item:hover { background:var(--green-bg); }
+.delmaal-item.done { opacity:.5; text-decoration:line-through; color:var(--ink-muted); }
+.delmaal-box {
+  width:17px; height:17px; border:2px solid var(--border2); border-radius:2px;
+  flex-shrink:0; margin-top:1px; transition:all .15s;
+  display:flex; align-items:center; justify-content:center;
+}
+.delmaal-item.done .delmaal-box { background:var(--green); border-color:var(--green); }
+.delmaal-item.done .delmaal-box::after { content:'✓'; color:white; font-size:.6rem; font-weight:700; }
+
+.focus-badge {
+  background:var(--gold-bg); border:1px solid rgba(184,124,24,0.28);
+  border-left:3px solid var(--gold); border-radius:0 3px 3px 0;
+  padding:.5rem .85rem; margin-bottom:.85rem;
+  font-size:.85rem; font-weight:700; color:var(--ink-soft);
+}
+
+.source-link-box {
+  background:var(--green-bg); border:1px solid rgba(42,122,88,0.22);
+  border-left:3px solid var(--green); border-radius:0 3px 3px 0;
+  padding:.75rem .95rem; margin-bottom:.85rem;
+}
+.source-link-label { font-size:.68rem; font-weight:700; letter-spacing:.12em; color:var(--green); text-transform:uppercase; margin-bottom:.28rem; }
+.source-link-hint { font-size:.87rem; color:var(--ink-soft); line-height:1.58; margin-bottom:.6rem; }
+.source-open-btn {
+  display:inline-block; background:var(--green); color:white;
+  font-family:Verdana,sans-serif; font-size:.78rem; font-weight:700; letter-spacing:.04em;
+  padding:.48rem 1rem; border-radius:3px; text-decoration:none; transition:background .15s;
+}
+.source-open-btn:hover { background:#1f5e42; }
+
+.hl { color:var(--gold); font-style:italic; font-weight:700; }
+.note-txt { font-size:.84rem; color:var(--ink-soft); line-height:1.6; }
+
+@media(max-width:720px){
+  .split{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
+  .left-pane{border-right:none;border-bottom:1px solid var(--border)}
+  .day-tabs{flex-wrap:wrap}
+}
 </style>
 </head>
 <body>
+
+<!-- INTRO -->
 <div id="intro">
   <div class="intro-card">
     <div class="tw-wrap">
-      <div class="typewriter-line" id="tw1"></div>
-      <div class="typewriter-line small" id="tw2"></div>
-      <div class="typewriter-line small" id="tw3"></div>
+      <div class="tl" id="tw1"></div>
+      <div class="tl s" id="tw2"></div>
+      <div class="tl s" id="tw3"></div>
     </div>
-    <div class="team-intro">Efterforskere: Hannibal · Alexander · Ella · Celia</div>
+    <div class="team-intro">Efterforskere: Julius · Benjamin · Emma · Nellie</div>
     <button id="start-btn" onclick="openCase()">Åbn sagen →</button>
   </div>
 </div>
+
 <div id="save-status"></div>
-<div id="main">
-  <div class="case-header">
-    <div class="case-meta">Projekt 2026 · Sag 01 · HISTORIE</div>
-    <div class="case-title">Livet på landet i gamle dage</div>
-    <div class="case-subtitle">Hvordan og hvorfor ændrede landbruget sig så dramatisk?</div>
-    <div class="team-names">Efterforskere: Hannibal · Alexander · Ella · Celia</div>
+
+<!-- SUMMARY OVERLAY -->
+<div id="summary-overlay">
+  <div class="summary-box" id="summary-box"></div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <div class="topbar">
+    <div class="topbar-case">
+      <div class="topbar-meta">Projekt 2026 · Sag 01 · HISTORIE</div>
+      <div class="topbar-title">Livet på landet i gamle dage</div>
+      <div class="topbar-team">Hannibal · Alexander · Ella · Celia</div>
+    </div>
+    <div class="day-tabs">
+      <button class="day-tab active" onclick="showDay('mandag',this)" id="tab-mandag">Mandag</button>
+      <button class="day-tab locked-tab" id="tab-tirsdag" onclick="tryShowDay('tirsdag',this)">Tirsdag</button>
+      <button class="day-tab locked-tab" id="tab-onsdag" onclick="tryShowDay('onsdag',this)">Onsdag</button>
+      <button class="day-tab locked-tab" id="tab-torsdag" onclick="tryShowDay('torsdag',this)">Torsdag</button>
+      <button class="day-tab friday-tab" onclick="showDay('fredag',this)" id="tab-fredag">Fre 🔒</button>
+    </div>
     <div class="stamped">Fortroligt</div>
   </div>
-  <div class="day-nav">
-    <button class="day-tab active" onclick="showDay('mandag',this)">Mandag</button>
-    <button class="day-tab" onclick="showDay('tirsdag',this)">Tirsdag</button>
-    <button class="day-tab" onclick="showDay('onsdag',this)">Onsdag</button>
-    <button class="day-tab" onclick="showDay('torsdag',this)">Torsdag</button>
-    <button class="day-tab" onclick="showDay('fredag',this)">Fredag</button>
-    <button class="day-tab" onclick="showDay('portfolio',this)">Portfolio</button>
-  </div>
 
-  <div class="day-panel active" id="panel-mandag">
-    <div class="day-intro"><p>Læs problemformuleringen og gerningsstedet. Vælg de spor I vil følge. Find de ting I endnu ikke forstår eller kan svare på – det er dem I undersøger tirsdag.</p></div>
-    <div class="section">
-      <div class="section-label">Jeres sag</div>
-      <div class="pf-toggle">
-        <button class="pf-btn active" onclick="togglePF('detail',this)">Detaljeret</button>
-        <button class="pf-btn" onclick="togglePF('enkel',this)">Enkel</button>
-      </div>
-      <div class="card pf-content active" id="pf-detail"><p>Landbrug går lang tilbage i tiden. Faktisk helt tilbage til stenalderen har mennesker dyrket jorden og haft husdyr. Den måde vi har drevet landbrug på, har ændret sig meget gennem tiderne. Særligt er der sket en stor udvikling gennem de seneste årtier, fra den gang vores bedsteforældre og oldeforældre drev landbrug og til nutidens moderne landbrug.<br><br>Vi vil gerne undersøge hvordan landbruget har ændret sig fra for 100 år siden og til nutiden. Vi vil også gerne finde ud af hvorfor landbruget har ændret sig så meget.</p></div>
-      <div class="card pf-content" id="pf-enkel"><p>Landbruget har ændret sig meget gennem tiden. Før brugte man dyr og simple redskaber, og i dag bruger man store maskiner.<br><br>Vi vil finde ud af, hvordan landbruget har ændret sig – og hvorfor.</p></div>
+  <div class="split">
+    <div class="left-pane">
+      <div style="background:var(--paper3);border-bottom:1px solid var(--border);padding:.5rem 1rem;font-size:.65rem;font-weight:700;letter-spacing:.15em;color:var(--ink-muted);text-transform:uppercase;flex-shrink:0">📋 Opgaven – læs og følg</div>
+      <div class="left-scroll" id="left-content"></div>
     </div>
-    <div class="section">
-      <div class="section-label">Gerningsstedet – læs dette først</div>
-      <div class="crime-scene">
-        <p>Inden I vælger jeres spor skal I læse dette. Det er historien om én families møde med traktoren i 1949 – og hvad der skete bagefter.</p>
-        <a href="https://www.dr.dk/nyheder/kultur/historie/dansk-landbrug-i-70-aar-fra-alsidigt-familiebrug-til-specialiserede" target="_blank">→ Åbn gerningsstedet (DR: Dansk landbrug i 70 år)</a>
-      </div>
-    </div>
-    <div class="section">
-      <div class="section-label">Vælg 1–2 spor</div>
-      <p class="note" style="margin-bottom:.75rem">Klik på de spor I vil følge denne uge. I kan max vælge 2.</p>
-      <div class="spor-list">
-        <div class="spor-item" onclick="toggleSpor(this)" data-index="0">
-          <div class="spor-check">✓</div>
-          <div><div class="spor-text">Hvordan ændrede livet sig på en gård da traktoren kom – og hvem forsvandt?</div><div class="spor-day">Oplagt: Tirsdag–Onsdag</div></div>
-        </div>
-        <div class="spor-item" onclick="toggleSpor(this)" data-index="1">
-          <div class="spor-check">✓</div>
-          <div><div class="spor-text">Hvorfor gik Danmark fra hundredtusindvis af små gårde til nogle få kæmpestore?</div><div class="spor-day">Oplagt: Tirsdag–Onsdag</div></div>
-        </div>
-        <div class="spor-item" onclick="toggleSpor(this)" data-index="2">
-          <div class="spor-check">✓</div>
-          <div><div class="spor-text">Hvad betød det for landsbyen at færre og færre arbejdede på landet?</div><div class="spor-day">Oplagt: Onsdag–Torsdag</div></div>
-        </div>
-        <div class="spor-item" onclick="toggleSpor(this)" data-index="3">
-          <div class="spor-check">✓</div>
-          <div><div class="spor-text">Hvad mistede vi da landbosamfundet forsvandt – og er der noget vi burde have beholdt?</div><div class="spor-day">Oplagt: Onsdag–Fremlæggelse</div></div>
-        </div></div>
-    </div>
-    <div class="section">
-      <div class="section-label">Mandagens missioner</div>
-      <div class="mission-card" id="m-man-1"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 1 – Forstå sagen</div><div class="mission-text">Læs sagen højt for hinanden. Forklar den med jeres egne ord. <span class="highlight">I er i mål når alle kan forklare hvad sagen handler om.</span></div></div></div>
-      <div class="mission-card" id="m-man-2"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 2 – Vælg spor</div><div class="mission-text">Læs gerningsstedet. Vælg 1–2 spor. <span class="highlight">I er i mål når I kan forklare hvorfor I valgte netop dem.</span></div></div></div>
-      <div class="mission-card" id="m-man-3"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 3 – Find hullerne</div><div class="mission-text">Hvad forstår I ikke endnu? Hvad kan I ikke svare på? Skriv det ned i portfolioen. <span class="highlight">Det er dem I undersøger i morgen.</span></div></div></div>
-    </div>
-  </div>
-
-  <div class="day-panel" id="panel-tirsdag">
-    <div class="day-intro"><p>Find svar på det I ikke vidste. Saml konkrete beviser der underbygger jeres forståelse af sagen. Beslut hvad I vil lave som produkt – og læg en plan for onsdag.</p></div>
-    <div class="section">
-      <div class="section-label">Godkendte kilder</div>
-      <div class="crime-scene"><p>I må kun bruge kilder fra detektivarkivet – eller kilder I selv finder og får godkendt af en lærer.</p><a href="detektiv-arkiv.html" target="_blank">→ Åbn detektivarkivet</a></div>
-    </div>
-    <div class="section">
-      <div class="section-label">Tirsdagens missioner</div>
-      <div class="mission-card" id="m-tir-1"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 1 – Find beviser</div><div class="mission-text">Find mindst <span class="highlight">3 konkrete beviser</span> – fakta, tal eller sammenhænge der besvarer det I ikke vidste i går.</div></div></div>
-      <div class="mission-card" id="m-tir-2"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 2 – Skriv det ned</div><div class="mission-text">Skriv jeres beviser i portfolioen med <span class="highlight">jeres egne ord</span>. Kopier ikke – skriv hvad I forstår det betyder.</div></div></div>
-      <div class="mission-card" id="m-tir-3"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 3 – Beslut jeres produkt</div><div class="mission-text">Hvad er jeres vigtigste pointe? Hvilket produkt viser den bedst? <span class="highlight">Produktet behøver ikke indeholde alt – bare det vigtigste.</span></div></div></div>
-      <div class="mission-card" id="m-tir-4"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 4 – Planlæg onsdag</div><div class="mission-text">Udfyld koordineringsplanen herunder. <span class="highlight">Hvad skal laves? Hvem gør hvad? Hvad skal I bruge?</span></div></div></div>
-    </div>
-    <div class="section">
-      <div class="section-label">Koordineringsplan – hvad sker der onsdag?</div>
-      <div class="kplan">
-        <div class="kplan-header"><span>Hvad skal laves</span><span>Hvem gør det</span><span>Skal bruge</span></div>
-        <div id="kplan-rows">
-          <div class="kplan-row"><input class="kplan-input" placeholder="Fx tegne forsiden..." oninput="scheduleSave()"><input class="kplan-input" placeholder="Navn..." oninput="scheduleSave()"><input class="kplan-input" placeholder="Fx papir..." oninput="scheduleSave()"></div>
-          <div class="kplan-row"><input class="kplan-input" oninput="scheduleSave()"><input class="kplan-input" oninput="scheduleSave()"><input class="kplan-input" oninput="scheduleSave()"></div>
-          <div class="kplan-row"><input class="kplan-input" oninput="scheduleSave()"><input class="kplan-input" oninput="scheduleSave()"><input class="kplan-input" oninput="scheduleSave()"></div>
-        </div>
-        <button class="add-row-btn" onclick="addKplanRow()">+ Tilføj linje</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="day-panel" id="panel-onsdag">
-    <div class="day-intro"><p>Lav det produkt der bedst viser jeres vigtigste pointe. Det behøver ikke indeholde alt I har fundet ud af – men det skal kunne bruges aktivt når I fremlægger fredag.</p></div>
-    <div class="section">
-      <div class="section-label">Onsdagens missioner</div>
-      <div class="mission-card" id="m-ons-1"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 1 – Saml materialer</div><div class="mission-text">Hent det I har brug for ifølge jeres koordineringsplan. <span class="highlight">Brug max 15 minutter.</span></div></div></div>
-      <div class="mission-card" id="m-ons-2"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 2 – Producér</div><div class="mission-text">Lav produktet. Følg jeres plan. <span class="highlight">Alle skal have en aktiv opgave.</span></div></div></div>
-      <div class="mission-card" id="m-ons-3"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 3 – Tjek inden I pakker sammen</div><div class="mission-text"><span class="highlight">Viser produktet jeres pointe tydeligt? Kan I bruge det aktivt i fremlæggelsen fredag?</span></div></div></div>
-    </div>
-  </div>
-
-  <div class="day-panel" id="panel-torsdag">
-    <div class="day-intro"><p>Kig på det hele samlet. Hvad har I fundet ud af? Hvordan bruger I produktet i fremlæggelsen? Øv jer – alle skal sige noget.</p></div>
-    <div class="section">
-      <div class="section-label">Torsdagens missioner</div>
-      <div class="mission-card" id="m-tor-1"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 1 – Gør produktet færdigt</div><div class="mission-text">Færdiggør produktet. <span class="highlight">Tjek: viser det jeres pointe? Kan man se sammenhængen med jeres spor?</span></div></div></div>
-      <div class="mission-card" id="m-tor-2"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 2 – Øv fremlæggelsen</div><div class="mission-text">Øv én gang igennem. Max 7 minutter. <span class="highlight">Alle siger noget. Produktet bruges aktivt.</span></div></div></div>
-      <div class="mission-card" id="m-tor-3"><div class="mission-check" onclick="toggleMission(this)">✓</div><div class="mission-body"><div class="mission-number">Mission 3 – Evaluer samarbejdet</div><div class="mission-text">Udfyld Start–Stop–Fortsæt herunder.</div></div></div>
-    </div>
-    <div class="section">
-      <div class="section-label">Start – Stop – Fortsæt</div>
-      <div class="sss-grid">
-        <div class="sss-card"><div class="sss-title">Start</div><div class="sss-explain">Hvad bør I begynde at gøre?</div><textarea class="sss-input" id="sss-0" oninput="scheduleSave()"></textarea></div>
-        <div class="sss-card"><div class="sss-title">Stop</div><div class="sss-explain">Hvad bør I holde op med?</div><textarea class="sss-input" id="sss-1" oninput="scheduleSave()"></textarea></div>
-        <div class="sss-card"><div class="sss-title">Fortsæt</div><div class="sss-explain">Hvad fungerer godt og skal fortsætte?</div><textarea class="sss-input" id="sss-2" oninput="scheduleSave()"></textarea></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="day-panel" id="panel-fredag">
-    <div class="day-intro"><p>Præsentér jeres sag for klassen. Forklar hvad I undersøgte, hvad I fandt ud af – og brug produktet til at vise jeres pointe. I har <span class="highlight">max 7 minutter.</span></p></div>
-    <div class="section">
-      <div class="section-label">Sådan bygger I fremlæggelsen op</div>
-      <div class="fremlaeg-step"><div class="step-num">1</div><div class="step-text">Fortæl hvad jeres sag handlede om.</div></div>
-      <div class="fremlaeg-step"><div class="step-num">2</div><div class="step-text">Fortæl hvilke spor I valgte at følge – og hvorfor.</div></div>
-      <div class="fremlaeg-step"><div class="step-num">3</div><div class="step-text">Fortæl hvilke beviser I fandt – med jeres egne ord.</div></div>
-      <div class="fremlaeg-step"><div class="step-num">4</div><div class="step-text">Brug produktet aktivt til at vise jeres vigtigste pointe.</div></div>
-      <div class="fremlaeg-step"><div class="step-num">5</div><div class="step-text">Forklar hvad jeres svar på sagen er.</div></div>
-    </div>
-  </div>
-
-  <div class="day-panel" id="panel-portfolio">
-    <div class="day-intro"><p>Udfyld løbende hele ugen. Brug det til fremlæggelsen fredag.</p></div>
-    <div class="section">
-      <label class="porto-label">Vores sag handler om...</label>
-      <textarea class="porto-field" id="porto-sag" oninput="scheduleSave()"></textarea>
-      <label class="porto-label">De spor vi valgte – og hvorfor</label>
-      <textarea class="porto-field" id="porto-spor" oninput="scheduleSave()"></textarea>
-      <label class="porto-label">Det vi ikke vidste – og skulle finde ud af</label>
-      <textarea class="porto-field" id="porto-huller" oninput="scheduleSave()"></textarea>
-      <label class="porto-label">Vores vigtigste beviser (med egne ord)</label>
-      <textarea class="porto-field" id="porto-beviser" style="min-height:150px" oninput="scheduleSave()"></textarea>
-      <label class="porto-label">Vores vigtigste pointe</label>
-      <textarea class="porto-field" id="porto-pointe" oninput="scheduleSave()"></textarea>
-      <label class="porto-label">Vores produkt – og hvad det viser</label>
-      <textarea class="porto-field" id="porto-produkt" oninput="scheduleSave()"></textarea>
+    <div class="right-pane">
+      <div class="right-topbar"><span class="right-topbar-icon">✏️</span><span id="right-topbar-label">Skriv jeres svar her</span></div>
+      <div class="right-scroll" id="right-content"></div>
     </div>
   </div>
 </div>
-<button id="print-btn" onclick="window.print()">⎙ Print</button>
-<button id="sound-btn" onclick="toggleSound()">♪ Lyd: fra</button>
+
 <script>
-const GK = 'historie2';
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbznadoOCu219A8tVRiFeQ-dm-t1H00958POyFNerZmVBuuG5bgBaoZjzTCf5GSZ1JfzbQ/exec';
-let soundOn = false, audioCtx = null, saveTimer = null;
+const GK='historie2', GROUP_LABEL='Etik 1', TEACHER_CODE='Refs';
+const SCRIPT_URL='https://script.google.com/macros/s/AKfycbznadoOCu219A8tVRiFeQ-dm-t1H00958POyFNerZmVBuuG5bgBaoZjzTCf5GSZ1JfzbQ/exec';
+const SCHEDULE_KEY='fredag-plan';
+const ALL_GROUPS=['Etik 1','Etik 2','Samfund 1','Samfund 2','Historie 1','Historie 2','Historie 3','Historie 4','Miljø','Fremtid'];
+const DAYS=['mandag','tirsdag','onsdag','torsdag'];
 
-const lines = [
-  {el:'tw1', text:'En ny sag er landet på jeres bord...', speed:60},
-  {el:'tw2', text:'I er særligt udvalgt til at efterforske den.', speed:48},
-  {el:'tw3', text:'Klik nedenfor for at åbne sagen.', speed:48},
-];
+let saveTimer=null, dragTile=null, currentDay='mandag';
+const state = {
+  unlocked:{mandag:0,tirsdag:0,onsdag:0,torsdag:0},
+  expanded:{mandag:{},tirsdag:{},onsdag:{},torsdag:{}},
+  approved:{mandag:false,tirsdag:false,onsdag:false,torsdag:false},
+  feedback:{mandag:'',tirsdag:'',onsdag:'',torsdag:''},
+  fields:{},  // all work fields keyed by id
+};
+let scheduleData={slots:{}};
 
-async function typeWriter() {
-  for (const l of lines) { await typeLine(l.el, l.text, l.speed); await wait(300); }
-}
+/* ── MISSIONS DEFINITION ── */
+const DAY_INTROS={
+  mandag:'Læs sagen og gerningsstedet. Vælg jeres spor. Find det I ikke forstår endnu – det undersøger I i morgen.',
+  tirsdag:'Find svar på det I ikke vidste mandag. Skriv beviser. Beslut produkt og lav en plan for onsdag.',
+  onsdag:'Lav produktet. Saml materialer, producér, og tjek at produktet viser jeres pointe.',
+  torsdag:'Saml trådene. Øv fremlæggelsen med guiden. Evaluer samarbejdet.'
+};
 
-function typeLine(id, text, speed) {
-  return new Promise(resolve => {
-    const el = document.getElementById(id); let i = 0;
-    const t = setInterval(() => {
-      if (i < text.length) { el.textContent = text.slice(0,++i); if(soundOn&&audioCtx) playTick(); }
-      else { clearInterval(t); resolve(); }
-    }, speed);
+// Each mission: { num, title, left: html for left pane, right: fn(day)→html for right pane }
+const MISSIONS = {
+mandag:[
+  { num:'Mission 1', title:'Forstå sagen',
+    left:`<p>Læs jeres sag – vælg den detaljerede eller den enkle version.</p>
+      <div class="pf-toggle"><button class="pf-btn active" onclick="togglePF('detail',this)">Detaljeret</button><button class="pf-btn" onclick="togglePF('enkel',this)">Enkel</button></div>
+      <div class="m-card pf-content active" id="pf-detail"><p>I Danmark har vi millioner af landbrugsdyr. Der er regler og love for dyrevelfærd, men der er stadig stor forskel på hvordan dyrene har det – afhængigt af bl.a. om de er ude eller inde.</p><p>Vi vil undersøge levevilkår for udvalgte danske landbrugsdyr og se på, hvad der skal til for at man kan tale om et godt dyreliv i moderne landbrug.</p></div>
+      <div class="m-card pf-content" id="pf-enkel"><p>Landbruget har ændret sig meget. Før brugte man heste og mange hænder – i dag store maskiner og få folk. Vi vil finde ud af hvordan og hvorfor.</p></div>
+      <p class="note-txt" style="margin-top:.55rem"><span class="hl">I er i mål</span> når alle kan forklare sagen med egne ord.</p>`,
+    right:`<span class="field-label">Hvad handler sagen om?</span>
+      <p class="field-note">Skriv med jeres egne ord – ikke kopier fra teksten.</p>
+      <textarea class="work-field" id="f-sag" rows="4" placeholder="Skriv her..." oninput="syncField('f-sag')"></textarea>`
+  },
+  { num:'Mission 2', title:'Gerningsstedet og spor',
+    left:`<p>Åbn linket til højre og læs <strong>kun</strong> afsnittet <strong>"Hvordan har dyrevelfærden det i dansk landbrug?"</strong> – det er et stykke nede på siden. I behøver ikke læse resten.</p>
+      <p style="margin-top:.5rem">Vælg derefter 1–2 spor. I kan også skrive jeres eget spørgsmål. Indsnævr til sidst jeres fokus.</p>
+      <p class="note-txt" style="margin-top:.45rem"><span class="hl">I er i mål</span> når I har valgt spor og skrevet jeres konkrete fokus.</p>`,
+    right:`<div class="source-link-box">
+        <div class="source-link-label">Gerningsstedet – læs dette inden I vælger spor</div>
+        <div class="source-link-hint">Læs <strong>kun</strong> de første tre afsnit om familien og traktoren i 1949 – I behøver ikke læse hele artiklen.</div>
+        <a class="source-open-btn" href="https://www.dr.dk/nyheder/kultur/historie/dansk-landbrug-i-70-aar-fra-alsidigt-familiebrug-til-specialiserede">Åbn DR: Dansk landbrug i 70 år</a>
+      </div>
+      <span class="field-label">Vælg 1–2 spor (klik)</span>
+      <div class="spor-list" id="spor-list">
+        <div class="spor-item" onclick="toggleSpor(this)" data-i="0"><div class="spor-box">✓</div><span class="spor-text">Hvordan ændrede livet sig på en gård da traktoren kom – og hvem forsvandt?</span></div>
+        <div class="spor-item" onclick="toggleSpor(this)" data-i="1"><div class="spor-box">✓</div><span class="spor-text">Hvorfor gik Danmark fra hundredtusindvis af små gårde til nogle få kæmpestore?</span></div>
+        <div class="spor-item" onclick="toggleSpor(this)" data-i="2"><div class="spor-box">✓</div><span class="spor-text">Hvad betød det for landsbyen at færre og færre arbejdede på landet?</span></div>
+        <div class="spor-item" onclick="toggleSpor(this)" data-i="3"><div class="spor-box">✓</div><span class="spor-text">Hvad mistede vi da landbosamfundet forsvandt – og er der noget vi burde have beholdt?</span></div>
+      </div>
+      <span class="field-label" style="margin-top:.1rem">Jeres eget spørgsmål (valgfrit)</span>
+      <textarea class="work-field" id="f-custom-spor" rows="2" placeholder="Skriv jeres eget spørgsmål her..." oninput="syncField('f-custom-spor')"></textarea>
+      <span class="field-label" style="margin-top:.2rem">Jeres konkrete fokus</span>
+      <p class="field-note">Nu ved I lidt om emnet – hvad vil I undersøge konkret? Jo mere specifikt jo bedre. Det her fokus følger jer resten af ugen.</p>
+      <textarea class="work-field" id="f-fokus" rows="2" placeholder="Fx: Vi fokuserer på hvad der skete med en bestemt landsby da landbruget blev mekaniseret – hvem blev, hvem rejste?" oninput="syncField('f-fokus')"></textarea>`
+  },
+  { num:'Mission 3', title:'Find hullerne i jeres viden',
+    left:`<p>Hvad forstår I ikke endnu om jeres konkrete fokus? Hvad kan I ikke svare på?</p>
+      <p>Skriv jeres spørgsmål til højre – ét pr. linje. De skal handle om jeres konkrete fokus. Det er dem I undersøger i morgen.</p>
+      <p class="note-txt" style="margin-top:.45rem"><span class="hl">I er i mål</span> når I har mindst 5 konkrete huller skrevet ned.</p>`,
+    right:`<span class="field-label">Huller i jeres viden – mindst 5 spørgsmål</span>
+      <p class="field-note">Skriv ét spørgsmål pr. linje. De skal handle om jeres konkrete fokus. Tirsdag finder I svarene.</p>
+      <textarea class="work-field" id="f-huller" rows="10" placeholder="Hvad siger loven om grisenes plads i stalden?&#10;Hvad er forskellen på frilandsgrise og staldsvin?&#10;Hvor mange svin er der i Danmark?&#10;Må grise gå udenfor hvis loven tillader det?&#10;Hvad mener dyrlæger om forholdene?" oninput="syncField('f-huller')"></textarea>`
+  }
+],
+tirsdag:[
+  { num:'Mission 1', title:'Find beviser',
+    left:`<p>Find mindst <span class="hl">3 konkrete beviser</span> der besvarer det I ikke vidste mandag. Brug kun godkendte kilder.</p>
+      <p class="note-txt" style="margin-top:.45rem"><span class="hl">I er i mål</span> når I har 3 beviser skrevet med egne ord.</p>`,
+    right:`__prev_questions__
+      <div class="source-link-box">
+        <div class="source-link-label">Godkendte kilder</div>
+        <div class="source-link-hint">I må kun bruge kilder fra detektivarkivet – eller kilder I selv finder og får godkendt af en lærer.</div>
+        <a class="source-open-btn" href="./detektiv-arkiv.html">Åbn detektivarkivet</a>
+      </div>
+      <span class="field-label">Vores vigtigste beviser</span>
+      <p class="field-note">Skriv med egne ord – ikke kopier. Et bevis pr. linje.</p>
+      <textarea class="work-field" id="f-beviser" rows="5" placeholder="Fx: 95% af danske svin lever hele livet indendørs..." oninput="syncField('f-beviser')"></textarea>`
+  },
+  { num:'Mission 2', title:'Beslut produkt og plan',
+    left:`<p>Hvad er jeres vigtigste pointe? Hvilket produkt viser den bedst? <span class="hl">Produktet behøver ikke indeholde alt – bare det vigtigste.</span></p>
+      <p class="note-txt" style="margin-top:.45rem"><span class="hl">I er i mål</span> når alle ved hvad de skal lave onsdag.</p>`,
+    right:`<span class="field-label">Vores vigtigste pointe</span>
+      <p class="field-note">Hvad er den ene ting I vil have klassen til at forstå?</p>
+      <textarea class="work-field" id="f-pointe" rows="5" placeholder="Fx: De fleste danske svin lever et liv uden adgang til udearealer, selvom loven tillader det..." oninput="syncField('f-pointe')"></textarea>
+      <span class="field-label">Vores produkt – og hvad det viser</span>
+      <p class="field-note">Hvad laver I? Hvad skal det vise klassen?</p>
+      <textarea class="work-field" id="f-produkt" rows="5" placeholder="Fx: En plakat med to spalter – frilandsgris vs. staldsvin – der viser forskellen i levevilkår" oninput="syncField('f-produkt')"></textarea>
+      <span class="field-label">Plan for onsdag – hvem gør hvad?</span>
+      <p class="field-note">Skriv alle opgaver ned. Jo mere konkret jo bedre – så ved alle hvad de skal.</p>
+      <div class="kplan-hdr"><span>Hvad laves</span><span>Hvem</span><span>Skal bruge</span></div>
+      <div id="kplan-rows">
+        <div class="kplan-row"><input class="kplan-input" placeholder="Fx tegne forsiden..." oninput="syncKplan()"><input class="kplan-input" placeholder="Navn" oninput="syncKplan()"><input class="kplan-input" placeholder="Papir" oninput="syncKplan()"></div>
+        <div class="kplan-row"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"></div>
+        <div class="kplan-row"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"></div>
+        <div class="kplan-row"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"></div>
+      </div>
+      <button class="add-row-btn" onclick="addKplanRow()">+ tilføj linje</button>`
+  }
+],
+onsdag:[
+  { num:'Mission 1', title:'Saml materialer',
+    left:`<p>Hent det I har brug for ifølge jeres plan fra tirsdag. <span class="hl">Brug max 15 minutter.</span></p>
+      <p class="note-txt" style="margin-top:.45rem">Brug tjeklisten til højre – sæt kryds når I har det I skal bruge.</p>`,
+    right:`__prev_plan__
+      <span class="field-label">Tjekliste – har I det I skal bruge?</span>
+      <p class="field-note">Gå planen igennem. Sæt hak når I har hentet det. Skriv i feltet hvis noget mangler.</p>
+      <div id="checklist-materialer" style="margin-bottom:.75rem"></div>
+      <span class="field-label">Mangler noget?</span>
+      <textarea class="work-field" id="f-materialer" rows="2" placeholder="Notér hvad der evt. mangler eller skal løses..." oninput="syncField('f-materialer')"></textarea>`
+  },
+  { num:'Mission 2', title:'Producér',
+    left:`<p>Lav produktet. Følg jeres plan. <span class="hl">Alle skal have en aktiv opgave.</span></p>`,
+    right:`<span class="field-label">Løbende noter</span>
+      <textarea class="work-field" id="f-noter-ons" rows="6" placeholder="Notér undervejs..." oninput="syncField('f-noter-ons')"></textarea>`
+  },
+  { num:'Mission 3', title:'Tjek inden I pakker',
+    left:`<p><span class="hl">Viser produktet jeres pointe tydeligt?</span></p><p>Kan I bruge det aktivt fredag? Skriv jeres vurdering.</p>`,
+    right:`<span class="field-label">Vores tjek</span>
+      <textarea class="work-field" id="f-tjek" rows="5" placeholder="Viser det vores pointe?&#10;Kan vi bruge det aktivt fredag?" oninput="syncField('f-tjek')"></textarea>`
+  }
+],
+torsdag:[
+  { num:'Mission 1', title:'Gør produktet færdigt',
+    left:`<p>Brug den første del af torsdag på at gøre produktet helt klar. Gå tjeklisten til højre igennem.</p>
+      <p class="note-txt" style="margin-top:.45rem"><span class="hl">I er i mål</span> når alle punkter er sat af og produktet er klar til at bruges fredag.</p>`,
+    right:`<span class="field-label">Hvad mangler stadig?</span>
+      <p class="field-note">Skriv det der ikke er helt færdigt endnu. Del det op i bider og sæt hak når det er klaret.</p>
+      <div id="mangler-list" style="margin-bottom:.6rem"></div>
+      <div style="display:flex;gap:.4rem;margin-bottom:.85rem">
+        <input id="mangler-input" class="work-field" style="flex:1;min-height:unset;margin-bottom:0;padding:.35rem .5rem" placeholder="Fx: Skriv overskrift på plakaten..." onkeydown="if(event.key==='Enter'){event.preventDefault();addMangler()}">
+        <button onclick="addMangler()" style="background:var(--green);border:none;border-radius:3px;color:white;font-family:Verdana,sans-serif;font-size:.75rem;font-weight:700;padding:.35rem .85rem;cursor:pointer;white-space:nowrap">Tilføj</button>
+      </div>
+      <span class="field-label">Sidst tjek</span>
+      <div class="check-item" onclick="toggleCheckItem(this)"><div class="check-box"></div><span>Produktet viser vores pointe</span></div>
+      <div class="check-item" onclick="toggleCheckItem(this)"><div class="check-box"></div><span>Produktet hænger sammen med vores spor</span></div>
+      <div class="check-item" onclick="toggleCheckItem(this)"><div class="check-box"></div><span>Alle ved hvordan vi bruger produktet fredag</span></div>`
+  },
+  { num:'Mission 2', title:'Øv fremlæggelsen',
+    left:`<p>I dag forbereder I jeres fremlæggelse ordentligt. Det er ikke bare en hurtig øvelse – det er en hel dags arbejde.</p>
+      <p style="margin-top:.55rem"><strong>Overvej hvilken form der passer bedst:</strong></p>
+      <ul style="margin:.45rem 0 .45rem 1.1rem;font-size:.88rem;line-height:1.75;color:var(--ink)">
+        <li>En <strong>præsentation</strong> (PowerPoint, Canva, Google Slides) med billeder og punkter</li>
+        <li>En <strong>plakat eller tegning</strong> I fysisk holder op og forklarer</li>
+        <li>Et <strong>kort rollespil</strong> eller en demonstration</li>
+        <li>En <strong>quiz</strong> til klassen om det I har lært</li>
+      </ul>
+      <p class="note-txt">Fremlæggelsen må max vare <span class="hl">7 minutter</span>. Alle siger noget. Produktet bruges aktivt.</p>
+      <p class="note-txt" style="margin-top:.45rem">Brug guiden til højre – den viser hvad I skal have med.</p>`,
+    right:`<div class="fl-step"><div class="fl-num">1</div><div class="fl-body"><div class="fl-text">Fortæl hvad sagen handlede om.</div><span class="pull-lbl">Fra jeres arbejde</span><div class="pull-field" id="pull-sag"></div></div></div>
+      <div class="fl-step"><div class="fl-num">2</div><div class="fl-body"><div class="fl-text">Fortæl hvilke spor I valgte – og hvorfor.</div><span class="pull-lbl">Fra jeres arbejde</span><div class="pull-field" id="pull-spor"></div></div></div>
+      <div class="fl-step"><div class="fl-num">3</div><div class="fl-body"><div class="fl-text">Fortæl hvilke beviser I fandt.</div><span class="pull-lbl">Fra jeres arbejde</span><div class="pull-field" id="pull-beviser"></div></div></div>
+      <div class="fl-step"><div class="fl-num">4</div><div class="fl-body"><div class="fl-text">Brug produktet til at vise jeres pointe.</div><span class="pull-lbl">Fra jeres arbejde</span><div class="pull-field" id="pull-produkt"></div></div></div>
+      <div class="fl-step"><div class="fl-num">5</div><div class="fl-body"><div class="fl-text">Forklar hvad jeres svar på sagen er.</div><span class="pull-lbl">Fra jeres arbejde</span><div class="pull-field" id="pull-pointe"></div></div></div>`
+  },
+  { num:'Mission 3', title:'Evaluer samarbejdet',
+    left:`<p>Før I fremlægger evaluerer I jeres samarbejde denne uge. Det handler ikke om hvad I lærte om emnet – men om hvordan I arbejdede sammen.</p>
+      <p class="note-txt" style="margin-top:.45rem">Vær ærlige. En god evaluering hjælper jer i det næste projekt.</p>`,
+    right:`<span class="sss-label start">Start</span>
+      <div class="sss-expl">Hvad burde I have gjort mere af – eller begyndt tidligere?<br><em style="opacity:.7">Fx: Begyndt at skrive beviser ned fra dag 1. Bedt om hjælp hurtigere. Fordelt opgaverne tydeligere.</em></div>
+      <textarea class="sss-field" id="f-sss-0" oninput="syncField('f-sss-0')"></textarea>
+      <span class="sss-label stop">Stop</span>
+      <div class="sss-expl">Hvad tog for meget tid eller forstyrrede arbejdet?<br><em style="opacity:.7">Fx: Vi diskuterede for længe uden at beslutte noget. Én person lavede det hele. Vi startede for sent hver dag.</em></div>
+      <textarea class="sss-field" id="f-sss-1" oninput="syncField('f-sss-1')"></textarea>
+      <span class="sss-label go">Fortsæt</span>
+      <div class="sss-expl">Hvad gik godt og skal I huske til næste gang?<br><em style="opacity:.7">Fx: Vi lyttede godt til hinanden. Vi holdt os til emnet. Vi hjalp hinanden når nogen sad fast.</em></div>
+      <textarea class="sss-field" id="f-sss-2" oninput="syncField('f-sss-2')"></textarea>`
+  }
+]};
+
+/* ── RENDER DAY ── */
+function renderDay(day){
+  const lc=document.getElementById('left-content');
+  const rc=document.getElementById('right-content');
+  const ms=MISSIONS[day];
+  if(!ms){ renderFridayLeft(lc,rc); return; }
+
+  lc.innerHTML='';
+  const intro=document.createElement('div'); intro.className='day-intro'; intro.textContent=DAY_INTROS[day]; lc.appendChild(intro);
+
+  // Show feedback from previous day if any
+  const prevDay=DAYS[DAYS.indexOf(day)-1];
+  if(prevDay && state.feedback[prevDay]){
+    const fb=document.createElement('div'); fb.className='prev-feedback';
+    fb.innerHTML=`<div class="prev-feedback-lbl">Lærerens kommentar fra ${prevDay}</div><div class="prev-feedback-text">${esc(state.feedback[prevDay])}</div>`;
+    lc.appendChild(fb);
+  }
+
+  const count=state.unlocked[day];
+  ms.forEach((m,i)=>{
+    if(i<=count){
+      lc.appendChild(makeMissionCard(day,i,m,i<count));
+    } else {
+      const ph=document.createElement('div'); ph.className='mission-locked';
+      ph.textContent=`${m.num}: ${m.title}`; lc.appendChild(ph);
+    }
   });
+
+  // Close day button (show when all missions done)
+  if(count===ms.length-1 && !state.approved[day]){
+    const btn=document.createElement('button'); btn.className='close-day-btn';
+    btn.textContent='Afslut dagen og vis opsummering →';
+    btn.onclick=()=>openSummary(day);
+    lc.appendChild(btn);
+  } else if(state.approved[day]){
+    const done=document.createElement('div');
+    done.style.cssText='text-align:center;padding:1rem;font-size:.82rem;color:var(--green);font-weight:700;';
+    done.textContent='✓ Dagen er godkendt af lærer'; lc.appendChild(done);
+  }
+
+  // Right pane: show summary if approved, otherwise active mission
+  if(state.approved[day]){
+    renderApprovedSummary(day);
+  } else {
+    renderRightForMission(day, count);
+  }
 }
 
-function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+function makeMissionCard(day,idx,m,done){
+  const card=document.createElement('div'); card.className='mission-card'; card.id=`mc-${day}-${idx}`;
+  const isOpen=state.expanded[day][idx]!==false;
+  if(done) card.classList.add('done');
+  if(isOpen) card.classList.add('open');
+  if(!done) card.classList.add('active-card');
+  const showNext=!done && idx<MISSIONS[day].length-1;
 
-function toggleSound() {
-  soundOn = !soundOn;
-  document.getElementById('sound-btn').textContent = soundOn ? '♪ Lyd: til' : '♪ Lyd: fra';
-  if (soundOn && !audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+  card.innerHTML=`<div class="mission-header" onclick="toggleCard('${day}',${idx})">
+    <div class="mh-check"><div class="mh-checkmark"></div></div>
+    <div class="mh-text"><div class="mh-num">${m.num}</div><div class="mh-title">${m.title}</div></div>
+    <div class="mh-chevron">▼</div>
+  </div>
+  <div class="mission-body-wrap"><div class="mission-body-inner"><div class="mission-body">
+    ${m.left}
+    ${showNext?`<button class="next-btn" onclick="unlockNext('${day}',${idx})">Vi er klar til næste mission →</button>`:''}
+  </div></div></div>`;
+  return card;
 }
 
-function playTick() {
-  if (!audioCtx) return;
-  const o = audioCtx.createOscillator(), g = audioCtx.createGain();
-  o.connect(g); g.connect(audioCtx.destination);
-  o.frequency.value = 600 + Math.random()*150;
-  g.gain.setValueAtTime(0.02, audioCtx.currentTime);
-  g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime+0.05);
-  o.start(); o.stop(audioCtx.currentTime+0.05);
+function renderRightForMission(day,mIdx){
+  const rc=document.getElementById('right-content');
+  const m=MISSIONS[day]?.[mIdx]; if(!m) return;
+  document.getElementById('right-topbar-label').textContent=`✏ Skriv her – ${m.num}: ${m.title}`;
+
+  let html=m.right;
+
+  // Inject focus badge for tirsdag onwards
+  if((day==='mandag'&&mIdx>=2)||day==='tirsdag'||day==='onsdag'||day==='torsdag'){
+    const fokus=state.fields['f-fokus']||'';
+    if(fokus.trim()){
+      html=`<div class="focus-badge">Fokus: ${esc(fokus)}</div>`+html;
+    }
+  }
+
+  // Inject previous questions for tirsdag mission 1
+  if(day==='tirsdag' && mIdx===0){
+    const hullerRaw=state.fields['f-huller']||'';
+    let prevQ='';
+    if(hullerRaw.trim()){
+      const lines=hullerRaw.trim().split('\n').filter(l=>l.trim());
+      prevQ=`<div class="prev-questions"><div class="prev-q-title">Huller i jeres viden fra mandag – find svarene i dag</div>${lines.map(l=>`<div class="prev-q-item">${esc(l)}</div>`).join('')}</div>`;
+    }
+    html=html.replace('__prev_questions__',prevQ);
+  }
+
+  // Inject plan for onsdag mission 1
+  if(day==='onsdag' && mIdx===0){
+    const kplan=state.fields['f-kplan']||[];
+    let planHtml='';
+    if(kplan.length && kplan.some(r=>r.some(v=>v))){
+      planHtml=`<div class="prev-questions"><div class="prev-q-title">Jeres plan fra tirsdag</div>${kplan.filter(r=>r[0]).map(r=>`<div class="prev-q-item">${esc(r[0])}${r[1]?' – '+esc(r[1]):''}${r[2]?' ('+esc(r[2])+')'  :''}</div>`).join('')}</div>`;
+    }
+    html=html.replace('__prev_plan__',planHtml);
+  }
+
+  rc.innerHTML=`<div class="work-panel active">${html}</div>`;
+  restoreFields(day,mIdx);
+  if(day==='torsdag' && mIdx===1) updatePulled();
 }
 
-function openCase() {
-  document.getElementById('intro').style.display = 'none';
-  document.getElementById('main').style.display = 'block';
+function restoreFields(day,mIdx){
+  // Restore text field values (including input elements)
+  Object.entries(state.fields).forEach(([id,val])=>{
+    if(typeof val==='string'){
+      const el=document.getElementById(id);
+      if(el && (el.tagName==='TEXTAREA'||el.tagName==='INPUT')) el.value=val;
+    }
+  });
+  // Restore spor
+  if(day==='mandag' && mIdx===1){
+    (state.fields['f-spor']||[]).forEach(i=>{
+      const el=document.querySelectorAll('.spor-item')[i]; if(el) el.classList.add('chosen');
+    });
+  }
+  // Restore kplan
+  if(day==='tirsdag' && mIdx===1){
+    const kplan=state.fields['f-kplan']||[];
+    const c=document.getElementById('kplan-rows'); if(!c) return;
+    c.innerHTML='';
+    const rows=kplan.length>=3?kplan:[...kplan,...Array(3-kplan.length).fill(['','',''])];
+    rows.forEach(rd=>{
+      const r=document.createElement('div');r.className='kplan-row';
+      r.innerHTML=rd.map(v=>`<input class="kplan-input" value="${esc(v)}" oninput="syncKplan()">`).join('');
+      c.appendChild(r);
+    });
+  }
+  // Restore dynamic lists and checkboxes
+  setTimeout(restoreDynamicContent, 0);
+}
+
+function toggleCard(day,idx){
+  const card=document.getElementById(`mc-${day}-${idx}`); if(!card) return;
+  const opening=!card.classList.contains('open');
+  card.classList.toggle('open',opening);
+  state.expanded[day][idx]=opening;
+  if(opening) renderRightForMission(day,idx);
+}
+
+function unlockNext(day,idx){
+  if(state.unlocked[day]<MISSIONS[day].length-1){
+    state.expanded[day][idx]=false;
+    state.unlocked[day]++;
+    state.expanded[day][state.unlocked[day]]=true;
+    scheduleSave();
+    renderDay(day);
+    setTimeout(()=>{
+      const el=document.getElementById(`mc-${day}-${state.unlocked[day]}`);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'nearest'});
+    },80);
+  }
+}
+
+/* ── FIELD SYNC ── */
+function syncField(id){
+  const el=document.getElementById(id); if(!el) return;
+  state.fields[id]=el.value; scheduleSave();
+  if(id.startsWith('f-sss')||id==='f-pointe'||id==='f-sag'||id==='f-beviser'||id==='f-produkt') updatePulled();
+}
+function syncKplan(){
+  const rows=[...document.querySelectorAll('#kplan-rows .kplan-row')].map(r=>[...r.querySelectorAll('.kplan-input')].map(i=>i.value));
+  state.fields['f-kplan']=rows; scheduleSave();
+}
+function addKplanRow(){
+  const c=document.getElementById('kplan-rows'); if(!c) return;
+  const r=document.createElement('div'); r.className='kplan-row';
+  r.innerHTML='<input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()">';
+  c.appendChild(r);
+}
+
+function toggleSpor(item){
+  const chosen=document.querySelectorAll('.spor-item.chosen');
+  if(!item.classList.contains('chosen')&&chosen.length>=2) return;
+  item.classList.toggle('chosen');
+  state.fields['f-spor']=[...document.querySelectorAll('.spor-item.chosen')].map(s=>parseInt(s.dataset.i));
+  scheduleSave(); updatePulled();
+}
+
+function togglePF(type,btn){
+  document.querySelectorAll('.pf-content').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('pf-'+type)?.classList.add('active'); btn.classList.add('active');
+}
+
+/* ── PULLED DATA ── */
+function updatePulled(){
+  const get=id=>state.fields[id]||'';
+  const set=(id,v)=>{const el=document.getElementById(id);if(!el)return;el.textContent=v||'(ikke skrevet endnu)';el.classList.toggle('empty',!v);};
+  set('pull-sag', get('f-sag'));
+  set('pull-beviser', get('f-beviser'));
+  set('pull-pointe', get('f-pointe'));
+  set('pull-produkt', get('f-produkt'));
+  const chosen=[...document.querySelectorAll('.spor-item.chosen')].map(s=>s.querySelector('.spor-text').textContent);
+  const custom=get('f-custom-spor');
+  if(custom.trim()) chosen.push(custom.trim());
+  set('pull-spor', chosen.join('\n'));
+}
+
+/* ── DAY NAVIGATION ── */
+function getTodayIndex(){ return ({1:0,2:1,3:2,4:3,5:4})[new Date().getDay()]??0; }
+
+function showDay(day,btn){
+  currentDay=day;
+  document.querySelectorAll('.day-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderDay(day);
+}
+
+function tryShowDay(day,btn){
+  const idx=DAYS.indexOf(day);
+  if(idx<=0){ showDay(day,btn); return; }
+  const prevDay=DAYS[idx-1];
+  if(!state.approved[prevDay]){
+    // Flash the tab
+    btn.style.borderColor='var(--red)'; btn.style.color='var(--red)';
+    setTimeout(()=>{ btn.style.borderColor=''; btn.style.color=''; },800);
+    return;
+  }
+  showDay(day,btn);
+  btn.classList.remove('locked-tab');
+}
+
+function unlockDayTab(day){
+  const tab=document.getElementById('tab-'+day);
+  if(tab){ tab.classList.remove('locked-tab'); }
+}
+
+/* ── SUMMARY ── */
+function openSummary(day){
+  const box=document.getElementById('summary-box');
+  const dayLabels={mandag:'Mandag',tirsdag:'Tirsdag',onsdag:'Onsdag',torsdag:'Torsdag'};
+  const f=state.fields;
+
+  const summaryItems = {
+    mandag:[
+      {lbl:'Hvad sagen handler om', val:f['f-sag']},
+      {lbl:'Valgte spor', val:([...document.querySelectorAll('.spor-item.chosen')].map(s=>s.querySelector('.spor-text').textContent).concat(f['f-custom-spor']?[f['f-custom-spor']]:[]).join('\n'))},
+      {lbl:'Det vi ikke vidste', val:f['f-huller']},
+    ],
+    tirsdag:[
+      {lbl:'Vores beviser', val:f['f-beviser']},
+      {lbl:'Vores pointe', val:f['f-pointe']},
+      {lbl:'Vores produkt', val:f['f-produkt']},
+    ],
+    onsdag:[
+      {lbl:'Tjek af produktet', val:f['f-tjek']},
+      {lbl:'Løbende noter', val:f['f-noter-ons']},
+    ],
+    torsdag:[
+      {lbl:'Start', val:f['f-sss-0']},
+      {lbl:'Stop', val:f['f-sss-1']},
+      {lbl:'Fortsæt', val:f['f-sss-2']},
+    ]
+  };
+
+  const items=summaryItems[day]||[];
+  const nextDay=DAYS[DAYS.indexOf(day)+1];
+
+  box.innerHTML=`<div class="summary-title">Opsummering – ${dayLabels[day]}</div>
+    <div class="summary-meta">Etik 1 · Det gode dyreliv</div>
+    ${items.map(it=>`<div class="summary-section"><div class="summary-lbl">${it.lbl}</div><div class="summary-val${!it.val?' empty':''}">${it.val?esc(it.val):'(ikke udfyldt)'}</div></div>`).join('')}
+    <div class="teacher-section">
+      <div class="teacher-lbl">Lærerens kvittering</div>
+      <textarea class="teacher-comment" id="teacher-comment-input" placeholder="Skriv en kommentar til gruppen..."></textarea>
+      <div class="teacher-code-row">
+        <input type="password" class="teacher-code-input" id="teacher-code-input" placeholder="Kode">
+        <button class="approve-btn" onclick="approveDay('${day}')">Godkend dagen →</button>
+      </div>
+      <div class="approve-error" id="approve-error">Forkert kode</div>
+      ${!nextDay?'<p class="note-txt" style="margin-top:.5rem">Dette er den sidste dag.</p>':''}
+    </div>
+    <div style="margin-top:1rem;text-align:right"><button onclick="closeSummary()" style="background:transparent;border:none;font-family:Verdana,sans-serif;font-size:.8rem;color:var(--ink-muted);cursor:pointer;padding:.3rem .6rem;">Luk uden at godkende</button></div>`;
+
+  document.getElementById('summary-overlay').classList.add('open');
+}
+
+function closeSummary(){
+  document.getElementById('summary-overlay').classList.remove('open');
+}
+
+function approveDay(day){
+  const code=document.getElementById('teacher-code-input').value;
+  if(code!==TEACHER_CODE){ document.getElementById('approve-error').style.display='block'; return; }
+  const comment=document.getElementById('teacher-comment-input').value;
+  state.approved[day]=true;
+  state.feedback[day]=comment;
+  // Save immediately (don't wait)
+  saveToCloud();
+  closeSummary();
+  // Unlock next day tab
+  const nextDay=DAYS[DAYS.indexOf(day)+1];
+  if(nextDay) unlockDayTab(nextDay);
+  renderDay(day);
+}
+
+/* ── APPROVED SUMMARY (right pane) ── */
+function renderApprovedSummary(day){
+  const rc=document.getElementById('right-content');
+  const dayLabels={mandag:'Mandag',tirsdag:'Tirsdag',onsdag:'Onsdag',torsdag:'Torsdag'};
+  const f=state.fields;
+  const summaryItems={
+    mandag:[{lbl:'Hvad sagen handler om',val:f['f-sag']},{lbl:'Valgte spor',val:buildSporSummary()},{lbl:'Konkret fokus',val:f['f-fokus']||''},  {lbl:'Huller i jeres viden',val:f['f-huller']||''}],
+    tirsdag:[{lbl:'Konkret fokus',val:f['f-fokus']},{lbl:'Vores beviser',val:f['f-beviser']},{lbl:'Vores pointe',val:f['f-pointe']},{lbl:'Vores produkt',val:f['f-produkt']}],
+    onsdag:[{lbl:'Tjek af produktet',val:f['f-tjek']},{lbl:'Løbende noter',val:f['f-noter-ons']}],
+    torsdag:[{lbl:'Start',val:f['f-sss-0']},{lbl:'Stop',val:f['f-sss-1']},{lbl:'Fortsæt',val:f['f-sss-2']}]
+  };
+  const comment=state.feedback[day]||'';
+  rc.innerHTML=`<div style="padding:.85rem 0">
+    <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--green);text-transform:uppercase;margin-bottom:.75rem">✓ ${dayLabels[day]} – godkendt</div>
+    ${(summaryItems[day]||[]).map(it=>`<div style="margin-bottom:.75rem"><div style="font-size:.65rem;font-weight:700;letter-spacing:.12em;color:var(--ink-muted);text-transform:uppercase;margin-bottom:.2rem">${it.lbl}</div><div style="font-size:.88rem;color:${it.val?'var(--ink)':'var(--ink-muted)'};line-height:1.6;font-style:${it.val?'normal':'italic'};background:var(--paper2);border:1px solid var(--border);border-radius:3px;padding:.5rem .7rem;white-space:pre-wrap">${it.val?esc(it.val):'(ikke udfyldt)'}</div></div>`).join('')}
+    ${comment?`<div style="background:var(--gold-bg);border:1px solid rgba(184,124,24,0.28);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;padding:.65rem .85rem"><div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.18rem">Lærerens kommentar</div><div style="font-size:.88rem;color:var(--ink);line-height:1.55">${esc(comment)}</div></div>`:''}
+    <button onclick="undoApproval('${day}')" style="background:transparent;border:1px solid var(--border);border-radius:3px;color:var(--ink-muted);font-family:Verdana,sans-serif;font-size:.75rem;padding:.4rem .85rem;cursor:pointer;margin-top:1rem;transition:all .15s" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--ink-muted)'">Fortryd godkendelse</button>
+  </div>`;
+}
+
+function undoApproval(day){
+  // Show inline code input instead of prompt()
+  const rc=document.getElementById('right-content');
+  const existing=document.getElementById('undo-form');
+  if(existing){ existing.remove(); return; }
+  const form=document.createElement('div');
+  form.id='undo-form';
+  form.style.cssText='margin-top:1rem;padding:.85rem;background:var(--red-bg);border:1px solid rgba(160,48,40,0.25);border-radius:3px;';
+  form.innerHTML=`<div style="font-size:.72rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem">Fortryd godkendelse</div>
+    <div style="display:flex;gap:.4rem;align-items:center">
+      <input type="password" id="undo-code-input" placeholder="Lærerkode" style="background:var(--paper);border:1px solid var(--border);border-radius:3px;font-family:Verdana,sans-serif;font-size:.88rem;padding:.38rem .6rem;outline:none;width:120px;letter-spacing:.12em" onkeydown="if(event.key==='Enter')confirmUndo('${day}')">
+      <button onclick="confirmUndo('${day}')" style="background:var(--red);border:none;border-radius:3px;color:white;font-family:Verdana,sans-serif;font-size:.75rem;font-weight:700;padding:.4rem .9rem;cursor:pointer">Fortryd</button>
+      <button onclick="document.getElementById('undo-form').remove()" style="background:transparent;border:1px solid var(--border);border-radius:3px;color:var(--ink-muted);font-family:Verdana,sans-serif;font-size:.75rem;padding:.38rem .75rem;cursor:pointer">Annuller</button>
+    </div>
+    <div id="undo-error" style="font-size:.72rem;color:var(--red);font-weight:700;margin-top:.35rem;display:none">Forkert kode</div>`;
+  rc.appendChild(form);
+  document.getElementById('undo-code-input').focus();
+}
+
+function confirmUndo(day){
+  const inp=document.getElementById('undo-code-input'); if(!inp) return;
+  if(inp.value===TEACHER_CODE){
+    state.approved[day]=false;
+    const nextDay=DAYS[DAYS.indexOf(day)+1];
+    if(nextDay){ const tab=document.getElementById('tab-'+nextDay); if(tab) tab.classList.add('locked-tab'); }
+    scheduleSave();
+    renderDay(day);
+  } else {
+    document.getElementById('undo-error').style.display='block';
+    inp.value=''; inp.focus();
+  }
+}
+
+function getSporText(){
+  const chosen=[...document.querySelectorAll('.spor-item.chosen')].map(s=>s.querySelector('.spor-text')?.textContent||'');
+  const custom=state.fields['f-custom-spor']||'';
+  return [...chosen,...(custom.trim()?[custom.trim()]:[])].join('\n');
+}
+
+function buildSporSummary(){
+  // Works from stored state (not DOM) so summary is correct even after re-render
+  const SPOR_TEXTS=[
+    'Hvad skal der til for at et dyr har et godt liv – og bestemmer loven det?',
+    'Hvorfor er der så stor forskel på hvordan dyr har det, selv når reglerne er de samme?',
+    'Hvornår er det okay at bruge dyr til mad – og hvornår går det for vidt?',
+    'Hvis dyrene kunne tale – hvad ville de sige om dansk landbrug?'
+  ];
+  const indices=state.fields['f-spor']||[];
+  const chosen=indices.map(i=>SPOR_TEXTS[i]).filter(Boolean);
+  const custom=state.fields['f-custom-spor']||'';
+  return [...chosen,...(custom.trim()?[custom.trim()]:[])].join('\n');
+}
+
+/* ── FRIDAY ── */
+function renderFridayLeft(lc,rc){
+  lc.innerHTML=`<div class="day-intro">Her planlægger I fremlæggelserne fredag. Læreren udfylder tidspunkter og rum.</div>
+    <div id="friday-lock-area"><div class="friday-lock">
+      <div class="lock-icon">🔒</div>
+      <div class="lock-label">Kun lærere kan redigere</div>
+      <div class="lock-input-wrap"><input type="password" class="lock-input" id="lock-input" placeholder="Kode" onkeydown="if(event.key==='Enter')checkCode()"><button class="lock-btn" onclick="checkCode()">Åbn →</button></div>
+      <div class="lock-error" id="lock-error">Forkert kode</div>
+    </div></div>
+    <div id="friday-teacher" style="display:none"></div>`;
+  rc.innerHTML='<div style="padding:2rem 1rem;font-size:.88rem;color:var(--ink-muted);font-style:italic">Fremlæggelsesplanen vises her når læreren har udfyldt den.</div>';
+  loadSchedule();
+}
+
+function checkCode(){
+  if(document.getElementById('lock-input').value===TEACHER_CODE){
+    document.getElementById('friday-lock-area').style.display='none';
+    buildTeacherBoard();
+  } else { document.getElementById('lock-error').style.display='block'; document.getElementById('lock-input').value=''; }
+}
+
+function buildTeacherBoard(){
+  const t=document.getElementById('friday-teacher'); t.style.display='block';
+  t.innerHTML=`<p class="note-txt" style="margin-bottom:.75rem">Træk gruppe-tiles ind på tidspunkterne. Tidspunkterne kan redigeres direkte. Tilføj flere med + knappen.</p>
+    <div class="tiles-section"><div class="tiles-lbl">Grupper</div><div class="tiles-pool" id="tiles-pool"></div></div>
+    <div class="schedule-board">
+      <div class="room-col"><div class="room-hdr">5. klasse</div><div class="time-slots" id="slots-5kl"></div><div style="padding:.22rem .5rem .5rem"><button class="add-slot-btn" onclick="addSlot('5kl')">+ Tilføj tidspunkt</button></div></div>
+      <div class="room-col"><div class="room-hdr">6. klasse</div><div class="time-slots" id="slots-6kl"></div><div style="padding:.22rem .5rem .5rem"><button class="add-slot-btn" onclick="addSlot('6kl')">+ Tilføj tidspunkt</button></div></div>
+    </div>
+    <div style="background:var(--paper2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;padding:.6rem .9rem;margin-bottom:.85rem;font-size:.84rem;color:var(--ink-soft)">
+      Efter fremlæggelserne: fælles oprydning og evaluering
+    </div>
+    <button class="next-btn" onclick="saveSchedule()">Gem plan →</button>`;
+  const DEFAULT_SLOTS=['09.00 – 09.10','09.20 – 09.30','09.40 – 09.50','10.00 – 10.10','10.30 – 10.40'];
+  ['5kl','6kl'].forEach(r=>{
+    const s=scheduleData.slots[r]||[];
+    if(!s.length){
+      scheduleData.slots[r]=DEFAULT_SLOTS.map(ti=>({time:ti,group:''}));
+      scheduleData.slots[r].forEach((sl,i)=>renderSlot(r,i,sl.time,sl.group));
+    } else {
+      s.forEach((sl,i)=>renderSlot(r,i,sl.time,sl.group));
+    }
+  });
+  rebuildTiles();
+}
+
+function renderSlot(room,idx,time='',group=''){
+  const c=document.getElementById('slots-'+room); if(!c) return;
+  const div=document.createElement('div'); div.className='time-slot';
+  div.innerHTML=`<div class="slot-tr"><input class="slot-ti" placeholder="fx 08.30" value="${time}" oninput="updSlot('${room}',${idx},this.value)"><button class="slot-rm" onclick="removeSlot('${room}',${idx})">✕</button></div><div class="slot-da" id="drop-${room}-${idx}">${group?`<div class="group-tile placed" draggable="true" data-group="${group}" ondragstart="startDrag(event,this)">${group}</div>`:'<span class="slot-hint">Træk gruppe hertil</span>'}</div>`;
+  div.addEventListener('dragover',e=>{e.preventDefault();div.classList.add('drag-over')});
+  div.addEventListener('dragleave',()=>div.classList.remove('drag-over'));
+  div.addEventListener('drop',e=>{e.preventDefault();div.classList.remove('drag-over');dropTile(room,idx)});
+  c.appendChild(div);
+  if(!scheduleData.slots[room])scheduleData.slots[room]=[];
+  if(!scheduleData.slots[room][idx])scheduleData.slots[room][idx]={time,group};
+}
+function addSlot(room){if(!scheduleData.slots[room])scheduleData.slots[room]=[];const i=scheduleData.slots[room].length;scheduleData.slots[room].push({time:'',group:''});renderSlot(room,i,'','');}
+function removeSlot(room,idx){scheduleData.slots[room].splice(idx,1);buildTeacherBoard();}
+function updSlot(room,idx,v){if(scheduleData.slots[room]?.[idx])scheduleData.slots[room][idx].time=v;}
+function startDrag(e,tile){dragTile=tile.dataset.group;e.dataTransfer.effectAllowed='move';}
+function dropTile(room,idx){if(!dragTile)return;['5kl','6kl'].forEach(r=>(scheduleData.slots[r]||[]).forEach(s=>{if(s.group===dragTile)s.group='';}));scheduleData.slots[room][idx].group=dragTile;dragTile=null;buildTeacherBoard();}
+function rebuildTiles(){
+  const placed=new Set();['5kl','6kl'].forEach(r=>(scheduleData.slots[r]||[]).forEach(s=>{if(s.group)placed.add(s.group);}));
+  const pool=document.getElementById('tiles-pool'); if(!pool) return; pool.innerHTML='';
+  pool.addEventListener('dragover',e=>e.preventDefault());
+  pool.addEventListener('drop',e=>{e.preventDefault();if(!dragTile)return;['5kl','6kl'].forEach(r=>(scheduleData.slots[r]||[]).forEach(s=>{if(s.group===dragTile)s.group='';}));dragTile=null;buildTeacherBoard();});
+  ALL_GROUPS.forEach(g=>{if(placed.has(g))return;const t=document.createElement('div');t.className='group-tile'+(g===GROUP_LABEL?' my-group':'');t.textContent=g;t.draggable=true;t.dataset.group=g;t.addEventListener('dragstart',e=>startDrag(e,t));pool.appendChild(t);});
+  if(!pool.children.length)pool.innerHTML='<span class="note-txt">Alle grupper er placeret ✓</span>';
+}
+async function saveSchedule(){showSave('Gemmer...');try{await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify({gruppe:SCHEDULE_KEY,data:scheduleData})});showSave('Gemt ✓');renderStudentSchedule();}catch(e){showSave('Fejl');}}
+async function loadSchedule(){
+  try{const r=await fetch(SCRIPT_URL+'?gruppe='+SCHEDULE_KEY);const j=await r.json();
+  if(j?.ok&&j.data?.slots){scheduleData=j.data;renderStudentSchedule();}}catch(e){}
+}
+function renderStudentSchedule(){
+  const slots=scheduleData.slots||{};
+  if(!Object.values(slots).some(r=>r.some(s=>s.group)))return;
+  const rc=document.getElementById('right-content'); if(!rc) return;
+  let myTime='',myRoom='';
+  ['5kl','6kl'].forEach(r=>(slots[r]||[]).forEach(s=>{if(s.group===GROUP_LABEL){myTime=s.time;myRoom=r==='5kl'?'5. klasse':'6. klasse';}}));
+  let html=myTime||myRoom?`<div class="my-slot-banner"><div style="font-size:1.1rem">📍</div><div><div class="my-slot-title">Jeres tidspunkt</div><div class="my-slot-detail">${myTime?'Kl. '+myTime:''} ${myRoom?'· '+myRoom:''}</div></div></div>`:'';
+  html+='<div class="all-slots">';
+  ['5kl','6kl'].forEach(r=>{
+    html+=`<div class="room-list"><div class="room-list-hdr">${r==='5kl'?'5. klasse':'6. klasse'}</div>`;
+    (slots[r]||[]).forEach(s=>html+=`<div class="slot-row${s.group===GROUP_LABEL?' my-row':''}"><span class="slot-rt">${s.time||'–'}</span><span class="slot-rg">${s.group||'–'}</span></div>`);
+    if(!(slots[r]||[]).length)html+='<div class="slot-row"><span class="slot-rg" style="color:var(--ink-muted);font-style:italic">Ikke udfyldt endnu</span></div>';
+    html+='</div>';
+  });
+  html+='</div>'; rc.innerHTML=html;
+  document.getElementById('friday-lock-area')?.style&&(document.getElementById('friday-lock-area').style.display='none');
+}
+
+/* ── TYPEWRITER ── */
+const twLines=[{el:'tw1',text:'En ny sag er landet på jeres bord...',speed:58},{el:'tw2',text:'I er særligt udvalgt til at efterforske den.',speed:46},{el:'tw3',text:'Klik nedenfor for at åbne sagen.',speed:46}];
+async function typeWriter(){for(const l of twLines){await twType(l.el,l.text,l.speed);await twWait(270);}}
+function twType(id,text,speed){return new Promise(r=>{const el=document.getElementById(id);let i=0;const t=setInterval(()=>{if(i<text.length)el.textContent=text.slice(0,++i);else{clearInterval(t);r();}},speed);});}
+function twWait(ms){return new Promise(r=>setTimeout(r,ms));}
+
+function openCase(){
+  document.getElementById('intro').style.display='none';
+  const app=document.getElementById('app'); app.style.display='flex';
+  const ti=getTodayIndex();
+  const todayTab=document.getElementById('tab-'+['mandag','tirsdag','onsdag','torsdag','fredag'][ti]);
+  if(todayTab) todayTab.classList.add('today-tab');
+  renderDay('mandag');
   loadFromCloud();
 }
+window.addEventListener('load',typeWriter);
 
-window.addEventListener('load', typeWriter);
-
-function showDay(day, btn) {
-  document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('panel-'+day).classList.add('active');
-  btn.classList.add('active');
+/* ── STATE COLLECT / APPLY ── */
+function collectState(){
+  return {
+    unlocked:state.unlocked,
+    expanded:state.expanded,
+    approved:state.approved,
+    feedback:state.feedback,
+    fields:state.fields,
+    spor:state.fields['f-spor']||[]
+  };
 }
 
-function togglePF(type, btn) {
-  document.querySelectorAll('.pf-content').forEach(c => c.classList.remove('active'));
-  document.querySelectorAll('.pf-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('pf-'+type).classList.add('active');
-  btn.classList.add('active');
+function applyState(data){
+  if(!data) return;
+  if(data.unlocked) Object.assign(state.unlocked, data.unlocked);
+  if(data.expanded) Object.assign(state.expanded, data.expanded);
+  if(data.approved) Object.assign(state.approved, data.approved);
+  if(data.feedback) Object.assign(state.feedback, data.feedback);
+  if(data.fields) Object.assign(state.fields, data.fields);
+  // Unlock tabs for approved days
+  DAYS.forEach((d,i)=>{ if(state.approved[d] && DAYS[i+1]) unlockDayTab(DAYS[i+1]); });
+  renderDay(currentDay);
 }
 
-function toggleSpor(item) {
-  const chosen = document.querySelectorAll('.spor-item.chosen');
-  if (!item.classList.contains('chosen') && chosen.length >= 2) return;
-  item.classList.toggle('chosen');
+async function loadFromCloud(){
+  try{const r=await fetch(SCRIPT_URL+'?gruppe='+GK);const j=await r.json();
+  if(j?.ok&&j.data&&Object.keys(j.data).length) applyState(j.data);}catch(e){}
+}
+async function saveToCloud(){
+  showSave('Gemmer...');
+  try{await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify({gruppe:GK,data:collectState()})});showSave('Gemt ✓');}
+  catch(e){showSave('Fejl ved gem');}
+}
+function scheduleSave(){clearTimeout(saveTimer);saveTimer=setTimeout(saveToCloud,1500);}
+function showSave(msg){const el=document.getElementById('save-status');el.textContent=msg;el.classList.add('visible');if(msg==='Gemt ✓')setTimeout(()=>el.classList.remove('visible'),2000);}
+
+function toggleCheckItem(el){
+  el.classList.toggle('checked');
+  // Persist check state in state.fields keyed by text
+  const key='chk-'+el.querySelector('span').textContent.slice(0,20);
+  state.fields[key]=el.classList.contains('checked');
   scheduleSave();
 }
 
-function toggleMission(btn) {
-  btn.closest('.mission-card').classList.toggle('done');
+function addHul(){
+  const inp=document.getElementById('huller-input'); if(!inp||!inp.value.trim()) return;
+  const text=inp.value.trim(); inp.value='';
+  if(!state.fields['f-huller-list']) state.fields['f-huller-list']=[];
+  state.fields['f-huller-list'].push({text,done:false});
+  renderDelmaal('huller-list','f-huller-list');
   scheduleSave();
 }
 
-function addKplanRow() {
-  const c = document.getElementById('kplan-rows');
-  const row = document.createElement('div'); row.className = 'kplan-row';
-  row.innerHTML = '<input class="kplan-input" oninput="scheduleSave()"><input class="kplan-input" oninput="scheduleSave()"><input class="kplan-input" oninput="scheduleSave()">';
-  c.appendChild(row);
+function toggleHul(i){
+  if(!state.fields['f-huller-list']) return;
+  state.fields['f-huller-list'][i].done=!state.fields['f-huller-list'][i].done;
+  scheduleSave();
+  // Re-render tirsdag mission 1 right pane
+  renderRightForMission('tirsdag',0);
 }
 
-function collectState() {
-  const spor = [];
-  document.querySelectorAll('.spor-item').forEach((s,i) => { if(s.classList.contains('chosen')) spor.push(i); });
-  const missions = {};
-  document.querySelectorAll('.mission-card').forEach(c => { missions[c.id] = c.classList.contains('done'); });
-  const porto = {};
-  ['sag','spor','huller','beviser','pointe','produkt'].forEach(k => {
-    const el = document.getElementById('porto-'+k); if(el) porto[k] = el.value;
-  });
-  const sss = [0,1,2].map(i => { const el = document.getElementById('sss-'+i); return el ? el.value : ''; });
-  const kplan = [...document.querySelectorAll('#kplan-rows .kplan-row')].map(row =>
-    [...row.querySelectorAll('.kplan-input')].map(i => i.value)
-  );
-  return {spor, missions, porto, sss, kplan};
+function addDelmaal(){
+  const inp=document.getElementById('delmaal-input'); if(!inp||!inp.value.trim()) return;
+  const text=inp.value.trim(); inp.value='';
+  if(!state.fields['f-delmaal']) state.fields['f-delmaal']=[];
+  state.fields['f-delmaal'].push({text,done:false});
+  renderDelmaal('delmaal-list','f-delmaal');
+  scheduleSave();
 }
 
-function applyState(data) {
-  if (!data) return;
-  if (data.spor) data.spor.forEach(i => {
-    const el = document.querySelectorAll('.spor-item')[i]; if(el) el.classList.add('chosen');
+function addMangler(){
+  const inp=document.getElementById('mangler-input'); if(!inp||!inp.value.trim()) return;
+  const text=inp.value.trim(); inp.value='';
+  if(!state.fields['f-mangler-list']) state.fields['f-mangler-list']=[];
+  state.fields['f-mangler-list'].push({text,done:false});
+  renderDelmaal('mangler-list','f-mangler-list');
+  scheduleSave();
+}
+
+function renderDelmaal(containerId, stateKey){
+  const c=document.getElementById(containerId); if(!c) return;
+  const items=state.fields[stateKey]||[];
+  c.innerHTML='';
+  items.forEach((item,i)=>{
+    const div=document.createElement('div'); div.className='delmaal-item'+(item.done?' done':'');
+    div.innerHTML=`<div class="delmaal-box"></div><span>${esc(item.text)}</span>`;
+    div.onclick=()=>{
+      state.fields[stateKey][i].done=!state.fields[stateKey][i].done;
+      renderDelmaal(containerId,stateKey); scheduleSave();
+    };
+    c.appendChild(div);
   });
-  if (data.missions) Object.entries(data.missions).forEach(([id,done]) => {
-    const el = document.getElementById(id); if(el && done) el.classList.add('done');
-  });
-  if (data.porto) ['sag','spor','huller','beviser','pointe','produkt'].forEach(k => {
-    const el = document.getElementById('porto-'+k); if(el && data.porto[k]) el.value = data.porto[k];
-  });
-  if (data.sss) [0,1,2].forEach(i => {
-    const el = document.getElementById('sss-'+i); if(el && data.sss[i]) el.value = data.sss[i];
-  });
-  if (data.kplan && data.kplan.length) {
-    const c = document.getElementById('kplan-rows'); c.innerHTML = '';
-    data.kplan.forEach(rowData => {
-      const row = document.createElement('div'); row.className = 'kplan-row';
-      row.innerHTML = rowData.map(v => `<input class="kplan-input" value="${v.replace(/"/g,'&quot;')}" oninput="scheduleSave()">`).join('');
-      c.appendChild(row);
+}
+
+// Restore dynamic lists and checkboxes after render
+function restoreDynamicContent(){
+  if(document.getElementById('huller-list')) renderDelmaal('huller-list','f-huller-list');
+  if(document.getElementById('delmaal-list')) renderDelmaal('delmaal-list','f-delmaal');
+  if(document.getElementById('mangler-list')) renderDelmaal('mangler-list','f-mangler-list');
+  // Restore checklist-materialer from kplan
+  const cl=document.getElementById('checklist-materialer');
+  if(cl){
+    const kplan=state.fields['f-kplan']||[];
+    cl.innerHTML='';
+    kplan.filter(r=>r[0]).forEach(r=>{
+      const key='mat-chk-'+r[0].slice(0,20);
+      const done=state.fields[key]||false;
+      const div=document.createElement('div'); div.className='check-item'+(done?' checked':'');
+      div.innerHTML=`<div class="check-box"></div><span>${esc(r[0])}${r[1]?' – <em>'+esc(r[1])+'</em>':''}</span>`;
+      div.onclick=function(){
+        this.classList.toggle('checked');
+        state.fields[key]=this.classList.contains('checked');
+        scheduleSave();
+      };
+      cl.appendChild(div);
     });
+    if(!kplan.filter(r=>r[0]).length){
+      cl.innerHTML='<p class="note-txt">Ingen plan fundet – gå tilbage til tirsdagens plan.</p>';
+    }
   }
+  // Restore static check-items state
+  document.querySelectorAll('.check-item').forEach(el=>{
+    const key='chk-'+(el.querySelector('span')?.textContent||'').slice(0,20);
+    if(state.fields[key]) el.classList.add('checked');
+  });
 }
 
-async function loadFromCloud() {
-  try {
-    const res = await fetch(SCRIPT_URL + '?gruppe=' + GK);
-    const json = await res.json();
-    if (json && json.ok && json.data) applyState(json.data);
-  } catch(e) { console.log('Load error', e); }
-}
-
-async function saveToCloud() {
-  showSaveStatus('Gemmer...');
-  try {
-    await fetch(SCRIPT_URL, {
-      method: 'POST',
-      body: JSON.stringify({gruppe: GK, data: collectState()})
-    });
-    showSaveStatus('Gemt ✓');
-  } catch(e) {
-    showSaveStatus('Fejl ved gem');
-  }
-}
-
-function scheduleSave() {
-  clearTimeout(saveTimer);
-  saveTimer = setTimeout(saveToCloud, 1500);
-}
-
-function showSaveStatus(msg) {
-  const el = document.getElementById('save-status');
-  el.textContent = msg; el.classList.add('visible');
-  if (msg === 'Gemt ✓') setTimeout(() => el.classList.remove('visible'), 2000);
-}
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 </script>
 </body>
 </html>
