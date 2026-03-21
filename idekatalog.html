@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Idékartotek – Projekt 2026</title>
+<style>
+:root{--paper:#f7f2e8;--paper2:#f0ead8;--ink:#1a1410;--ink-soft:#4a4038;--ink-muted:#8a8078;--border:#d0c8b0;--gold:#b87c18;--green:#2a7a58;--blue:#2a5a8a;--red:#a03028;--shadow:rgba(26,20,16,0.10);--shadow2:rgba(26,20,16,0.22);}
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;background:#7a5a3a;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.03) 3px,rgba(0,0,0,0.03) 4px),repeating-linear-gradient(90deg,transparent,transparent 3px,rgba(0,0,0,0.03) 3px,rgba(0,0,0,0.03) 4px);font-family:Verdana,'Helvetica Neue',Helvetica,Arial,sans-serif;padding:2.5rem 2rem 4rem}
+
+.header-card{background:var(--paper);border:1px solid var(--border);border-top:4px solid var(--blue);border-radius:2px;box-shadow:3px 4px 16px var(--shadow2);padding:1.4rem 2rem;max-width:860px;margin:0 auto 2.5rem;position:relative;transform:rotate(-0.2deg)}
+.header-card::before{content:'';position:absolute;top:0;left:32px;width:1.5px;height:100%;background:rgba(160,48,40,0.16)}
+.header-meta{font-size:.63rem;font-weight:700;letter-spacing:.2em;color:var(--ink-muted);text-transform:uppercase;margin-bottom:.3rem}
+.header-title{font-size:clamp(1.2rem,3vw,1.7rem);font-weight:700;color:var(--ink);line-height:1.1;margin-bottom:.18rem}
+.header-sub{font-size:.88rem;color:var(--ink-soft);font-style:italic}
+.back-link{position:absolute;top:1.1rem;right:1.4rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(42,90,138,0.3);padding-bottom:1px}
+.back-link:hover{color:var(--red);border-color:var(--red)}
+
+.grid{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;align-items:start}
+
+.ide-card{background:var(--paper);border:1px solid var(--border);border-radius:2px;box-shadow:3px 4px 14px var(--shadow2);padding:1.1rem 1.1rem 1rem;position:relative}
+.ide-card::before{content:'';position:absolute;top:0;left:24px;width:1.5px;height:100%;background:rgba(160,48,40,0.12)}
+.ide-card:nth-child(odd){transform:rotate(-0.6deg)}
+.ide-card:nth-child(even){transform:rotate(0.5deg)}
+
+.ide-type{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:.32rem;padding-bottom:.28rem;border-bottom:1px solid rgba(42,90,138,0.15)}
+.ide-titel{font-size:.95rem;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:.5rem}
+.ide-beskrivelse{font-size:.82rem;color:var(--ink-soft);line-height:1.6;margin-bottom:.55rem}
+.ide-passer{font-size:.72rem;color:var(--ink-muted);font-style:italic;border-top:1px solid var(--border);padding-top:.4rem;line-height:1.5}
+.ide-passer strong{color:var(--gold);font-style:normal}
+
+.pin{position:absolute;top:-11px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,0.38);z-index:1}
+.pin::after{content:'';position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);width:3px;height:6px;background:rgba(0,0,0,0.22);border-radius:0 0 2px 2px}
+.pin-red{background:radial-gradient(circle at 5px 5px,#e05050,#c0392b)}
+.pin-blue{background:radial-gradient(circle at 5px 5px,#5080c0,#2a5a8a)}
+.pin-green{background:radial-gradient(circle at 5px 5px,#50a080,#2a7a58)}
+.pin-gold{background:radial-gradient(circle at 5px 5px,#d0a040,#b87c18)}
+.pin-purple{background:radial-gradient(circle at 5px 5px,#9060c0,#6a3a8a)}
+.tape{position:absolute;top:-9px;left:50%;transform:translateX(-50%);width:42px;height:16px;background:rgba(220,210,180,0.62);border:1px solid rgba(180,160,120,0.38);border-radius:1px}
+
+.note{max-width:860px;margin:2rem auto 0;background:rgba(42,90,138,0.08);border:1px solid rgba(42,90,138,0.2);border-left:3px solid var(--blue);border-radius:2px;padding:.85rem 1.1rem;font-size:.82rem;color:var(--ink-soft);line-height:1.6}
+.note strong{color:var(--blue)}
+</style>
+</head>
+<body>
+
+<div class="header-card">
+  <div class="header-meta">Projekt 2026 · Fælles ressource</div>
+  <div class="header-title">Idékartotek</div>
+  <div class="header-sub">Hvad kan jeres produkt være? Brug dette som inspiration – ikke som krav.</div>
+  <a href="index.html" class="back-link">← Tilbage til forsiden</a>
+</div>
+
+<div class="grid">
+
+  <div class="ide-card">
+    <div class="pin pin-red"></div>
+    <div class="ide-type">Visuel fremstilling</div>
+    <div class="ide-titel">Plakat</div>
+    <div class="ide-beskrivelse">En plakat der viser jeres vigtigste pointe. Kan have billeder, tegninger, tal eller citater. Hænges op til fremlæggelsen og bruges aktivt.</div>
+    <div class="ide-passer"><strong>Kunne passe til:</strong> alle emner</div>
+  </div>
+
+  <div class="ide-card">
+    <div class="tape"></div>
+    <div class="ide-type">Visuel fremstilling</div>
+    <div class="ide-titel">Tidslinje</div>
+    <div class="ide-beskrivelse">En tidslinje der viser hvordan noget har ændret sig over tid. Kan tegnes eller laves på computer. God til at vise udvikling fra dengang til nu.</div>
+    <div class="ide-passer"><strong>Kunne passe til:</strong> Historie, Samfund, Fremtid</div>
+  </div>
+
+  <div class="ide-card">
+    <div class="pin pin-blue"></div>
+    <div class="ide-type">Visuel fremstilling</div>
+    <div class="ide-titel">Før/nu-plakat</div>
+    <div class="ide-beskrivelse">To sider der sammenligner dengang og i dag – eller to forskellige metoder, steder eller dyr. Gør det nemt at se forskellen med det samme.</div>
+    <div class="ide-passer"><strong>Kunne passe til:</strong> Historie, Miljø, Etik</div>
+  </div>
+
+  <div class="ide-card">
+    <div class="pin pin-green"></div>
+    <div class="ide-type">Visuel fremstilling</div>
+    <div class="ide-titel">Sammenlignings-tabel</div>
+    <div class="ide-beskrivelse">En tabel der sætter to eller flere ting op mod hinanden – fx regler, tal, metoder. Overskuelig og god til at vise ligheder og forskelle.</div>
+    <div class="ide-passer"><strong>Kunne passe til:</strong> Miljø, Etik, Samfund</div>
+  </div>
+
+  <div class="ide-card">
+    <div class="pin pin-gold"></div>
+    <div class="ide-type">Visuel fremstilling</div>
+    <div class="ide-titel">Verdenskort</div>
+    <div class="ide-beskrivelse">Et kort der viser hvor dansk mad eksporteres til – eller hvor importeret mad kommer fra. Kan have pile, farver eller tal.</div>
+    <div class="ide-passer"><strong>Kunne passe til:</strong> Samfund, Fremtid</div>
+  </div>
+
+  <div class="ide-card">
+    <div class="tape"></div>
+    <div class="ide-type">Fortælling</div>
+    <div class="ide-titel">Fiktiv dagbog</div>
+    <div class="ide-beskrivelse">En dagbog skrevet fra et dyrs synsvinkel – fx en ko, gris eller høne. Hvad oplever det? Hvad tænker det? Giver fakta en menneskelig stemme.</div>
+    <div class="ide-passer"><strong>Kunne passe til:</strong> Etik, Historie</div>
+  </div>
+
+  <div class="ide-card">
+    <div class="pin pin-purple"></div>
+    <div class="ide-type">Fortælling</div>
+    <div class="ide-titel">Fiktivt interview</div>
+    <div class="ide-beskrivelse">Et interview med en person fra fremtiden, fortiden eller med et dyr. Skrives som spørgsmål og svar. God måde at formidle fakta på en levende måde.</div>
+    <div class="ide-passer"><strong>Kunne passe til:</strong> Fremtid, Historie, Etik</div>
+  </div>
+
+  <div class="ide-card">
+    <div class="pin pin-blue"></div>
+    <div class="ide-type">Fortælling</div>
+    <div class="ide-titel">Fold-ud-bog</div>
+    <div class="ide-beskrivelse">En lille bog der folder ud og viser en rejse trin for trin – fx en vares vej fra jord til bord. Kan tegnes eller laves med papir og klistermærker.</div>
+    <div class="ide-passer"><strong>Kunne passe til:</strong> Samfund, Historie</div>
+  </div>
+
+  <div class="ide-card">
+    <div class="pin pin-red"></div>
+    <div class="ide-type">Fremvisning</div>
+    <div class="ide-titel">Reklameplakat</div>
+    <div class="ide-beskrivelse">En plakat der "reklamerer" for en fremtidig teknologi, en ny metode eller et produkt. Overbevisende og visuel – som en rigtig reklame.</div>
+    <div class="ide-passer"><strong>Kunne passe til:</strong> Fremtid, Teknologi</div>
+  </div>
+
+  <div class="ide-card">
+    <div class="tape"></div>
+    <div class="ide-type">Fremvisning</div>
+    <div class="ide-titel">Udstilling</div>
+    <div class="ide-beskrivelse">En lille udstilling med billeder, tegninger, modeller eller genstande. Klassen går rundt og kigger – gruppen forklarer undervejs.</div>
+    <div class="ide-passer"><strong>Kunne passe til:</strong> Historie, Teknologi, Etik</div>
+  </div>
+
+  <div class="ide-card">
+    <div class="pin pin-green"></div>
+    <div class="ide-type">Aktivitet</div>
+    <div class="ide-titel">Klassedebat</div>
+    <div class="ide-beskrivelse">Gruppen præsenterer to sider af en sag og inviterer klassen til at tage stilling. God til emner hvor der er noget at mene noget om.</div>
+    <div class="ide-passer"><strong>Kunne passe til:</strong> Etik, Miljø, Fremtid</div>
+  </div>
+
+  <div class="ide-card">
+    <div class="pin pin-gold"></div>
+    <div class="ide-type">Aktivitet</div>
+    <div class="ide-titel">Quiz</div>
+    <div class="ide-beskrivelse">En quiz med spørgsmål om jeres emne. Klassen svarer – gruppen forklarer svarene. God måde at formidle fakta og gøre fremlæggelsen interaktiv.</div>
+    <div class="ide-passer"><strong>Kunne passe til:</strong> alle emner</div>
+  </div>
+
+</div>
+
+<div class="note">
+  <strong>Husk:</strong> Produktet skal vise jeres vigtigste pointe – ikke alt hvad I har undersøgt. Det behøver ikke være stort eller flot. Det skal være tydeligt og kunne bruges aktivt til fremlæggelsen fredag.
+</div>
+
+</body>
+</html>
