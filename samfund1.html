@@ -471,6 +471,9 @@ body {
   .left-pane{border-right:none;border-bottom:1px solid var(--border)}
   .day-tabs{flex-wrap:wrap}
 }
+
+.topbar-home{display:inline-block;text-decoration:none;color:var(--ink-muted);font-size:.65rem;font-weight:700;letter-spacing:.06em;margin-top:.2rem;transition:color .12s;}
+.topbar-home:hover{color:var(--gold)}
 </style>
 </head>
 <body>
@@ -478,6 +481,7 @@ body {
 <!-- INTRO -->
 <div id="intro">
   <div class="intro-card">
+    <a href="index.html" style="position:absolute;top:.9rem;right:1.2rem;font-size:.65rem;font-weight:700;color:var(--ink-muted);text-decoration:none;letter-spacing:.06em;transition:color .12s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--ink-muted)'">← Forsiden</a>
     <div class="tw-wrap">
       <div class="tl" id="tw1"></div>
       <div class="tl s" id="tw2"></div>
@@ -502,6 +506,7 @@ body {
       <div class="topbar-meta">Projekt 2026 · Sag 06 · SAMFUND</div>
       <div class="topbar-title">Madens rejse gennem verden</div>
       <div class="topbar-team">Nanna · Inés · Jonas · Noah</div>
+      <a href="index.html" class="topbar-home">← Forsiden</a>
     </div>
     <div class="day-tabs">
       <button class="day-tab active" onclick="showDay('mandag',this)" id="tab-mandag">Mandag</button>
@@ -511,6 +516,7 @@ body {
       <button class="day-tab friday-tab" onclick="showDay('fredag',this)" id="tab-fredag">Fre 🔒</button>
     </div>
     <div class="stamped">Fortroligt</div>
+    <a href="index.html" class="topbar-home" title="Tilbage til forsiden"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M6 1L1 5.5V11h3.5V8h3v3H11V5.5L6 1z"/></svg>Forsiden</a>
   </div>
 
   <div class="split">
@@ -934,16 +940,14 @@ function updatePulled(){
   const get=id=>state.fields[id]||'';
   const set=(id,v)=>{const el=document.getElementById(id);if(!el)return;el.textContent=v||'(ikke skrevet endnu)';el.classList.toggle('empty',!v);};
   set('pull-sag', get('f-sag'));
-  const beviserTekst=(state.fields['f-beviser-rækker']||[]).filter(s=>s.trim()).map((s,i)=>`${i+1}. ${s}`).join('
-');
+  const beviserTekst=(state.fields['f-beviser-rækker']||[]).filter(s=>s.trim()).map((s,i)=>`${i+1}. ${s}`).join('\n');
   set('pull-beviser', beviserTekst);
   set('pull-pointe', get('f-pointe'));
   set('pull-produkt', get('f-produkt'));
   const chosen=[...document.querySelectorAll('.spor-item.chosen')].map(s=>s.querySelector('.spor-text').textContent);
   const custom=get('f-custom-spor');
   if(custom.trim()) chosen.push(custom.trim());
-  set('pull-spor', chosen.join('
-'));
+  set('pull-spor', chosen.join('\n'));
 }
 
 /* ── DAY NAVIGATION ── */
@@ -984,15 +988,12 @@ function openSummary(day){
   const summaryItems = {
     mandag:[
       {lbl:'Hvad sagen handler om', val:f['f-sag']},
-      {lbl:'Valgte spor', val:([...document.querySelectorAll('.spor-item.chosen')].map(s=>s.querySelector('.spor-text').textContent).concat(f['f-custom-spor']?[f['f-custom-spor']]:[]).join('
-'))},
+      {lbl:'Valgte spor', val:([...document.querySelectorAll('.spor-item.chosen')].map(s=>s.querySelector('.spor-text').textContent).concat(f['f-custom-spor']?[f['f-custom-spor']]:[]).join('\n'))},
       {lbl:'Konkret fokus', val:f['f-fokus']},
-      {lbl:'Huller i viden', val:(f['f-huller-rækker']||[]).filter(s=>s.trim()).map((s,i)=>`${i+1}. ${s}`).join('
-')},
+      {lbl:'Huller i viden', val:(f['f-huller-rækker']||[]).filter(s=>s.trim()).map((s,i)=>`${i+1}. ${s}`).join('\n')},
     ],
     tirsdag:[
-      {lbl:'Beviser', val:(f['f-beviser-rækker']||[]).filter(s=>s.trim()).map((s,i)=>`${i+1}. ${s}`).join('
-')},
+      {lbl:'Beviser', val:(f['f-beviser-rækker']||[]).filter(s=>s.trim()).map((s,i)=>`${i+1}. ${s}`).join('\n')},
       {lbl:'Vores pointe', val:f['f-pointe']},
       {lbl:'Vores produkt', val:f['f-produkt']},
     ],
