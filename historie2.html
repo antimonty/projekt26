@@ -204,18 +204,19 @@ body {
 
 /* Text fields */
 .work-field {
-  width:100%; background:rgba(255,255,255,0.6); border:1px solid var(--border);
+  width:100%; background:var(--paper2); border:1px solid var(--border);
   border-radius:3px;
-  color:var(--ink); font-family:Verdana,sans-serif; font-size:.9rem;
-  line-height:1.68; padding:.55rem .7rem;
-  resize:vertical; outline:none; min-height:44px; margin-bottom:.85rem;
-  transition:all .18s;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,.04);
+  color:var(--ink); font-family:Verdana,sans-serif; font-size:.88rem;
+  line-height:32px; padding:0 .7rem;
+  resize:none; outline:none; min-height:32px; margin-bottom:.85rem;
+  transition:border-color .18s;
+  background-image:repeating-linear-gradient(transparent, transparent 31px, rgba(42,122,88,0.10) 31px, rgba(42,122,88,0.10) 32px);
+  background-size:100% 32px;
+  background-attachment:local;
 }
 .work-field:focus {
   border-color:var(--gold);
-  background:white;
-  box-shadow: 0 0 0 2px rgba(184,124,24,0.12), inset 0 1px 3px rgba(0,0,0,.04);
+  background-color:var(--paper);
 }
 .work-field::placeholder { color:var(--ink-muted); font-style:italic; font-size:.85rem; }
 
@@ -246,10 +247,10 @@ body {
 .prev-q-item { font-size:.87rem; color:var(--ink); margin-bottom:.28rem; line-height:1.5; padding-left:.4rem; border-left:2px solid rgba(42,90,138,0.25); }
 
 /* Kplan */
-.kplan-hdr { display:grid; grid-template-columns:1fr 95px 82px; gap:.3rem; font-size:.68rem; font-weight:700; color:var(--green); padding-bottom:.22rem; border-bottom:1px solid var(--border); margin-bottom:.3rem; letter-spacing:.05em; }
-.kplan-row { display:grid; grid-template-columns:1fr 95px 82px; gap:.3rem; margin-bottom:.25rem; }
-.kplan-input { background:transparent; border:none; border-bottom:1px solid var(--border); color:var(--ink); font-family:Verdana,sans-serif; font-size:.87rem; padding:.08rem .18rem; outline:none; width:100%; transition:border-color .15s; }
-.kplan-input:focus { border-bottom-color:var(--gold); }
+.kplan-hdr { display:grid; grid-template-columns:1fr 1fr 80px; gap:.3rem; font-size:.68rem; font-weight:700; color:var(--green); padding-bottom:.22rem; border-bottom:1px solid var(--border); margin-bottom:.3rem; letter-spacing:.05em; }
+.kplan-row { display:grid; grid-template-columns:1fr 1fr 80px; gap:.3rem; margin-bottom:.25rem; }
+.kplan-input { background:var(--paper2); border:1px solid var(--border); border-radius:3px; color:var(--ink); font-family:Verdana,sans-serif; font-size:.87rem; padding:.18rem .4rem; outline:none; width:100%; transition:border-color .15s; }
+.kplan-input:focus { border-color:var(--gold); background:var(--paper); }
 .kplan-input::placeholder { color:var(--ink-muted); font-style:italic; font-size:.8rem; }
 .add-row-btn { background:transparent; border:none; color:rgba(42,122,88,.45); font-size:.82rem; cursor:pointer; padding:.12rem .2rem; transition:color .12s; margin-top:.1rem; font-family:Verdana,sans-serif; }
 .add-row-btn:hover { color:var(--green); }
@@ -258,7 +259,7 @@ body {
 .sss-label { font-size:.78rem; font-weight:700; margin-bottom:.1rem; display:block; }
 .sss-label.start { color:var(--green); } .sss-label.stop { color:var(--red); } .sss-label.go { color:var(--gold); }
 .sss-expl { font-size:.8rem; color:var(--ink-muted); margin-bottom:.3rem; line-height:1.45; font-style:italic; }
-.sss-field { width:100%; background:transparent; border:none; border-bottom:1px solid var(--border); color:var(--ink); font-family:Verdana,sans-serif; font-size:.87rem; padding:.08rem .18rem; outline:none; resize:none; min-height:52px; transition:border-color .15s; line-height:1.65; margin-bottom:.8rem; }
+.sss-field { width:100%; background:var(--paper2); border:1px solid var(--border); border-radius:3px; color:var(--ink); font-family:Verdana,sans-serif; font-size:.87rem; padding:.18rem .4rem; outline:none; resize:none; min-height:52px; transition:border-color .15s; line-height:1.65; margin-bottom:.8rem; }
 .sss-field:focus { border-bottom-color:var(--gold); }
 
 /* Fremlaeg */
@@ -433,6 +434,38 @@ body {
 .hl { color:var(--gold); font-style:italic; font-weight:700; }
 .note-txt { font-size:.84rem; color:var(--ink-soft); line-height:1.6; }
 
+/* Individuelle hul- og bevisfelter */
+.hul-row, .bevis-row {
+  display:flex; align-items:flex-start; gap:.5rem; margin-bottom:.55rem;
+}
+.hul-num, .bevis-num {
+  font-size:.65rem; font-weight:700; letter-spacing:.1em; color:var(--gold);
+  text-transform:uppercase; flex-shrink:0; width:1.6rem; padding-top:.5rem;
+  line-height:1;
+}
+.bevis-spgsml {
+  font-size:.72rem; color:var(--ink-muted); font-style:italic;
+  margin-bottom:.2rem; line-height:1.4;
+  border-left:2px solid rgba(42,90,138,0.2); padding-left:.4rem;
+}
+.hul-row textarea, .bevis-row textarea {
+  width:100%; background:var(--paper2); border:1px solid var(--border);
+  border-radius:3px; color:var(--ink);
+  font-family:Verdana,sans-serif; font-size:.88rem;
+  line-height:32px; padding:0 .7rem;
+  outline:none; resize:none; min-height:32px;
+  transition:border-color .18s;
+  background-image:repeating-linear-gradient(transparent, transparent 31px, rgba(42,122,88,0.10) 31px, rgba(42,122,88,0.10) 32px);
+  background-size:100% 32px;
+  background-attachment:local;
+  box-sizing:border-box;
+}
+.hul-row textarea:focus, .bevis-row textarea:focus {
+  border-color:var(--gold);
+  background-color:var(--paper);
+}
+.bevis-inner { flex:1; min-width:0; }
+
 @media(max-width:720px){
   .split{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
   .left-pane{border-right:none;border-bottom:1px solid var(--border)}
@@ -531,7 +564,7 @@ mandag:[
       <textarea class="work-field" id="f-sag" rows="4" placeholder="Skriv her..." oninput="syncField('f-sag')"></textarea>`
   },
   { num:'Mission 2', title:'Gerningsstedet og spor',
-    left:`<p>Åbn linket til højre og læs de første to afsnit. Fokusér på hvad andelsbevægelsen var – og hvorfor bønderne gik sammen.</p>
+    left:`<p>Åbn linket til højre og læs de første tre afsnit. Fokusér på hvad andelsbevægelsen var – og hvorfor bønderne gik sammen.</p>
       <p style="margin-top:.5rem">Vælg derefter 1–2 spor. I kan også skrive jeres eget spørgsmål. Indsnævr til sidst jeres fokus.</p>
       <p class="note-txt" style="margin-top:.45rem"><span class="hl">I er i mål</span> når I har valgt spor og skrevet jeres konkrete fokus.</p>`,
     right:`<div class="source-link-box">
@@ -556,44 +589,10 @@ mandag:[
     left:`<p>Hvad forstår I ikke endnu om jeres konkrete fokus? Hvad kan I ikke svare på?</p>
       <p>Skriv jeres spørgsmål til højre – ét pr. linje. De skal handle om jeres konkrete fokus. Det er dem I undersøger i morgen.</p>
       <p class="note-txt" style="margin-top:.45rem"><span class="hl">I er i mål</span> når I har mindst 5 konkrete huller skrevet ned.</p>`,
-    right:`<span class="field-label">Huller i jeres viden – mindst 5 spørgsmål</span>
-      <p class="field-note">Skriv ét spørgsmål pr. linje. De skal handle om jeres konkrete fokus. Tirsdag finder I svarene.</p>
-      <textarea class="work-field" id="f-huller" rows="10" placeholder="Hvad siger loven om grisenes plads i stalden?&#10;Hvad er forskellen på frilandsgrise og staldsvin?&#10;Hvor mange svin er der i Danmark?&#10;Må grise gå udenfor hvis loven tillader det?&#10;Hvad mener dyrlæger om forholdene?" oninput="syncField('f-huller')"></textarea>`
-  }
-],
-tirsdag:[
-  { num:'Mission 1', title:'Find beviser',
-    left:`<p>Find mindst <span class="hl">3 konkrete beviser</span> der besvarer det I ikke vidste mandag. Brug kun godkendte kilder.</p>
-      <p class="note-txt" style="margin-top:.45rem"><span class="hl">I er i mål</span> når I har 3 beviser skrevet med egne ord.</p>`,
-    right:`__prev_questions__
-      <div class="source-link-box">
-        <div class="source-link-label">Godkendte kilder</div>
-        <div class="source-link-hint">I må kun bruge kilder fra detektivarkivet – eller kilder I selv finder og får godkendt af en lærer.</div>
-        <a class="source-open-btn" href="./detektiv-arkiv.html">Åbn detektivarkivet</a>
-      </div>
-      <span class="field-label">Vores vigtigste beviser</span>
-      <p class="field-note">Skriv med egne ord – ikke kopier. Et bevis pr. linje.</p>
-      <textarea class="work-field" id="f-beviser" rows="5" placeholder="Fx: 95% af danske svin lever hele livet indendørs..." oninput="syncField('f-beviser')"></textarea>`
-  },
-  { num:'Mission 2', title:'Beslut produkt og plan',
-    left:`<p>Hvad er jeres vigtigste pointe? Hvilket produkt viser den bedst? <span class="hl">Produktet behøver ikke indeholde alt – bare det vigtigste.</span></p>
-      <p class="note-txt" style="margin-top:.45rem"><span class="hl">I er i mål</span> når alle ved hvad de skal lave onsdag.</p>`,
-    right:`<span class="field-label">Vores vigtigste pointe</span>
-      <p class="field-note">Hvad er den ene ting I vil have klassen til at forstå?</p>
-      <textarea class="work-field" id="f-pointe" rows="5" placeholder="Fx: De fleste danske svin lever et liv uden adgang til udearealer, selvom loven tillader det..." oninput="syncField('f-pointe')"></textarea>
-      <span class="field-label">Vores produkt – og hvad det viser</span>
-      <p class="field-note">Hvad laver I? Hvad skal det vise klassen?</p>
-      <textarea class="work-field" id="f-produkt" rows="5" placeholder="Fx: En plakat med to spalter – frilandsgris vs. staldsvin – der viser forskellen i levevilkår" oninput="syncField('f-produkt')"></textarea>
-      <span class="field-label">Plan for onsdag – hvem gør hvad?</span>
-      <p class="field-note">Skriv alle opgaver ned. Jo mere konkret jo bedre – så ved alle hvad de skal.</p>
-      <div class="kplan-hdr"><span>Hvad laves</span><span>Hvem</span><span>Skal bruge</span></div>
-      <div id="kplan-rows">
-        <div class="kplan-row"><input class="kplan-input" placeholder="Fx tegne forsiden..." oninput="syncKplan()"><input class="kplan-input" placeholder="Navn" oninput="syncKplan()"><input class="kplan-input" placeholder="Papir" oninput="syncKplan()"></div>
-        <div class="kplan-row"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"></div>
-        <div class="kplan-row"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"></div>
-        <div class="kplan-row"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"></div>
-      </div>
-      <button class="add-row-btn" onclick="addKplanRow()">+ tilføj linje</button>`
+    right:`<span class="field-label">Huller i jeres viden</span>
+      <p class="field-note">Skriv ét spørgsmål pr. felt. Tirsdag finder I svarene.</p>
+      <div id="huller-felter"></div>
+      <button class="add-row-btn" onclick="tilfoejHul()">+ tilføj spørgsmål</button>`
   }
 ],
 onsdag:[
@@ -844,6 +843,78 @@ function addKplanRow(){
   c.appendChild(r);
 }
 
+/* ── HULLER (individuelle felter) ── */
+function renderHullerFelter(){
+  const c=document.getElementById('huller-felter'); if(!c) return;
+  const data=state.fields['f-huller-rækker']||Array(5).fill('');
+  c.innerHTML='';
+  data.forEach((val,i)=>{
+    const row=document.createElement('div'); row.className='hul-row';
+    row.innerHTML=`<div class="hul-num">S${i+1}</div>
+      <textarea rows="2" placeholder="Skriv spørgsmål ${i+1}..." oninput="syncHuller(${i},this.value)">${esc(val)}</textarea>`;
+    c.appendChild(row);
+  });
+}
+
+function syncHuller(i,val){
+  const data=state.fields['f-huller-rækker']||Array(5).fill('');
+  data[i]=val;
+  state.fields['f-huller-rækker']=data;
+  scheduleSave();
+}
+
+function tilfoejHul(){
+  const data=state.fields['f-huller-rækker']||Array(5).fill('');
+  data.push('');
+  state.fields['f-huller-rækker']=data;
+  scheduleSave();
+  renderHullerFelter();
+  // Scroll til ny
+  setTimeout(()=>{
+    const rows=document.querySelectorAll('.hul-row');
+    if(rows.length) rows[rows.length-1].scrollIntoView({behavior:'smooth',block:'nearest'});
+  },60);
+}
+
+/* ── BEVISER (individuelle felter med spørgsmål som reference) ── */
+function renderBeviserFelter(){
+  const c=document.getElementById('beviser-felter'); if(!c) return;
+  const huller=state.fields['f-huller-rækker']||[];
+  const beviser=state.fields['f-beviser-rækker']||Array(5).fill('');
+  // Sikr mindst 5 beviser
+  while(beviser.length<5) beviser.push('');
+  c.innerHTML='';
+  beviser.forEach((val,i)=>{
+    const spgsml=huller[i]||'';
+    const row=document.createElement('div'); row.className='bevis-row';
+    row.innerHTML=`<div class="bevis-num">B${i+1}</div>
+      <div class="bevis-inner">
+        ${spgsml?`<div class="bevis-spgsml">Spørgsmål ${i+1}: ${esc(spgsml)}</div>`:''}
+        <textarea rows="2" placeholder="Svar på spørgsmål ${i+1}..." oninput="syncBeviser(${i},this.value)">${esc(val)}</textarea>
+      </div>`;
+    c.appendChild(row);
+  });
+}
+
+function syncBeviser(i,val){
+  const data=state.fields['f-beviser-rækker']||Array(5).fill('');
+  data[i]=val;
+  state.fields['f-beviser-rækker']=data;
+  scheduleSave();
+}
+
+function tilfoejBevis(){
+  const data=state.fields['f-beviser-rækker']||Array(5).fill('');
+  data.push('');
+  state.fields['f-beviser-rækker']=data;
+  scheduleSave();
+  renderBeviserFelter();
+  setTimeout(()=>{
+    const rows=document.querySelectorAll('.bevis-row');
+    if(rows.length) rows[rows.length-1].scrollIntoView({behavior:'smooth',block:'nearest'});
+  },60);
+}
+
 function toggleSpor(item){
   const chosen=document.querySelectorAll('.spor-item.chosen');
   if(!item.classList.contains('chosen')&&chosen.length>=2) return;
@@ -863,13 +934,16 @@ function updatePulled(){
   const get=id=>state.fields[id]||'';
   const set=(id,v)=>{const el=document.getElementById(id);if(!el)return;el.textContent=v||'(ikke skrevet endnu)';el.classList.toggle('empty',!v);};
   set('pull-sag', get('f-sag'));
-  set('pull-beviser', get('f-beviser'));
+  const beviserTekst=(state.fields['f-beviser-rækker']||[]).filter(s=>s.trim()).map((s,i)=>`${i+1}. ${s}`).join('
+');
+  set('pull-beviser', beviserTekst);
   set('pull-pointe', get('f-pointe'));
   set('pull-produkt', get('f-produkt'));
   const chosen=[...document.querySelectorAll('.spor-item.chosen')].map(s=>s.querySelector('.spor-text').textContent);
   const custom=get('f-custom-spor');
   if(custom.trim()) chosen.push(custom.trim());
-  set('pull-spor', chosen.join('\n'));
+  set('pull-spor', chosen.join('
+'));
 }
 
 /* ── DAY NAVIGATION ── */
@@ -910,11 +984,15 @@ function openSummary(day){
   const summaryItems = {
     mandag:[
       {lbl:'Hvad sagen handler om', val:f['f-sag']},
-      {lbl:'Valgte spor', val:([...document.querySelectorAll('.spor-item.chosen')].map(s=>s.querySelector('.spor-text').textContent).concat(f['f-custom-spor']?[f['f-custom-spor']]:[]).join('\n'))},
-      {lbl:'Det vi ikke vidste', val:f['f-huller']},
+      {lbl:'Valgte spor', val:([...document.querySelectorAll('.spor-item.chosen')].map(s=>s.querySelector('.spor-text').textContent).concat(f['f-custom-spor']?[f['f-custom-spor']]:[]).join('
+'))},
+      {lbl:'Konkret fokus', val:f['f-fokus']},
+      {lbl:'Huller i viden', val:(f['f-huller-rækker']||[]).filter(s=>s.trim()).map((s,i)=>`${i+1}. ${s}`).join('
+')},
     ],
     tirsdag:[
-      {lbl:'Vores beviser', val:f['f-beviser']},
+      {lbl:'Beviser', val:(f['f-beviser-rækker']||[]).filter(s=>s.trim()).map((s,i)=>`${i+1}. ${s}`).join('
+')},
       {lbl:'Vores pointe', val:f['f-pointe']},
       {lbl:'Vores produkt', val:f['f-produkt']},
     ],
