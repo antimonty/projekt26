@@ -513,7 +513,7 @@ body {
       <button class="day-tab locked-tab" id="tab-tirsdag" onclick="tryShowDay('tirsdag',this)">Tirsdag</button>
       <button class="day-tab locked-tab" id="tab-onsdag" onclick="tryShowDay('onsdag',this)">Onsdag</button>
       <button class="day-tab locked-tab" id="tab-torsdag" onclick="tryShowDay('torsdag',this)">Torsdag</button>
-      <button class="day-tab friday-tab" onclick="showDay('fredag',this)" id="tab-fredag">Fre 🔒</button>
+      <button class="day-tab friday-tab" onclick="tryShowFredag(this)" id="tab-fredag">Fre 🔒</button>
     </div>
     <div class="stamped">Fortroligt</div>
     <a href="index.html" class="topbar-home" title="Tilbage til forsiden"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M6 1L1 5.5V11h3.5V8h3v3H11V5.5L6 1z"/></svg>Forsiden</a>
@@ -575,7 +575,7 @@ mandag:[
       <p class="note-txt" style="margin-top:.45rem"><span class="hl">I er i mål</span> når I har valgt spor og skrevet jeres konkrete fokus.</p>`,
     right:`<div class="source-link-box">
         <div class="source-link-label">Gerningsstedet – læs dette inden I vælger spor</div>
-        <div class="source-link-hint">Læs <strong>kun</strong> de første tre afsnit om familien og traktoren i 1949 – I behøver ikke læse hele artiklen.</div>
+        <div class="source-link-hint">Læs <strong>introduktionen og afsnittet om strukturudviklingen</strong>. Fokusér på hvad der skete med landsbyerne og de små gårde.</div>
         <a class="source-open-btn" href="https://faktalink.dk/emner/dansk-landbrug">Åbn Faktalink: Dansk landbrug →</a>
       </div>
       <span class="field-label">Vælg 1–2 spor (klik)</span>
@@ -599,6 +599,39 @@ mandag:[
       <p class="field-note">Skriv ét spørgsmål pr. felt. Tirsdag finder I svarene.</p>
       <div id="huller-felter"></div>
       <button class="add-row-btn" onclick="tilfoejHul()">+ tilføj spørgsmål</button>`
+  }
+],
+tirsdag:[
+  { num:'Mission 1', title:'Find beviser',
+    left:`<p>Find svar på jeres spørgsmål fra mandag. Brug kun godkendte kilder fra detektivarkivet. <span class="hl">Skriv svarene med jeres egne ord.</span></p>
+      <p class="note-txt" style="margin-top:.45rem"><span class="hl">I er i mål</span> når I har besvaret mindst 3 spørgsmål med egne ord.</p>`,
+    right:`<div class="source-link-box">
+        <div class="source-link-label">Godkendte kilder</div>
+        <div class="source-link-hint">I må kun bruge kilder fra detektivarkivet – eller kilder I selv finder og får godkendt af en lærer.</div>
+        <a class="source-open-btn" href="./detektiv-arkiv.html">Åbn detektivarkivet</a>
+      </div>
+      <div id="beviser-felter"></div>
+      <button class="add-row-btn" onclick="tilfoejBevis()">+ tilføj bevis</button>`
+  },
+  { num:'Mission 2', title:'Beslut produkt og plan',
+    left:`<p>Hvad er jeres vigtigste pointe? Hvilket produkt viser den bedst? <span class="hl">Produktet behøver ikke indeholde alt – bare det vigtigste.</span></p>
+      <p class="note-txt" style="margin-top:.45rem"><span class="hl">I er i mål</span> når alle ved hvad de skal lave onsdag.</p>`,
+    right:`<span class="field-label">Vores vigtigste pointe</span>
+      <p class="field-note">Hvad er den ene ting I vil have klassen til at forstå?</p>
+      <textarea class="work-field" id="f-pointe" rows="5" placeholder="Fx: De fleste danske svin lever et liv uden adgang til udearealer, selvom loven tillader det..." oninput="syncField('f-pointe')"></textarea>
+      <span class="field-label">Vores produkt – og hvad det viser</span>
+      <p class="field-note">Hvad laver I? Hvad skal det vise klassen?</p>
+      <textarea class="work-field" id="f-produkt" rows="5" placeholder="Fx: En plakat med to spalter – frilandsgris vs. staldsvin – der viser forskellen i levevilkår" oninput="syncField('f-produkt')"></textarea>
+      <span class="field-label">Plan for onsdag – hvem gør hvad?</span>
+      <p class="field-note">Skriv alle opgaver ned. Jo mere konkret jo bedre – så ved alle hvad de skal.</p>
+      <div class="kplan-hdr"><span>Opgave</span><span>Materialer</span><span>Hvem</span></div>
+      <div id="kplan-rows">
+        <div class="kplan-row"><input class="kplan-input" placeholder="Fx tegne forsiden..." oninput="syncKplan()"><input class="kplan-input" placeholder="Fx papir, saks..." oninput="syncKplan()"><input class="kplan-input" placeholder="Navn" oninput="syncKplan()"></div>
+        <div class="kplan-row"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"></div>
+        <div class="kplan-row"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"></div>
+        <div class="kplan-row"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"><input class="kplan-input" oninput="syncKplan()"></div>
+      </div>
+      <button class="add-row-btn" onclick="addKplanRow()">+ tilføj linje</button>`
   }
 ],
 onsdag:[
@@ -974,6 +1007,16 @@ function tryShowDay(day,btn){
   btn.classList.remove('locked-tab');
 }
 
+function tryShowFredag(btn){
+  // Fredag kræver at torsdag er godkendt ELLER at bruger er lærer
+  if(!state.approved['torsdag']){
+    btn.style.borderColor='var(--red)'; btn.style.color='var(--red)';
+    setTimeout(()=>{ btn.style.borderColor=''; btn.style.color=''; },800);
+    return;
+  }
+  showDay('fredag',btn);
+}
+
 function unlockDayTab(day){
   const tab=document.getElementById('tab-'+day);
   if(tab){ tab.classList.remove('locked-tab'); }
@@ -1045,6 +1088,7 @@ function approveDay(day){
   // Unlock next day tab
   const nextDay=DAYS[DAYS.indexOf(day)+1];
   if(nextDay) unlockDayTab(nextDay);
+  if(day==='torsdag') unlockDayTab('fredag');
   renderDay(day);
 }
 
